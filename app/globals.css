@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --bg: #0b0f17;
+  --bg-deep: #06080f;
+  --ink: #e2e8f0;
+  --ink-muted: #b6c0cf;
+  --accent: #00c8ff;
+  --accent-soft: #3de7ff;
+  --action: #22c55e;
+  --action-strong: #16a34a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top, rgba(0, 200, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(61, 231, 255, 0.08), transparent 45%),
+    linear-gradient(120deg, rgba(0, 200, 255, 0.06), transparent 45%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  color: var(--ink);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: #f8fafc;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.2vw, 4.25rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
+  line-height: 1.15;
+}
+
+p {
+  color: var(--ink-muted);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card {
+  background:
+    linear-gradient(135deg, rgba(0, 200, 255, 0.08), rgba(0, 0, 0, 0) 35%),
+    rgba(11, 15, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 200, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.tech-panel {
+  background-image:
+    linear-gradient(135deg, rgba(0, 200, 255, 0.08), transparent 35%),
+    radial-gradient(circle at top, rgba(0, 200, 255, 0.18), transparent 55%),
+    linear-gradient(180deg, rgba(18, 24, 38, 0.92), rgba(11, 15, 23, 0.92));
+  border: 1px solid rgba(0, 200, 255, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 18px 45px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(0, 200, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.tech-grid {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.18), transparent 50%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 56px);
+  background-size: auto, 56px 56px, 56px 56px;
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
+}
+
+.glow-line {
+  height: 2px;
+  width: 160px;
+  background: linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.9), transparent);
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.6);
+  margin: 1rem auto 0;
+}
+
+.section-surface {
+  background:
+    radial-gradient(circle at top, rgba(0, 200, 255, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(11, 15, 23, 0.9), rgba(6, 8, 15, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--accent);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--action);
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.35);
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.btn-primary:hover {
+  background: var(--action-strong);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px solid rgba(0, 200, 255, 0.5);
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.btn-secondary:hover {
+  color: var(--accent-soft);
+  border-color: rgba(61, 231, 255, 0.7);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
