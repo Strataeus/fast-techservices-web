@@ -18,6 +18,9 @@ export default function HeroVideo({
   poster,
   webmSrc,
   mp4Src,
+  mobilePoster,
+  mobileWebmSrc,
+  mobileMp4Src,
   alt,
   overlayStrength = 0.7,
 }: HeroVideoProps) {
