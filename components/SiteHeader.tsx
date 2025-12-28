@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "../lib/site";
 import Container from "./Container";
 
@@ -9,8 +10,14 @@ export default function SiteHeader() {
   const [active, setActive] = useState<string>("#top");
   const [open, setOpen] = useState(false);
   const items = useMemo(() => siteConfig.nav, []);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
+    if (!isHome) {
+      return;
+    }
+
     const sections = items
       .map((item) => document.querySelector(item.href))
       .filter(Boolean) as HTMLElement[];
@@ -33,7 +40,7 @@ export default function SiteHeader() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [items]);
+  }, [isHome, items]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/80 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
@@ -48,7 +55,7 @@ export default function SiteHeader() {
           {items.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={isHome ? item.href : `/${item.href}`}
               className={`text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                 active === item.href
                   ? "text-accent"
@@ -62,7 +69,7 @@ export default function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href="#contact"
+            href={isHome ? "#contact" : "/#contact"}
             className="btn-primary hidden px-4 py-2 text-xs md:inline-flex"
           >
             Demander un devis
@@ -89,7 +96,7 @@ export default function SiteHeader() {
           {items.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={isHome ? item.href : `/${item.href}`}
               className="text-sm text-gray-300 transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               onClick={() => setOpen(false)}
             >
@@ -97,7 +104,7 @@ export default function SiteHeader() {
             </Link>
           ))}
           <Link
-            href="#contact"
+            href={isHome ? "#contact" : "/#contact"}
             className="btn-primary mt-2 w-full"
             onClick={() => setOpen(false)}
           >

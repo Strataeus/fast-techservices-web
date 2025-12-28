@@ -1,4 +1,4 @@
-import Section from "../components/Section";
+﻿import Section from "../components/Section";
 import CTA from "../components/CTA";
 
 export default function NotFound() {

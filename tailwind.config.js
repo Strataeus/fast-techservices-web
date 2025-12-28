@@ -17,6 +17,13 @@ module.exports = {
         action: '#22C55E',
         'action-strong': '#16A34A',
       },
+      boxShadow: {
+        soft: '0 20px 50px rgba(0, 0, 0, 0.4)',
+        glow: '0 0 30px rgba(0, 200, 255, 0.12)',
+      },
+      borderRadius: {
+        xl: '1.25rem',
+      },
       fontFamily: {
         body: ['var(--font-body)', 'sans-serif'],
         display: ['var(--font-display)', 'sans-serif'],

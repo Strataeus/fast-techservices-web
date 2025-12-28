@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import StickyCTA from "../components/StickyCTA";
+import JsonLd from "../components/JsonLd";
+import ScrollToHash from "../components/layout/ScrollToHash";
+import PageTransition from "../components/layout/PageTransition";
 
 const bodyFont = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -17,6 +21,7 @@ const displayFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fast-techservices.com"),
   title: "FAST Tech Services - Dépannage et maintenance d'équipements industriels",
   description:
     "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
@@ -38,8 +43,19 @@ export default function RootLayout({
       <body
         className={`${bodyFont.variable} ${displayFont.variable} bg-primary text-gray-100 antialiased`}
       >
+        <ScrollToHash />
+        <JsonLd />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-[90] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:shadow-[0_0_20px_rgba(0,200,255,0.25)]"
+        >
+          Aller au contenu principal
+        </a>
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main-content" className="pb-16 md:pb-0">
+          <PageTransition>{children}</PageTransition>
+        </main>
+        <StickyCTA />
         <SiteFooter />
       </body>
     </html>
