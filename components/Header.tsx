@@ -61,7 +61,7 @@ export default function Header() {
           </ul>
           <div className="hidden md:block">
             <Button href="/contact" variant="primary">
-              Demander un devis
+              Demander un diagnostic
             </Button>
           </div>
           <button
@@ -113,7 +113,7 @@ export default function Header() {
             Contact
           </Link>
           <Button href="/contact" variant="primary">
-            Demander un devis
+            Demander un diagnostic
           </Button>
         </div>
       </div>

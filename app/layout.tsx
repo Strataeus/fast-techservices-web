@@ -22,14 +22,28 @@ const displayFont = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fast-techservices.com"),
-  title: "FAST Tech Services - Dépannage et maintenance d'équipements industriels",
+  applicationName: "FAST Tech Services",
+  title: {
+    default: "FAST Tech Services — Dépannage et maintenance d'équipements industriels",
+    template: "%s | FAST Tech Services",
+  },
   description:
     "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
   openGraph: {
     title: "FAST Tech Services",
     description:
       "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
-    images: ["/brand/fast-hero.png"],
+    images: ["/hero/home/fast-hero.png"],
+    siteName: "FAST Tech Services",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAST Tech Services",
+    description:
+      "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
+    images: ["/hero/home/fast-hero.png"],
   },
 };
 

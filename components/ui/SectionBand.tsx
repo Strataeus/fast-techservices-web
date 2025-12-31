@@ -22,7 +22,7 @@ export default function SectionBand({
   className = "",
 }: SectionBandProps) {
   return (
-    <section id={id} className="scroll-mt-32 py-20">
+    <section id={id} className={`section scroll-mt-32`}>
       <Container>
         <div
           className={`${tones[tone]} relative overflow-hidden rounded-2xl px-6 py-10 md:px-10 ${className}`}

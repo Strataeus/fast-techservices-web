@@ -17,7 +17,7 @@ export const siteConfig = {
     { label: "Accueil", href: "#top" },
     { label: "Services", href: "#services" },
     { label: "FAST Remote", href: "#remote" },
-    { label: "Méthode", href: "#method" },
+    { label: "Méthode", href: "methode" },
     { label: "À propos", href: "#apropos" },
     { label: "Contact", href: "#contact" },
   ],

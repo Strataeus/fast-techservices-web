@@ -1,9 +1,9 @@
 ﻿export const heroMedia = {
   home: {
-    poster: "/hero/fast-hero.jpeg",
+    poster: "/hero/home/fast-hero.png",
     webm: "",
     mp4: "",
-    mobilePoster: "/hero/fast-hero.jpeg",
+    mobilePoster: "/hero/home/fast-hero_mobile.png",
     mobileWebm: "",
     mobileMp4: "",
   },
@@ -59,8 +59,7 @@
 
 export const introMedia = {
   home: {
-    poster: "",
-    webm: "",
     mp4: "/intro/fast-intro.mp4",
+    poster: "/hero/home/fast-hero.png",
   },
 } as const;

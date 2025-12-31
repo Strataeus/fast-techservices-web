@@ -92,7 +92,7 @@ export default function ProofPage({ params }: ProofPageProps) {
                   Retour aux preuves
                 </Link>
                 <Link href="/#contact" className="btn-primary">
-                  Demander un devis
+                  Demander un diagnostic
                 </Link>
               </div>
             </div>

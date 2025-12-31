@@ -1,46 +1,50 @@
-﻿import Background from "../../components/layout/Background";
-import HeroBase from "../../components/hero/HeroBase";
-import HeroVideo from "../../components/hero/HeroVideo";
+import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "../../components/Container";
-import Services from "../../components/Services";
-import { heroMedia } from "../../lib/content/media";
+import Section from "../../components/ui/Section";
+import Card from "../../components/ui/Card";
+import Badge from "../../components/ui/Badge";
+import { services } from "../../lib/content/services";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Services | FAST Tech Services",
-  description: "Vue d'ensemble des services FAST Tech Services.",
+  description:
+    "Vue d'ensemble des services FAST Tech Services : diagnostic, maintenance, interventions terrain, FAST Remote.",
 };
 
 export default function ServicesHubPage() {
   return (
     <div className="relative">
-      <Background variant="services" />
-      <section className="relative overflow-hidden">
-        <div className="relative min-h-[60vh] w-full">
-          <HeroVideo
-            poster={heroMedia.services.poster}
-            webmSrc={heroMedia.services.webm}
-            mp4Src={heroMedia.services.mp4}
-            mobilePoster={heroMedia.services.mobilePoster}
-            mobileWebmSrc={heroMedia.services.mobileWebm}
-            mobileMp4Src={heroMedia.services.mobileMp4}
-            alt="Services FAST Tech Services"
-            overlayStrength={0.75}
-          />
-          <Container className="relative flex min-h-[60vh] items-center py-20">
-            <HeroBase
-              eyebrow="Services"
-              title="Interventions techniques industrielles"
-              subtitle={
-                "Diagnostic, maintenance et conformité des équipements critiques. Chaque service suit une méthode traçable et une validation claire."
-              }
-              align="left"
-            />
-          </Container>
-        </div>
-      </section>
-      <main className="py-16">
-        <Services />
-      </main>
+      <Section>
+        <Container className="space-y-6">
+          <Badge className="w-fit bg-accent/10 text-white">Services</Badge>
+          <h1 className="text-4xl font-semibold text-white md:text-5xl">
+            Services de maintenance garage
+          </h1>
+          <p className="max-w-3xl text-lg text-gray-200">
+            Diagnostic, maintenance et interventions terrain pour ponts élévateurs, compresseurs et
+            cabines. Même méthode : Terrain → Preuve → Verdict, livrables documentés.
+          </p>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <Card key={service.slug} className="glass-card">
+                <p className="text-sm uppercase tracking-[0.2em] text-accent">Service</p>
+                <h2 className="mt-2 text-lg font-semibold text-white">{service.title}</h2>
+                <p className="mt-2 text-sm text-gray-200">{service.shortDescription}</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-accent">
+                  {service.result}
+                </p>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="mt-4 inline-flex text-sm font-semibold text-accent transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  Voir le détail →
+                </Link>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 }

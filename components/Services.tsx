@@ -4,7 +4,7 @@ import SectionBand from "./ui/SectionBand";
 import { services, ServiceSlug } from "../lib/content/services";
 
 const icons: Record<ServiceSlug, ReactNode> = {
-  "depannage-garage": (
+  "diagnostic-depannage": (
     <svg
       aria-hidden="true"
       className="h-6 w-6"
@@ -20,7 +20,7 @@ const icons: Record<ServiceSlug, ReactNode> = {
       />
     </svg>
   ),
-  "maintenance-electromecanique": (
+  "maintenance-industrielle": (
     <svg
       aria-hidden="true"
       className="h-6 w-6"
@@ -36,7 +36,7 @@ const icons: Record<ServiceSlug, ReactNode> = {
       />
     </svg>
   ),
-  "remise-en-conformite": (
+  "interventions-terrain": (
     <svg
       aria-hidden="true"
       className="h-6 w-6"

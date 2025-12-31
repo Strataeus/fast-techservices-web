@@ -29,12 +29,12 @@ export default function HeroBase({
   const alignClass = align === "left" ? "text-left" : "text-center";
 
   return (
-    <div className={`max-w-3xl ${alignClass}`}>
+    <div className={`max-w-4xl ${alignClass}`}>
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h1 className="glow-text mt-4 text-4xl font-semibold text-white md:text-6xl">
+      <h1 className="glow-text mt-4 text-[clamp(2.6rem,4vw,4.25rem)] font-semibold leading-[1.05] text-white">
         {title}
       </h1>
-      <p className="mt-6 text-lg leading-snug text-gray-100">{subtitle}</p>
+      <p className="mt-6 text-lg leading-relaxed text-gray-200 md:text-xl">{subtitle}</p>
       {primaryCTA ? (
         <div
           className={`mt-8 flex flex-col gap-4 ${

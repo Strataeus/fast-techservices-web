@@ -43,7 +43,7 @@ export default function SiteHeader() {
   }, [isHome, items]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/80 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/85 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
       <Container className="flex items-center justify-between py-4">
         <Link
           href="#top"
@@ -70,9 +70,9 @@ export default function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             href={isHome ? "#contact" : "/#contact"}
-            className="btn-primary hidden px-4 py-2 text-xs md:inline-flex"
+            className="btn btn-primary hidden px-4 py-2 text-xs md:inline-flex"
           >
-            Demander un devis
+            Demander un diagnostic
           </Link>
           <button
             type="button"
@@ -105,10 +105,10 @@ export default function SiteHeader() {
           ))}
           <Link
             href={isHome ? "#contact" : "/#contact"}
-            className="btn-primary mt-2 w-full"
+            className="btn btn-primary mt-2 w-full"
             onClick={() => setOpen(false)}
           >
-            Demander un devis
+            Demander un diagnostic
           </Link>
         </Container>
       </div>

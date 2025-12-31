@@ -70,7 +70,7 @@ export default function ZonePage({ params }: ZonePageProps) {
               </ul>
               <div className="flex flex-wrap gap-3">
                 <Link href="/#contact" className="btn-primary">
-                  Demander un devis
+                  Demander un diagnostic
                 </Link>
                 <Link href="/zones" className="btn-secondary">
                   Retour aux zones

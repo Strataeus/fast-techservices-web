@@ -50,16 +50,15 @@ export default function VideoIntro({ enabled = false }: VideoIntroProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[90] flex items-center justify-center bg-black/90 px-6"
+      className="fixed inset-0 z-[90] overflow-hidden bg-black/95"
       role="dialog"
       aria-modal="true"
       aria-label="Introduction FAST Tech Services"
-      onClick={closeIntro}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,200,255,0.2),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,200,255,0.12),transparent_60%)]" />
       <div className="absolute inset-0 tech-grid opacity-15" />
       <video
-        className="relative max-h-[80vh] w-full max-w-3xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(0,200,255,0.25)]"
+        className="absolute inset-0 h-full w-full object-cover object-center"
         autoPlay
         muted
         playsInline
@@ -81,13 +80,12 @@ export default function VideoIntro({ enabled = false }: VideoIntroProps) {
         }}
         poster={introMedia.home.poster || undefined}
       >
-        {introMedia.home.webm ? (
-          <source src={introMedia.home.webm} type="video/webm" />
+        {typeof introMedia.home === "object" && "webm" in introMedia.home && introMedia.home.webm ? (
+          <source src={String(introMedia.home.webm)} type="video/webm" />
         ) : null}
-        {introMedia.home.mp4 ? (
-          <source src={introMedia.home.mp4} type="video/mp4" />
-        ) : null}
+        {introMedia.home.mp4 ? <source src={introMedia.home.mp4} type="video/mp4" /> : null}
       </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
       <button
         type="button"
         onClick={closeIntro}

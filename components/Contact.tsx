@@ -17,11 +17,11 @@ export default function Contact() {
 
   return (
     <SectionBand id="contact" tone="neutral" className="animate-fade-up">
-      <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+        <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
         <div>
           <p className="eyebrow">Contact</p>
           <h2 className="mt-4 text-3xl font-semibold text-white md:text-4xl">
-            Demander un devis
+            Demander un diagnostic
           </h2>
           <p className="mt-4 text-gray-200">
             Réponse professionnelle, diagnostic cadré et proposition claire.
