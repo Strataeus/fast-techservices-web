@@ -9,6 +9,12 @@ export interface ZoneItem {
   perimeter: string;
 }
 
+/**
+ * Zones d'intervention TERRAIN (interventions sur site).
+ * ⚠️ ATTENTION : FAST Remote (diagnostic à distance) couvre la FRANCE ENTIÈRE.
+ * Ces zones couvrent les interventions terrain (dépannage, maintenance sur place).
+ * Les clients en dehors de ces zones peuvent utiliser FAST Remote (1-2h, visio guidée).
+ */
 export const zones: ZoneItem[] = [
   {
     slug: "zone-nord",

@@ -1,4 +1,20 @@
-﻿import Link from "next/link";
+﻿/**
+ * ⚠️ COMPOSANT OBSOLÈTE - NE PAS UTILISER
+ *
+ * Ce composant est une ancienne implémentation de la section FAST Remote.
+ * 
+ * **Remplacé par** :
+ * - Page complète : app/fast-remote/page.tsx (PR3 - Refonte premium)
+ * - Composant : Intégré directement dans les pages
+ *
+ * **Status** : À supprimer lors de la prochaine version majeure
+ * **Date création** : Version initiale (PR0)
+ * **Raison dépréciation** : Refonte complète de la page /fast-remote avec copy premium
+ *
+ * ⚠️ Ne pas importer ce composant dans le code actif.
+ */
+
+import Link from "next/link";
 import SectionBand from "./ui/SectionBand";
 
 const bullets = [

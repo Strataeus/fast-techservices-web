@@ -22,7 +22,7 @@ export default function ZonesHubPage() {
                 eyebrow="Zones"
                 title="Zones d'intervention"
                 subtitle={
-                  "Couverture géographique des interventions FAST Tech Services. Périmètre détaillé à préciser selon votre site et vos contraintes." 
+                  "Interventions terrain par zone géographique. ⚠️ FAST Remote (diagnostic à distance) couvre la France entière en 1-2h."
                 }
                 align="left"
               />

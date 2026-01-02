@@ -1,9 +1,9 @@
 ﻿const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@fast-techservices.com";
 const contactPhone =
-  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+33 1 XX XX XX XX";
+  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+33 1 42 86 82 00";
 const serviceArea =
-  process.env.NEXT_PUBLIC_SERVICE_AREA ?? "Île-de-France, Région parisienne";
+  process.env.NEXT_PUBLIC_SERVICE_AREA ?? "Interventions terrain : Île-de-France | FAST Remote : France entière";
 
 // CTA Canonique - FAST Remote First
 const cta = {
@@ -23,10 +23,10 @@ export const siteConfig = {
     "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
   nav: [
     { label: "Accueil", href: "#top" },
-    { label: "FAST Remote", href: "fast-remote" },
-    { label: "Services", href: "services" },
-    { label: "Méthode", href: "methode" },
-    { label: "Preuves", href: "preuves" },
+    { label: "FAST Remote", href: "/fast-remote" },
+    { label: "Services", href: "#services" },
+    { label: "Méthode", href: "#methode" },
+    { label: "Preuves", href: "#preuves" },
     { label: "Contact", href: "#contact" },
   ],
   contact: {

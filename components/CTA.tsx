@@ -1,3 +1,23 @@
+/**
+ * ✅ Composant réutilisable : Bouton CTA générique
+ *
+ * **Usage** :
+ * - Boutons "Retour" (ex: page 404)
+ * - Boutons CTA secondaires avec props personnalisable
+ * 
+ * **Alternatives**:
+ * - Pour CTAs principales : utilisez `StickyCTA.tsx`
+ * - Pour CTAs inline dans les sections : utilisez les className "btn btn-primary" / "btn btn-secondary"
+ *
+ * **Props** :
+ * - `text` : Texte du bouton (obligatoire)
+ * - `href` : Lien de destination (obligatoire)
+ * - `primary` : Couleur (par défaut: false = secondaire, true = primaire)
+ *
+ * **Utilisé par** :
+ * - app/not-found.tsx ("Retour à l'accueil")
+ */
+
 import Link from "next/link";
 
 interface CTAProps {

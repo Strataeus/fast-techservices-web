@@ -63,20 +63,30 @@ export default function SiteHeader() {
           FAST TECH SERVICES
         </Link>
         <nav className="hidden items-center gap-6 md:flex" aria-label="Navigation">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={isHome ? item.href : `/${item.href}`}
-              className={`text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-                active === item.href
-                  ? "text-accent"
-                  : "text-gray-300 hover:text-accent-soft"
-              }`}
-              aria-current={active === item.href ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item) => {
+            // Sur HOME : utilise l'ancre directement
+            // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
+            let href = item.href;
+            if (!isHome && item.href.startsWith("#")) {
+              // Transforme "#services" en "/services", "#methode" en "/methode", etc.
+              href = "/" + item.href.slice(1);
+            }
+            
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                className={`text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                  active === item.href
+                    ? "text-accent"
+                    : "text-gray-300 hover:text-accent-soft"
+                }`}
+                aria-current={active === item.href ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-3">
           <Link
@@ -105,16 +115,25 @@ export default function SiteHeader() {
         }`}
       >
         <Container className="flex flex-col gap-3">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={isHome ? item.href : `/${item.href}`}
-              className="text-sm text-gray-300 transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item) => {
+            // Sur HOME : utilise l'ancre directement
+            // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
+            let href = item.href;
+            if (!isHome && item.href.startsWith("#")) {
+              href = "/" + item.href.slice(1);
+            }
+            
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                className="text-sm text-gray-300 transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href={siteConfig.cta.primary.href}
             className="btn btn-primary mt-2 w-full min-h-[44px] flex items-center justify-center"

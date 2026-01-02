@@ -4,7 +4,7 @@ import Container from '../../components/Container';
 import Section from '../../components/ui/Section';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
-import { serviceBySlug } from '../../lib/content/services';
+import StickyCTA from '../../components/StickyCTA';
 import FormSection from './FormSection';
 
 export const metadata: Metadata = {
@@ -18,196 +18,137 @@ export const metadata: Metadata = {
   },
 };
 
-const fastRemote = serviceBySlug['fast-remote'];
-
-const quickWins = [
+// Section "Quand FAST Remote est le meilleur premier réflexe"
+const bestMoments = [
   {
-    title: 'Décision rapide',
-    description: 'Verdict en 1-2 heures sans attendre intervention terrain.',
-    icon: '⏱️',
+    icon: '⚡',
+    title: 'Équipement critique bloqué',
+    description: 'Besoin d\'une décision rapide sans attendre une intervention terrain coûteuse.',
   },
   {
-    title: 'Preuves documentées',
-    description: 'Traces visuelles et valeurs techniques capturées en direct.',
-    icon: '📸',
+    icon: '🔍',
+    title: 'Panne intermittente',
+    description: 'Symptôme difficile à reproduire. Guidage expert pour capturer et documenter.',
   },
   {
-    title: 'Plan d\'action clair',
-    description: 'Recommandations immédiates : OK, réserves ou escalade site.',
+    icon: '📋',
+    title: 'Décision d\'escalade',
+    description: 'Preuves documentées pour justifier une intervention terrain ou un devis.',
+  },
+  {
     icon: '✓',
-  },
-  {
-    title: 'Sécurité maximale',
-    description: 'Guidage expert, stop immédiat si risque détecté.',
-    icon: '🛡️',
+    title: 'Conformité & prévention',
+    description: 'Audit sécurité ou vérification avant maintenance planifiée.',
   },
 ];
 
-const useCases = [
+// Section "Livrables: tu repars avec du concret"
+const deliverables = [
+  { status: '📋', label: 'Journal d\'intervention', desc: 'Tous les échanges, mesures et actions en un seul document.' },
+  { status: '📸', label: 'Preuves visuelles & numériques', desc: 'Photos, vidéos et valeurs capturées en temps réel.' },
+  { status: '✓', label: 'Verdict écrit traçable', desc: 'Diagnostic clair, cause probable, plan d\'actions.' },
+  { status: '🎯', label: 'Recommandations opérationnelles', desc: 'Prochaines étapes : correction, prévention ou escalade.' },
+];
+
+// Section "Méthode: Terrain → Preuve → Verdict"
+const methodSteps = [
   {
-    scenario: 'Pont élévateur bloqué',
-    symptom: 'Ne monte plus, bruit suspect.',
-    outcome: 'Diagnostic électromécanique à distance, plan remise en service',
-    time: '~90 min',
+    title: 'Terrain',
+    icon: '🏭',
+    description: 'Opérateur sur site avec visio. Guidage pas-à-pas du technicien. Tests demandés en direct.',
   },
   {
-    scenario: 'Compresseur débit faible',
-    symptom: 'Pression OK mais débit insuffisant.',
-    outcome: 'Test fuite air, analyse filtre/soupape, verdict diagnostic',
-    time: '~60 min',
+    title: 'Preuve',
+    icon: '📸',
+    description: 'Photo, vidéo, valeur capturées. Validation immédiate par le technicien. Aucune supposition.',
   },
   {
-    scenario: 'Cabine peinture défaut qualité',
-    symptom: 'Variations ventilation, qualité air dégradée.',
-    outcome: 'Mesures débit/filtre, test capteurs, recommandations',
-    time: '~75 min',
+    title: 'Verdict',
+    icon: '✓',
+    description: 'Synthèse écrite du diagnostic. Plan d\'actions clair. Escalade justifiée si besoin.',
   },
 ];
 
-const processSteps = [
-  {
-    num: 1,
-    title: 'Pré-qualification',
-    description: 'Vous remplissez un formulaire rapide (5 min) : contexte, symptôme, disponibilité.',
-  },
-  {
-    num: 2,
-    title: 'Appel de découverte',
-    description: 'Technicien confirme faisabilité, planning et moyens requis.',
-  },
-  {
-    num: 3,
-    title: 'Session visio guidée',
-    description: 'Pas-à-pas commentés, tests demandés, preuves capturées en temps réel.',
-  },
-  {
-    num: 4,
-    title: 'Verdict écrit',
-    description: 'Synthèse, recommandations et plan d\'actions immédiates.',
-  },
+// Section "Pré-requis (simple)"
+const simplePrerequisites = [
+  { check: true, text: 'Un opérateur habilité sur place pendant la session' },
+  { check: true, text: 'Connexion internet stable (visio + partage d\'écran)' },
+  { check: true, text: 'Accès direct à l\'équipement (pas de condamnation physique)' },
+  { check: true, text: 'Moyens de mesure basiques : multimètre, caméra/téléphone' },
 ];
 
-const prerequisites = [
-  'Opérateur habilité disponible sur site pendant la session',
-  'Connexion internet stable (visio + partage écran)',
-  'Accès à l\'équipement (pas de condamnation physique)',
-  'Moyens de mesure basiques (multimètre, caméra/téléphone)',
-];
-
-const safetyRules = [
-  'Stop immédiat en cas de détection de risque électrique ou mécanique critique',
-  'Aucune action sans opérateur qualifié sur place',
-  'Procédures de sécurité site respectées en permanence',
-  'Arrêt de session si conditions de sécurité dégradées',
-];
+const stopAndCallNote = 'Si vous n\'êtes pas sûr(e), contactez-nous. Nous évaluerons ensemble si FAST Remote convient ou si une intervention terrain est nécessaire.';
 
 export default function FastRemotePage() {
   return (
     <div className="relative">
       <HeroSection />
-      <PromiseSection />
-      <BenefitsSection />
-      <UseCasesSection />
-      <ProcessSection />
+      <WhenBestSection />
       <DeliverablesSection />
+      <MethodSection />
       <PrerequisitesSection />
-      <SafetySection />
+      <StartSection />
       <FormSection />
-      <FAQSection />
-      <CTASection />
+      <StickyCTA />
     </div>
   );
 }
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[50vh] overflow-hidden bg-primary">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent" />
+    <section className="relative min-h-[60vh] overflow-hidden bg-gradient-to-br from-primary to-primary/80">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/40 via-transparent to-transparent" />
       </div>
-      <Container className="relative flex min-h-[50vh] flex-col justify-end py-12">
-        <Badge className="w-fit bg-accent/20 text-white">FAST REMOTE</Badge>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight text-white md:text-5xl">
-          Diagnostic guidé à distance avec preuves terrain
-        </h1>
-        <p className="mt-4 max-w-2xl text-xl text-gray-200">
-          {fastRemote.heroBenefit}
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link href="#formulaire" className="btn btn-primary">
-            Démarrer une session
-          </Link>
-          <Link href="/contact" className="btn btn-secondary">
-            Nous appeler
-          </Link>
+      <Container className="relative flex min-h-[60vh] flex-col justify-center py-16">
+        <div className="max-w-3xl space-y-6">
+          <Badge className="w-fit bg-accent/20 text-accent uppercase tracking-[0.15em] text-xs font-semibold">
+            FAST Remote
+          </Badge>
+          <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+            Assistance à distance guidée pour dépanner vite et décider juste
+          </h1>
+          <p className="text-xl text-gray-200 leading-relaxed max-w-2xl">
+            Visio + tests terrain + preuves + verdict écrit. Diagnostic expert en 1-2 heures, sans immobiliser une intervention terrain coûteuse.
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row pt-4">
+            <Link 
+              href="#demarrer" 
+              className="btn btn-primary inline-block text-center"
+            >
+              Démarrer FAST Remote
+            </Link>
+            <Link 
+              href="/contact" 
+              className="btn btn-secondary inline-block text-center"
+            >
+              Discuter avec un expert
+            </Link>
+          </div>
         </div>
       </Container>
     </section>
   );
 }
 
-function PromiseSection() {
+function WhenBestSection() {
   return (
     <Section className="bg-primary/60">
-      <Container className="space-y-6">
-        <div className="max-w-3xl space-y-3">
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            Pour qui ? Quand ?
+      <Container className="space-y-8">
+        <div className="max-w-3xl space-y-4">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">
+            Quand FAST Remote est le meilleur premier réflexe
           </h2>
-          <p className="text-gray-200">
-            FAST Remote est conçu pour les situations où vous avez besoin d&apos;une décision rapide
-            sans immobiliser une intervention terrain coûteuse. Idéal pour les pannes intermittentes,
-            les diagnostics de conformité, ou les décisions d&apos;escalade.
+          <p className="text-lg text-gray-200">
+            Vous êtes face à une panne ? Voici les situations où FAST Remote apporte la réponse la plus rapide et pertinente.
           </p>
         </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          <Card className="glass-card">
-            <h3 className="font-semibold text-white">Situation urgente</h3>
-            <p className="mt-2 text-sm text-gray-200">
-              Équipement bloqué, besoin de diagnostic dans les 2 heures pour décider de l&apos;escalade
-              terrain.
-            </p>
-          </Card>
-          <Card className="glass-card">
-            <h3 className="font-semibold text-white">Panne intermittente</h3>
-            <p className="mt-2 text-sm text-gray-200">
-              Défaut difficile à reproduire, guidage expert pour capturer symptômes et preuves.
-            </p>
-          </Card>
-          <Card className="glass-card">
-            <h3 className="font-semibold text-white">Décision préventive</h3>
-            <p className="mt-2 text-sm text-gray-200">
-              Vérification de conformité, audit sécurité ou validation avant maintenance planifiée.
-            </p>
-          </Card>
-          <Card className="glass-card">
-            <h3 className="font-semibold text-white">Escalade terrain</h3>
-            <p className="mt-2 text-sm text-gray-200">
-              Preuves collectées à distance pour justifier une intervention terrain documentée.
-            </p>
-          </Card>
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function BenefitsSection() {
-  return (
-    <Section>
-      <Container className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Les bénéfices clés
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {quickWins.map((item) => (
-            <Card key={item.title} className="glass-card">
-              <div className="text-3xl" aria-hidden="true">
-                {item.icon}
-              </div>
-              <h3 className="mt-2 font-semibold text-white">{item.title}</h3>
-              <p className="mt-2 text-sm text-gray-200">{item.description}</p>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {bestMoments.map((item) => (
+            <Card key={item.title} className="glass-card hover:border-accent/40 transition-all">
+              <div className="text-4xl mb-3" aria-hidden="true">{item.icon}</div>
+              <h3 className="font-bold text-white text-lg">{item.title}</h3>
+              <p className="mt-3 text-sm text-gray-200 leading-relaxed">{item.description}</p>
             </Card>
           ))}
         </div>
@@ -216,55 +157,56 @@ function BenefitsSection() {
   );
 }
 
-function UseCasesSection() {
+function DeliverablesSection() {
+  return (
+    <Section>
+      <Container className="space-y-8">
+        <div className="max-w-3xl space-y-4">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">
+            Livrables : tu repars avec du concret
+          </h2>
+          <p className="text-lg text-gray-200">
+            Chaque session FAST Remote génère des documents exploitables et des preuves traçables.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {deliverables.map((item) => (
+            <div key={item.label} className="flex gap-4 items-start p-4 rounded-lg border border-white/10 hover:border-accent/40 transition-all">
+              <div className="text-3xl flex-shrink-0">{item.status}</div>
+              <div className="flex-1">
+                <h3 className="font-bold text-white text-lg">{item.label}</h3>
+                <p className="mt-2 text-sm text-gray-200">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+function MethodSection() {
   return (
     <Section className="bg-primary/60">
-      <Container className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Exemples de situations
-        </h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {useCases.map((useCase, idx) => (
-            <Card key={idx} className="glass-card">
-              <Badge className="bg-accent/10 text-accent">{useCase.time}</Badge>
-              <h3 className="mt-3 font-semibold text-white">{useCase.scenario}</h3>
-              <div className="mt-3 space-y-2">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Symptôme</p>
-                  <p className="text-sm text-gray-200">{useCase.symptom}</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-accent">Résultat</p>
-                  <p className="text-sm text-gray-200">{useCase.outcome}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
+      <Container className="space-y-8">
+        <div className="max-w-3xl space-y-4">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">
+            Méthode : Terrain → Preuve → Verdict
+          </h2>
+          <p className="text-lg text-gray-200">
+            Trois étapes incontournables pour une décision fondée et traçable.
+          </p>
         </div>
-      </Container>
-    </Section>
-  );
-}
-
-function ProcessSection() {
-  return (
-    <Section>
-      <Container className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Comment ça marche ?
-        </h2>
-        <div className="grid gap-4 md:grid-cols-4">
-          {processSteps.map((step) => (
-            <div key={step.num} className="relative">
-              <Card className="glass-card">
-                <Badge className="bg-accent/10 text-white">
-                  Étape {step.num}
-                </Badge>
-                <h3 className="mt-3 font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-sm text-gray-200">{step.description}</p>
+        <div className="grid gap-6 md:grid-cols-3">
+          {methodSteps.map((step, idx) => (
+            <div key={step.title} className="relative">
+              <Card className="glass-card h-full">
+                <div className="text-5xl mb-4">{step.icon}</div>
+                <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+                <p className="mt-4 text-gray-200 leading-relaxed">{step.description}</p>
               </Card>
-              {step.num < 4 && (
-                <div className="absolute -right-2 top-8 hidden text-2xl text-accent/40 md:block">
+              {idx < 2 && (
+                <div className="absolute -right-3 top-1/2 hidden md:flex text-2xl text-accent/50 transform -translate-y-1/2">
                   →
                 </div>
               )}
@@ -276,131 +218,68 @@ function ProcessSection() {
   );
 }
 
-function DeliverablesSection() {
-  return (
-    <Section className="bg-primary/60">
-      <Container className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Ce que vous recevez
-        </h2>
-        <div className="max-w-3xl space-y-3">
-          <p className="text-gray-200">
-            Chaque session FAST Remote produit des livrables structurés et exploitables :
-          </p>
-        </div>
-        <div className="grid gap-3 md:grid-cols-2">
-          {fastRemote.deliverables.map((item, idx) => (
-            <div key={idx} className="flex gap-3">
-              <Badge className="h-fit bg-accent/10 text-accent">✓</Badge>
-              <div>
-                <p className="font-semibold text-white">{item.split(' ')[0]}</p>
-                <p className="text-sm text-gray-200">{item}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
 function PrerequisitesSection() {
   return (
     <Section>
-      <Container className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Pré-requis pour une session
-        </h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          {prerequisites.map((item, idx) => (
-            <div key={idx} className="flex gap-3">
-              <span className="text-lg text-accent">✓</span>
-              <p className="text-gray-200">{item}</p>
+      <Container className="space-y-8">
+        <div className="max-w-3xl space-y-4">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">
+            Pré-requis (simple)
+          </h2>
+          <p className="text-lg text-gray-200">
+            Quelques vérifications rapides pour que la session se déroule au mieux.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 max-w-2xl">
+          {simplePrerequisites.map((item, idx) => (
+            <div key={idx} className="flex gap-3 items-start p-4 rounded-lg border border-accent/20 bg-accent/5">
+              <span className="text-xl text-accent flex-shrink-0">✓</span>
+              <span className="text-gray-200">{item.text}</span>
             </div>
           ))}
         </div>
-        <Card className="glass-card border border-accent/20 bg-accent/5">
-          <h3 className="font-semibold text-white">Vous n&apos;êtes pas sûr ?</h3>
-          <p className="mt-2 text-sm text-gray-200">
-            Contactez-nous. Nous évaluerons ensemble si FAST Remote convient à votre situation ou si
-            une intervention terrain est plus appropriée.
-          </p>
+        <Card className="glass-card border border-amber-500/30 bg-amber-500/10 max-w-2xl">
+          <div className="flex gap-3 items-start">
+            <span className="text-2xl flex-shrink-0">🛑</span>
+            <div>
+              <h3 className="font-bold text-amber-200">Stop & Call</h3>
+              <p className="mt-2 text-sm text-amber-100">{stopAndCallNote}</p>
+            </div>
+          </div>
         </Card>
       </Container>
     </Section>
   );
 }
 
-function SafetySection() {
+function StartSection() {
   return (
-    <Section className="bg-red-950/20 border-t border-red-900/40">
-      <Container className="space-y-4">
-        <div className="flex gap-2">
-          <span className="text-2xl">🛑</span>
-          <div>
-            <h2 className="text-2xl font-semibold text-red-300">Sécurité & STOP</h2>
-            <p className="text-sm text-red-200/80">
-              FAST Remote inclut un protocole de sécurité strict. Aucune action compromettante.
-            </p>
-          </div>
+    <Section className="bg-gradient-to-br from-accent/10 via-primary to-primary border-t border-accent/20">
+      <Container className="space-y-8 text-center">
+        <div className="max-w-2xl mx-auto space-y-4">
+          <h2 className="text-3xl font-bold text-white md:text-4xl" id="demarrer">
+            Démarrer FAST Remote
+          </h2>
+          <p className="text-lg text-gray-200">
+            Donne-nous les infos essentielles sur ta situation et on te propose un créneau rapide.
+          </p>
         </div>
-        <div className="grid gap-2 md:grid-cols-2">
-          {safetyRules.map((rule, idx) => (
-            <div key={idx} className="flex gap-2 text-sm">
-              <span className="text-red-400">•</span>
-              <p className="text-red-100">{rule}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function FAQSection() {
-  return (
-    <Section>
-      <Container className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Questions fréquentes
-        </h2>
-        <div className="grid gap-4 max-w-3xl">
-          {fastRemote.faq.map((item, idx) => (
-            <details
-              key={idx}
-              className="group rounded border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
-            >
-              <summary className="cursor-pointer font-semibold text-white group-open:text-accent">
-                {item.question}
-              </summary>
-              <p className="mt-3 text-sm text-gray-200">{item.answer}</p>
-            </details>
-          ))}
-        </div>
-      </Container>
-    </Section>
-  );
-}
-
-function CTASection() {
-  return (
-    <Section className="bg-accent/10 border-t border-accent/20">
-      <Container className="text-center">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Prêt à démarrer ?
-        </h2>
-        <p className="mt-3 text-gray-200">
-          Remplissez le formulaire ci-dessus ou appelez-nous directement pour une session immédiate.
-        </p>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <Link href="#formulaire" className="btn btn-primary">
-            Remplir le formulaire
+        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center pt-4">
+          <Link
+            href="/contact?objet=fast-remote"
+            className="btn btn-primary inline-block"
+          >
+            Accéder au formulaire
           </Link>
-          <Link href="/contact" className="btn btn-secondary">
-            Nous appeler
+          <Link
+            href="/contact#appel"
+            className="btn btn-secondary inline-block"
+          >
+            Appel rapide 10 min
           </Link>
         </div>
       </Container>
     </Section>
   );
 }
+
