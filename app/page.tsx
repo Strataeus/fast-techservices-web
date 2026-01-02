@@ -6,6 +6,7 @@ import Section from "../components/ui/Section";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
 import SectionBand from "../components/ui/SectionBand";
+import VideoIntro from "../components/VideoIntro";
 
 export const metadata: Metadata = {
   title: "FAST Remote — Diagnostic & assistance à distance pour équipements de garage automobile",
@@ -182,6 +183,9 @@ const reassurance = [
 export default function HomePage() {
   return (
     <div className="relative">
+      {/* VIDEO INTRO */}
+      <VideoIntro enabled={true} />
+
       {/* A) HERO */}
       <HeroSection />
 
