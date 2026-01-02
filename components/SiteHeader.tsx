@@ -18,9 +18,15 @@ export default function SiteHeader() {
       return;
     }
 
-    // Find all sections and those with missing elements
+    // Find all sections - seulement chercher les ancres valides (qui commencent par #)
     const sectionsMap = new Map<string, HTMLElement>();
     items.forEach((item) => {
+      // Ne chercher que les ancres CSS valides (ex: #top, #services, #contact)
+      // Ignorer les liens vers des pages (ex: /fast-remote)
+      if (!item.href.startsWith("#")) {
+        return;
+      }
+      
       const element = document.querySelector(item.href);
       if (element instanceof HTMLElement) {
         sectionsMap.set(item.href, element);
