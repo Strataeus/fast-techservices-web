@@ -5,10 +5,10 @@ import { siteConfig } from "../../lib/site";
 
 export const metadata = {
   title: "Mentions légales | FAST Tech Services",
-  description: "Mentions légales et informations éditeur.",
+  description: "Mentions légales et informations éditeur",
 };
 
-export default function MentionsLegalesPage() {
+export default function MentionsPage() {
   return (
     <div className="relative">
       <Background variant="contact" />
@@ -20,45 +20,42 @@ export default function MentionsLegalesPage() {
               <HeroBase
                 eyebrow="Mentions légales"
                 title="Mentions légales"
-                subtitle={
-                  "Les informations légales ci-dessous sont à compléter avec les éléments officiels de la société."
-                }
+                subtitle="Informations légales et administratives"
                 align="left"
               />
-              <div className="space-y-3 text-sm text-gray-200">
-                <p>
-                  <span className="text-gray-100">Raison sociale :</span> TODO
-                </p>
-                <p>
-                  <span className="text-gray-100">Adresse :</span> TODO
-                </p>
-                <p>
-                  <span className="text-gray-100">SIRET :</span> TODO
-                </p>
-                <p>
-                  <span className="text-gray-100">Directeur de publication :</span> TODO
-                </p>
-                <p>
-                  <span className="text-gray-100">Hébergeur :</span> TODO
+
+              <div className="space-y-6 text-sm text-gray-200">
+                <section className="space-y-2">
+                  <h2 className="text-lg font-semibold text-white">Éditeur</h2>
+                  <p><strong>FAST Tech Services</strong></p>
+                  <p>Email: {siteConfig.contact.email || "contact@fast-techservices.fr"}</p>
+                </section>
+
+                <section className="space-y-2">
+                  <h2 className="text-lg font-semibold text-white">Hébergeur</h2>
+                  <p><strong>Vercel Inc.</strong></p>
+                  <p>440 N Barranca Ave, Covina, CA 91723, USA</p>
+                </section>
+
+                <section className="space-y-2">
+                  <h2 className="text-lg font-semibold text-white">Propriété intellectuelle</h2>
+                  <p>Tous contenus propriété FAST Tech Services. Reproduction interdite sans autorisation.</p>
+                </section>
+
+                <section className="space-y-2">
+                  <h2 className="text-lg font-semibold text-white">Responsabilité</h2>
+                  <p>Déclinons responsabilité pour indisponibilité, erreurs ou pertes données.</p>
+                </section>
+
+                <section className="space-y-2">
+                  <h2 className="text-lg font-semibold text-white">Confidentialité</h2>
+                  <p>Consultez notre <a href="/confidentialite" className="text-accent">politique de confidentialité</a>.</p>
+                </section>
+
+                <p className="text-xs text-gray-400 border-t border-white/10 pt-4">
+                  Dernière mise à jour: Janvier 2026
                 </p>
               </div>
-              <div className="space-y-2 text-sm text-gray-200">
-                {siteConfig.contact.email ? (
-                  <p>
-                    <span className="text-gray-100">Contact :</span>{" "}
-                    {siteConfig.contact.email}
-                  </p>
-                ) : null}
-                {siteConfig.contact.phone ? (
-                  <p>
-                    <span className="text-gray-100">Téléphone :</span>{" "}
-                    {siteConfig.contact.phone}
-                  </p>
-                ) : null}
-              </div>
-              <p className="text-xs text-gray-400">
-                TODO: Renseigner les données légales et l&apos;hébergeur.
-              </p>
             </div>
           </div>
         </Container>

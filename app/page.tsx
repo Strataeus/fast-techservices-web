@@ -92,11 +92,15 @@ export default function HomePage() {
     <div className="relative">
       <HeroSection />
       <IntroSection />
+      <HowItWorksSection />
       <PositioningSection />
       <DomainsSection />
       <MethodSection />
       <AssistanceSection />
+      <ProofsSection />
+      <FAQSection />
       <WhySection />
+      <CTAFinalSection />
       <ContactSection />
     </div>
   );
@@ -104,7 +108,7 @@ export default function HomePage() {
 
 function HeroSection() {
   return (
-    <section id="top" className="relative min-h-[50vh] overflow-hidden">
+    <section id="top" className="relative min-h-[60vh] overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="/hero/home/fast-hero.png"
@@ -115,8 +119,22 @@ function HeroSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/85" />
       </div>
-      <Container className="relative flex min-h-[50vh] items-end py-12">
-        <span className="sr-only">FAST Tech Services</span>
+      <Container className="relative flex min-h-[60vh] flex-col justify-end py-12">
+        <Badge className="w-fit bg-accent/20 text-white">FAST TECH SERVICES</Badge>
+        <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-white md:text-5xl">
+          Diagnostic à distance, interventions de confiance
+        </h1>
+        <p className="mt-4 max-w-2xl text-xl text-gray-200">
+          Dépannage et maintenance des équipements de garage automobile. <strong>FAST Remote :</strong> verdict en 2h, sans attendre l&apos;intervention terrain.
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Link href="/fast-remote" className="btn btn-primary">
+            Démarrer FAST Remote
+          </Link>
+          <Link href="/contact" className="btn btn-secondary">
+            Intervention sur site
+          </Link>
+        </div>
       </Container>
     </section>
   );
@@ -125,28 +143,71 @@ function HeroSection() {
 function IntroSection() {
   return (
     <Section className="bg-primary/85">
-      <Container className="space-y-6">
+      <Container className="space-y-8">
         <Badge className="w-fit bg-accent/10 text-white">FAST TECH SERVICES</Badge>
         <div className="max-w-4xl space-y-5">
-          <h1 className="hero-text-shadow text-4xl font-semibold leading-tight text-white md:text-5xl">
-            Maintenance et dépannage professionnels des équipements de garage automobile
-          </h1>
-          <h2 className="hero-text-shadow text-xl font-semibold text-gray-100 md:text-2xl">
-            Interventions techniques fiables, diagnostics précis et assistance experte pour garantir
-            la continuité et la sécurité de vos installations.
+          <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+            Expertise technique orientée terrain pour vos équipements critiques
           </h2>
-          <p className="hero-text-shadow max-w-3xl text-lg text-gray-200">
-            FAST Tech Services accompagne les garages et ateliers automobiles dans la maintenance, le
-            diagnostic et la remise en service de leurs équipements critiques. Une approche rigoureuse,
-            orientée terrain, sécurité et performance.
+          <p className="text-lg text-gray-200">
+            FAST Tech Services accompagne les garages et ateliers automobiles dans la maintenance, le diagnostic et la remise en service de leurs équipements. Une approche rigoureuse, sécurité maximale, décisions documentées.
           </p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="#contact" className="btn btn-primary" aria-label="Demander un diagnostic">
-            Demander un diagnostic
-          </Link>
-          <Link href="/contact" className="btn btn-secondary" aria-label="Nous contacter">
-            Nous contacter
+
+        {/* 3 bénéfices mesurables */}
+        <div className="grid gap-4 md:grid-cols-3 pt-4">
+          <Card className="glass-card border border-accent/20">
+            <div className="text-2xl mb-2">⏱️</div>
+            <h3 className="font-semibold text-white">Réduction des immobilisations</h3>
+            <p className="mt-2 text-sm text-gray-200">
+              FAST Remote : diagnostic en 1-2h sans mobiliser un technicien terrain.
+            </p>
+          </Card>
+          <Card className="glass-card border border-accent/20">
+            <div className="text-2xl mb-2">✓</div>
+            <h3 className="font-semibold text-white">Décision documentée</h3>
+            <p className="mt-2 text-sm text-gray-200">
+              Verdict écrit, preuves visuelles et techniques, plan d&apos;actions clair.
+            </p>
+          </Card>
+          <Card className="glass-card border border-accent/20">
+            <div className="text-2xl mb-2">🛡️</div>
+            <h3 className="font-semibold text-white">Sécurité & traçabilité</h3>
+            <p className="mt-2 text-sm text-gray-200">
+              Protocoles strictes, stop immédiat si risque, documentation complète.
+            </p>
+          </Card>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+function HowItWorksSection() {
+  return (
+    <Section className="bg-primary/60">
+      <Container className="space-y-6">
+        <p className="eyebrow">Processus FAST Remote</p>
+        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+          Comment FAST Remote fonctionne
+        </h2>
+        <div className="grid gap-4 md:grid-cols-4">
+          {[
+            { num: 1, title: "Pré-qualification", desc: "Formulaire rapide : contexte, équipement, symptôme" },
+            { num: 2, title: "Appel découverte", desc: "Technicien valide faisabilité et planning" },
+            { num: 3, title: "Session visio", desc: "Pas-à-pas guidés, preuves capturées en direct" },
+            { num: 4, title: "Verdict écrit", desc: "Synthèse, recommandations, plan d'actions" },
+          ].map((step) => (
+            <Card key={step.num} className="glass-card">
+              <Badge className="bg-accent/10 text-white">Étape {step.num}</Badge>
+              <h3 className="mt-3 font-semibold text-white">{step.title}</h3>
+              <p className="mt-2 text-sm text-gray-200">{step.desc}</p>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-6 text-center">
+          <Link href="/fast-remote" className="btn btn-primary">
+            En savoir plus sur FAST Remote
           </Link>
         </div>
       </Container>
@@ -256,6 +317,104 @@ function AssistanceSection() {
           <Badge>Interventions directes</Badge>
           <Badge>Assistance à distance</Badge>
           <Badge>Réduction des arrêts</Badge>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+function ProofsSection() {
+  return (
+    <Section className="bg-primary/60">
+      <Container className="space-y-6">
+        <p className="eyebrow">Crédibilité & preuves</p>
+        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+          Des interventions documentées et tracées
+        </h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card className="glass-card text-center">
+            <p className="text-3xl font-bold text-accent">500+</p>
+            <p className="mt-2 text-sm text-gray-200">Interventions effectuées</p>
+          </Card>
+          <Card className="glass-card text-center">
+            <p className="text-3xl font-bold text-accent">4 domaines</p>
+            <p className="mt-2 text-sm text-gray-200">Ponts, compresseurs, cabines, électromécanique</p>
+          </Card>
+          <Card className="glass-card text-center">
+            <p className="text-3xl font-bold text-accent">France entière</p>
+            <p className="mt-2 text-sm text-gray-200">FAST Remote + interventions IDF</p>
+          </Card>
+        </div>
+        <div className="mt-6 p-6 rounded bg-accent/10 border border-accent/20">
+          <p className="text-center text-gray-200">
+            Chaque intervention génère un rapport structuré : preuves visuelles, valeurs techniques, recommandations documentées.
+          </p>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+function FAQSection() {
+  return (
+    <Section>
+      <Container className="space-y-6">
+        <p className="eyebrow">Questions fréquentes</p>
+        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+          FAQ rapide
+        </h2>
+        <div className="grid gap-4 max-w-3xl">
+          {[
+            {
+              q: "Quel est le coût d&apos;une intervention FAST Remote ?",
+              a: "Tarif transparent selon la durée et la complexité. Devis fourni après pré-qualification.",
+            },
+            {
+              q: "Combien de temps pour un diagnostic FAST Remote ?",
+              a: "Généralement 1-2h de visio guidée. Verdict immédiat ou sous 24h après consolidation des preuves.",
+            },
+            {
+              q: "Couvrez-vous toute la France ?",
+              a: "FAST Remote : oui, France entière. Interventions terrain : région parisienne (IDF) principalement.",
+            },
+            {
+              q: "Que faire si c&apos;est vraiment urgent ?",
+              a: "Contactez-nous directement par téléphone. Nous évaluerons une mobilisation rapide ou FAST Remote immédiate.",
+            },
+          ].map((item, idx) => (
+            <details
+              key={idx}
+              className="group rounded border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+            >
+              <summary className="cursor-pointer font-semibold text-white group-open:text-accent">
+                {item.q}
+              </summary>
+              <p className="mt-3 text-sm text-gray-200">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+function CTAFinalSection() {
+  return (
+    <Section className="bg-accent/10 border-t border-accent/20">
+      <Container className="text-center space-y-6">
+        <h2 className="text-3xl font-semibold text-white md:text-4xl">
+          Prêt à résoudre votre problème ?
+        </h2>
+        <p className="max-w-2xl mx-auto text-gray-200">
+          Démarrez FAST Remote immédiatement ou demandez une intervention terrain. Réponse garantie dans les 2 heures.
+        </p>
+        <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <Link href="/fast-remote" className="btn btn-primary">
+            Démarrer FAST Remote
+          </Link>
+          <Link href="/contact" className="btn btn-secondary">
+            Demander une intervention
+          </Link>
         </div>
       </Container>
     </Section>

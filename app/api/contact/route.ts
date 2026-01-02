@@ -25,12 +25,31 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  if (process.env.NODE_ENV !== "production") {
-    console.log("CONTACT_SUBMISSION", body);
+  // Validation basique
+  const { formType, nom, email, tel } = body;
+  if (!nom || (!email && !tel)) {
+    return NextResponse.json(
+      { ok: false, error: "nom_email_tel_required" },
+      { status: 400 }
+    );
   }
 
-  // TODO: Integrate email provider or CRM webhook.
-  // Required env in production: CONTACT_WEBHOOK_URL or EMAIL_API_KEY.
+  if (process.env.NODE_ENV !== "production") {
+    console.log(`[${new Date().toISOString()}] FORM_SUBMISSION (${formType || 'unknown'}):`, {
+      ...body,
+      ip,
+    });
+  }
 
-  return NextResponse.json({ ok: true });
+  // TODO: Integrate email provider (SendGrid, Mailgun, etc.)
+  // Required env in production: SENDGRID_API_KEY or MAILGUN_API_KEY
+  // Example:
+  // if (process.env.SENDGRID_API_KEY) {
+  //   await sendEmail({ to: email, subject: '...', ... });
+  // }
+
+  return NextResponse.json({
+    ok: true,
+    message: "Formulaire reçu avec succès. Nous vous recontacterons bientôt.",
+  });
 }

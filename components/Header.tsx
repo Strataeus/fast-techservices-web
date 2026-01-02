@@ -28,6 +28,14 @@ export default function Header() {
             </li>
             <li>
               <Link
+                href="/fast-remote"
+                className="text-sm font-semibold text-accent transition-colors hover:text-accent-soft"
+              >
+                FAST Remote
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/services"
                 className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
               >
@@ -36,18 +44,18 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/fast-remote"
+                href="/methode"
                 className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
               >
-                FAST Remote
+                Méthode
               </Link>
             </li>
             <li>
               <Link
-                href="/methode"
+                href="/preuves"
                 className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
               >
-                Methode
+                Preuves
               </Link>
             </li>
             <li>
@@ -60,8 +68,8 @@ export default function Header() {
             </li>
           </ul>
           <div className="hidden md:block">
-            <Button href="/contact" variant="primary">
-              Demander un diagnostic
+            <Button href="/fast-remote" variant="primary">
+              Démarrer FAST Remote
             </Button>
           </div>
           <button
@@ -89,22 +97,28 @@ export default function Header() {
             Accueil
           </Link>
           <Link
+            href="/fast-remote"
+            className="text-sm font-semibold text-accent transition-colors hover:text-accent-soft"
+          >
+            FAST Remote
+          </Link>
+          <Link
             href="/services"
             className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
           >
             Services
           </Link>
           <Link
-            href="/fast-remote"
-            className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
-          >
-            FAST Remote
-          </Link>
-          <Link
             href="/methode"
             className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
           >
-            Methode
+            Méthode
+          </Link>
+          <Link
+            href="/preuves"
+            className="text-sm text-gray-300 transition-colors hover:text-accent-soft"
+          >
+            Preuves
           </Link>
           <Link
             href="/contact"
@@ -112,9 +126,11 @@ export default function Header() {
           >
             Contact
           </Link>
-          <Button href="/contact" variant="primary">
-            Demander un diagnostic
-          </Button>
+          <div className="mt-3 pt-3 border-t border-white/10">
+            <Link href="/fast-remote" className="btn btn-primary w-full inline-block text-center">
+              Démarrer FAST Remote
+            </Link>
+          </div>
         </div>
       </div>
     </header>
