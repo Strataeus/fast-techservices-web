@@ -1,7 +1,4 @@
-﻿export type ZoneSlug = "zone-nord" | "zone-ouest" | "zone-sud-est";
-
-export interface ZoneItem {
-  slug: ZoneSlug;
+﻿export interface ZoneItem {
   title: string;
   description: string;
   coverageNote: string;
@@ -17,7 +14,6 @@ export interface ZoneItem {
  */
 export const zones: ZoneItem[] = [
   {
-    slug: "zone-nord",
     title: "Zone Nord – Île-de-France & Région Parisienne",
     description:
       "Couverture complète en Île-de-France et périphérie. Intervention rapide (24-48h) pour dépannage urgent et maintenance industrielle. Spécialistes en équipements garage, chaînes de production et systèmes électromécaniques.",
@@ -31,7 +27,6 @@ export const zones: ZoneItem[] = [
     ],
   },
   {
-    slug: "zone-ouest",
     title: "Zone Ouest – Bretagne & Normandie",
     description:
       "Présence technique en Bretagne et Normandie. Partenariat avec intervenants locaux certifiés. Équipement diagnostic et moyens pour intervention rapide ou escalade expert.",
@@ -45,7 +40,6 @@ export const zones: ZoneItem[] = [
     ],
   },
   {
-    slug: "zone-sud-est",
     title: "Zone Sud-Est – PACA & Rhône-Alpes",
     description:
       "Couverture technique régionale PACA et Rhône-Alpes. Expertise en équipements motorisés et systèmes haute température. Intervention rapide pour maintenance industrie. FAST Remote principal.",
@@ -59,7 +53,3 @@ export const zones: ZoneItem[] = [
     ],
   },
 ];
-
-export const zoneBySlug = Object.fromEntries(
-  zones.map((zone) => [zone.slug, zone])
-) as Record<ZoneSlug, ZoneItem>;

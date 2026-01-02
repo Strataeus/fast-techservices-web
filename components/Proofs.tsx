@@ -16,8 +16,8 @@ export default function Proofs() {
         </p>
       </div>
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {proofs.map((item) => (
-          <article key={item.slug} className="glass-card rounded-xl p-6">
+        {proofs.map((item, idx) => (
+          <article key={idx} className="glass-card rounded-xl p-6">
             <div className="flex items-center justify-between">
               <h3 className="text-base font-semibold text-white">{item.title}</h3>
               <span className="rounded-full border border-accent/40 px-2.5 py-1 text-[0.6rem] uppercase tracking-[0.3em] text-accent">
