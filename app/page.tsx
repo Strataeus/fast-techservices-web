@@ -217,8 +217,9 @@ export default function HomePage() {
 // =============================================================================
 function HeroSection() {
   return (
-    <section id="top" className="relative min-h-[70vh] overflow-hidden">
-      <div className="absolute inset-0">
+    <>
+      {/* Image hero pure sans texte ni assombrissement */}
+      <section id="top" className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <Image
           src="/hero/home/fast-hero.png"
           alt="FAST Remote : diagnostic à distance"
@@ -226,42 +227,45 @@ function HeroSection() {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/88 via-black/80 to-black/88" />
-      </div>
+      </section>
 
-      <Container className="relative flex min-h-[70vh] flex-col justify-end py-12">
-        <Badge className="w-fit bg-accent/20 text-white">FAST REMOTE</Badge>
+      {/* Texte et CTA en dessous du hero */}
+      <Section className="bg-primary/95">
+        <Container className="space-y-8">
+          <div className="space-y-4">
+            <Badge className="w-fit bg-accent/20 text-white">FAST TECH SERVICES</Badge>
 
-        <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-          FAST Remote : diagnostic &amp; assistance à distance pour équipements de garage automobile
-        </h1>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+              Diagnostic, maintenance &amp; dépannage pour équipements de garage
+            </h1>
 
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-100 md:text-xl">
-          Visio guidée par expert &plus; tests terrain &plus; preuves (photos/mesures) &plus; verdict écrit…
-          <br />
-          <strong>Réponse en 1-2h. Décision documentée.</strong>
-        </p>
+            <p className="max-w-3xl text-lg leading-relaxed text-gray-100 md:text-xl">
+              Spécialistes en diagnostic à distance et interventions terrain pour <strong>ponts élévateurs, compresseurs, cabines de peinture</strong> et automatismes associés. 
+              Approche structurée, preuves documentées, verdicts rapides.
+            </p>
+          </div>
 
-        {/* Micro reassurance */}
-        <div className="mt-8 flex flex-wrap gap-2">
-          {reassurance.map((item) => (
-            <Badge key={item} className="bg-white/10 text-white/90">
-              {item}
-            </Badge>
-          ))}
-        </div>
+          {/* Micro reassurance */}
+          <div className="flex flex-wrap gap-2">
+            {reassurance.map((item) => (
+              <Badge key={item} className="bg-white/10 text-white/90">
+                {item}
+              </Badge>
+            ))}
+          </div>
 
-        {/* CTA primaire & secondaire */}
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <Link href="/fast-remote" className="btn btn-primary">
-            Démarrer FAST Remote
-          </Link>
-          <Link href="/contact" className="btn btn-secondary">
-            Demander une intervention sur site
-          </Link>
-        </div>
-      </Container>
-    </section>
+          {/* CTA primaire & secondaire */}
+          <div className="flex flex-col gap-4 sm:flex-row pt-4">
+            <Link href="/fast-remote" className="btn btn-primary">
+              Démarrer FAST Remote
+            </Link>
+            <Link href="/contact" className="btn btn-secondary">
+              Demander une intervention sur site
+            </Link>
+          </div>
+        </Container>
+      </Section>
+    </>
   );
 }
 
