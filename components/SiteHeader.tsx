@@ -70,13 +70,18 @@ export default function SiteHeader() {
         </Link>
         <nav className="hidden items-center gap-6 md:flex" aria-label="Navigation">
           {items.map((item) => {
-            // Sur HOME : utilise l'ancre directement
-            // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
+            // Toujours transformer les ancres en routes réelles pour navigation cohérente
             let href = item.href;
             let isActive = false;
             
+            // Transforme les ancres en routes ("#services" → "/services")
+            if (item.href.startsWith("#")) {
+              href = "/" + item.href.slice(1);
+            }
+            
+            // Vérifier si le lien est actif
             if (isHome) {
-              // Sur HOME : vérifier si c'est une ancre (scrolling) ou "Accueil"
+              // Sur HOME : utiliser le scrolling pour marquer l'ancre active
               if (item.href.startsWith("#")) {
                 isActive = active === item.href;
               } else if (item.href === "/") {
@@ -84,12 +89,7 @@ export default function SiteHeader() {
                 isActive = true;
               }
             } else {
-              // Sur d'autres pages : ne pas utiliser le scrolling
-              if (item.href.startsWith("#")) {
-                // Transforme "#services" en "/services", "#methode" en "/methode", etc.
-                href = "/" + item.href.slice(1);
-              }
-              // Vérifier si le lien correspond au pathname
+              // Sur d'autres pages : comparer les chemins
               isActive = pathname === href;
             }
             
@@ -137,13 +137,18 @@ export default function SiteHeader() {
       >
         <Container className="flex flex-col gap-3">
           {items.map((item) => {
-            // Sur HOME : utilise l'ancre directement
-            // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
+            // Toujours transformer les ancres en routes réelles pour navigation cohérente
             let href = item.href;
             let isActive = false;
             
+            // Transforme les ancres en routes ("#services" → "/services")
+            if (item.href.startsWith("#")) {
+              href = "/" + item.href.slice(1);
+            }
+            
+            // Vérifier si le lien est actif
             if (isHome) {
-              // Sur HOME : vérifier si c'est une ancre (scrolling) ou "Accueil"
+              // Sur HOME : utiliser le scrolling pour marquer l'ancre active
               if (item.href.startsWith("#")) {
                 isActive = active === item.href;
               } else if (item.href === "/") {
@@ -151,11 +156,7 @@ export default function SiteHeader() {
                 isActive = true;
               }
             } else {
-              // Sur d'autres pages : ne pas utiliser le scrolling
-              if (item.href.startsWith("#")) {
-                href = "/" + item.href.slice(1);
-              }
-              // Vérifier si le lien correspond au pathname
+              // Sur d'autres pages : comparer les chemins
               isActive = pathname === href;
             }
             
