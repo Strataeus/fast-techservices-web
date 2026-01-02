@@ -40,7 +40,7 @@ export default function SuccessStories() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              De la panne au <span className="bg-gradient-to-r from-action to-green-400 bg-clip-text text-transparent">diagnostic fiable</span>
+              De la panne au <span className="text-accent-gold">diagnostic fiable</span>
             </h2>
 
             <p className="text-lg text-gray-300">

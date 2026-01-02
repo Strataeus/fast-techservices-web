@@ -43,7 +43,7 @@ export default function Testimonials() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Des garages qui <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">nous font confiance</span>
+              Des garages qui <span className="text-accent-bright">nous font confiance</span>
             </h2>
 
             <p className="text-lg text-gray-300 leading-relaxed">

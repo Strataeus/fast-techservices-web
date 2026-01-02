@@ -2,20 +2,26 @@
 
 :root {
   color-scheme: dark;
-  --bg0: #05070c;
-  --bg1: #0b0f17;
-  --surface: rgba(10, 14, 22, 0.9);
-  --surface-strong: rgba(8, 12, 20, 0.92);
+  --bg0: #030507;
+  --bg1: #0a0e1a;
+  --bg2: #0f131f;
+  --surface: rgba(10, 14, 26, 0.95);
+  --surface-strong: rgba(7, 10, 18, 0.98);
   --text0: #f8fafc;
   --text1: #c3cedd;
   --text2: #7f8aa3;
-  --accent: #00c8ff;
-  --accent-soft: #3de7ff;
+  /* Couleurs cohérentes avec logo */
+  --accent: #00d9ff;
+  --accent-bright: #00ffff;
+  --accent-soft: #4df3ff;
+  --accent-gold: #ff9a2e;
+  --accent-gold-dark: #ff7d00;
   --action: #22c55e;
   --action-strong: #16a34a;
   --line: rgba(255, 255, 255, 0.08);
-  --glow: 0 0 32px rgba(0, 200, 255, 0.16);
-  --shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.45);
+  --glow: 0 0 32px rgba(0, 217, 255, 0.2);
+  --glow-gold: 0 0 24px rgba(255, 154, 46, 0.15);
+  --shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.55);
   --radius: 0.875rem;
   --radius-lg: 1.25rem;
   --container: 1200px;

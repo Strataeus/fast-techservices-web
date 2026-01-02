@@ -9,11 +9,16 @@ module.exports = {
     extend: {
       colors: {
         primary: '#0B0F17',
+        'primary-dark': '#0a0e1a',
+        'primary-darker': '#030507',
         secondary: '#121826',
         panel: '#121826',
         steel: '#1C2432',
-        accent: '#00C8FF',
-        'accent-soft': '#3DE7FF',
+        accent: '#00d9ff',
+        'accent-bright': '#00ffff',
+        'accent-soft': '#4df3ff',
+        'accent-gold': '#ff9a2e',
+        'accent-gold-dark': '#ff7d00',
         action: '#22C55E',
         'action-strong': '#16A34A',
       },

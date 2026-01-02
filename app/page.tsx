@@ -292,7 +292,7 @@ function WhyRemoteSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Avantages clés</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Pourquoi choisir <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">FAST Remote</span> ?
+            Pourquoi choisir <span className="text-accent-bright">FAST Remote</span> ?
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed">
             Une approche révolutionnaire pour diagnostic et maintenance d'équipements industriels.
@@ -325,7 +325,7 @@ function UseCasesSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Situations typiques</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Cas d&apos;usage <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">courants</span>
+            Cas d&apos;usage <span className="text-accent-bright">courants</span>
           </h2>
           <p className="text-lg text-gray-300">
             Vous reconnaissez l'une de ces situations ? Nous avons la réponse.
@@ -367,7 +367,7 @@ function ProcessSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Processus</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Comment <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">ça marche</span>
+            Comment <span className="text-accent-bright">ça marche</span>
           </h2>
           <p className="text-lg text-gray-300">
             Un processus clair, transparent et optimisé du diagnostic au verdict.
@@ -422,7 +422,7 @@ function EquipmentsSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Spécialités</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Équipements <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">couverts</span>
+            Équipements <span className="text-accent-gold">couverts</span>
           </h2>
           <p className="text-lg text-gray-300">
             Nous maîtrisons le diagnostic de tous les équipements industriels majeurs de garage.
@@ -458,7 +458,7 @@ function OfferingsSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Tarification</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Nos offres <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">transparentes</span>
+            Nos offres <span className="text-accent-bright">transparentes</span>
           </h2>
           <p className="text-lg text-gray-300">
             Aucun frais caché. Devis précis avant chaque intervention.
@@ -522,7 +522,7 @@ function FAQSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Questions fréquentes</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            FAQ <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">& questions</span>
+            FAQ <span className="text-accent-bright">& questions</span>
           </h2>
           <p className="text-lg text-gray-300">
             Réponses rapides aux questions les plus courantes.
@@ -558,7 +558,7 @@ function CTAFinalSection() {
     <SectionBand tone="tech" className="text-center">
       <div className="space-y-8">
         <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-          Résolvez votre <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">problème aujourd'hui</span>
+          Résolvez votre <span className="text-accent-gold">problème aujourd'hui</span>
         </h2>
         <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-200">
           Démarrez <strong>FAST Remote immédiatement</strong> pour un diagnostic en 1-4h. 
@@ -591,7 +591,7 @@ function ContactSection() {
         <div className="glass-card rounded-2xl p-12 border border-accent/30 text-center max-w-3xl mx-auto">
           <p className="eyebrow text-accent uppercase tracking-wider">Prêt à commencer ?</p>
           <h3 className="mt-6 text-4xl md:text-5xl font-bold text-white leading-tight">
-            Contactez <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">FAST Tech Services</span>
+            Contactez <span className="text-accent-bright">FAST Tech Services</span>
           </h3>
           <p className="mt-6 text-lg text-gray-200 leading-relaxed">
             Besoin de clarifier un détail avant de démarrer ? Nos experts sont là pour vous guider et valider la faisabilité de votre demande.
