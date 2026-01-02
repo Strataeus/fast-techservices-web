@@ -69,8 +69,8 @@ export default function ZonePage({ params }: ZonePageProps) {
                 ))}
               </ul>
               <div className="flex flex-wrap gap-3">
-                <Link href="/#contact" className="btn-primary">
-                  Demander un diagnostic
+                <Link href="/fast-remote" className="btn-primary">
+                  Démarrer FAST Remote
                 </Link>
                 <Link href="/zones" className="btn-secondary">
                   Retour aux zones

@@ -9,6 +9,18 @@ const serviceArea =
 
 // TODO: Renseigner NEXT_PUBLIC_CONTACT_EMAIL, NEXT_PUBLIC_CONTACT_PHONE, NEXT_PUBLIC_SERVICE_AREA.
 
+// CTA Canonique - FAST Remote First
+const cta = {
+  primary: {
+    label: "Démarrer FAST Remote",
+    href: "/fast-remote",
+  },
+  secondary: {
+    label: "Demander une intervention sur site",
+    href: "/contact",
+  },
+} as const;
+
 export const siteConfig = {
   name: "FAST Tech Services",
   description:
@@ -26,4 +38,5 @@ export const siteConfig = {
     phone: contactPhone,
     area: serviceArea,
   },
+  cta,
 } as const;

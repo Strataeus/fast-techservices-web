@@ -40,6 +40,13 @@ export default function SiteFooter() {
             </Link>
           ))}
           <Link
+            href={siteConfig.cta.primary.href}
+            className="transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent font-semibold text-accent"
+            aria-label={siteConfig.cta.primary.label}
+          >
+            {siteConfig.cta.primary.label}
+          </Link>
+          <Link
             href="/mentions-legales"
             className="transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >

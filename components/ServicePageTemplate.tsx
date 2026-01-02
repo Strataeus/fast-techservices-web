@@ -107,8 +107,8 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             Preuves exigées, verdict documenté, plan d&apos;actions clair.
           </p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-center">
-            <Link href="/#contact" className="btn btn-primary">
-              Demander un diagnostic
+            <Link href="/fast-remote" className="btn btn-primary">
+              Démarrer FAST Remote
             </Link>
             <Link href="/services" className="btn btn-secondary">
               Voir les autres services
@@ -133,8 +133,8 @@ function Hero({ service }: { service: ServiceItem }) {
         </h1>
         <p className="max-w-3xl text-lg text-gray-200">{service.heroBenefit}</p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/#contact" className="btn btn-primary">
-            Demander un diagnostic
+          <Link href="/fast-remote" className="btn btn-primary">
+            Démarrer FAST Remote
           </Link>
           <Link href="/services" className="btn btn-secondary">
             Retour aux services

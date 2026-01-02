@@ -64,8 +64,8 @@ function HeroSection() {
           décision humaine documentée.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/#contact" className="btn btn-primary">
-            Demander un diagnostic
+          <Link href="/fast-remote" className="btn btn-primary">
+            Démarrer FAST Remote
           </Link>
           <Link href="/services" className="btn btn-secondary">
             Voir les services
@@ -203,8 +203,8 @@ function FinalCTA() {
           Terrain → Preuve → Verdict. Règles non négociables, décision humaine documentée.
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-center">
-          <Link href="/#contact" className="btn btn-primary">
-            Demander un diagnostic
+          <Link href="/fast-remote" className="btn btn-primary">
+            Démarrer FAST Remote
           </Link>
           <Link href="/services" className="btn btn-secondary">
             Voir les services

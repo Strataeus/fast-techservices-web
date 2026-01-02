@@ -91,8 +91,8 @@ export default function ProofPage({ params }: ProofPageProps) {
                 <Link href="/preuves" className="btn-secondary">
                   Retour aux preuves
                 </Link>
-                <Link href="/#contact" className="btn-primary">
-                  Demander un diagnostic
+                <Link href="/fast-remote" className="btn-primary">
+                  Démarrer FAST Remote
                 </Link>
               </div>
             </div>

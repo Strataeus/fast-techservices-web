@@ -69,10 +69,11 @@ export default function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href={isHome ? "#contact" : "/#contact"}
+            href={siteConfig.cta.primary.href}
             className="btn btn-primary hidden px-4 py-2 text-xs md:inline-flex"
+            aria-label={siteConfig.cta.primary.label}
           >
-            Demander un diagnostic
+            {siteConfig.cta.primary.label}
           </Link>
           <button
             type="button"
@@ -104,11 +105,12 @@ export default function SiteHeader() {
             </Link>
           ))}
           <Link
-            href={isHome ? "#contact" : "/#contact"}
-            className="btn btn-primary mt-2 w-full"
+            href={siteConfig.cta.primary.href}
+            className="btn btn-primary mt-2 w-full min-h-[44px] flex items-center justify-center"
             onClick={() => setOpen(false)}
+            aria-label={siteConfig.cta.primary.label}
           >
-            Demander un diagnostic
+            {siteConfig.cta.primary.label}
           </Link>
         </Container>
       </div>
