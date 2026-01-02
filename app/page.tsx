@@ -316,7 +316,7 @@ function ProblemSection() {
       <Container className="space-y-12">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <p className="eyebrow text-accent-gold uppercase tracking-wider">Le défi</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Une panne d'équipement = <span className="text-red-400">48h-1 semaine perdue</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -385,7 +385,7 @@ function WhyRemoteSection() {
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Pourquoi FAST Remote</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             L'expertise <span className="text-accent-bright">sans l'attente</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -442,7 +442,7 @@ function UseCasesSection() {
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent-gold uppercase tracking-wider">✓ Exemples concrets</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Équipements que nous <span className="text-accent-gold">sauvons chaque jour</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -505,7 +505,7 @@ function ProcessSection() {
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent-bright uppercase tracking-wider">⚡ Rapide & transparent</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             4 étapes seulement <span className="text-accent-bright">pour votre verdict</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -594,7 +594,7 @@ function EquipmentsSection() {
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent-gold uppercase tracking-wider">🔧 Notre gamme</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             500+ modèles <span className="text-accent-gold">diagnostiqués avec succès</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -639,7 +639,7 @@ function OfferingsSection() {
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Tarification</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Nos offres <span className="text-accent-bright">transparentes</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -707,7 +707,7 @@ function FAQSection() {
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent-gold uppercase tracking-wider">❓ Les réponses clés</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Questions <span className="text-accent-gold">les plus posées</span>
           </h2>
           <p className="text-lg text-gray-300">
@@ -753,7 +753,7 @@ function CTAFinalSection() {
   return (
     <SectionBand tone="tech" className="text-center">
       <div className="space-y-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+        <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
           Résolvez votre <span className="text-accent-gold">problème aujourd'hui</span>
         </h2>
         <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-200">
