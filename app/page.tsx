@@ -271,7 +271,7 @@ function HeroSection() {
 // =============================================================================
 function WhyRemoteSection() {
   return (
-    <Section className="bg-primary/75">
+    <Section id="services" className="bg-primary/75">
       <Container className="space-y-8">
         <div className="space-y-4">
           <p className="eyebrow text-accent">Avantages clés</p>
@@ -301,7 +301,7 @@ function WhyRemoteSection() {
 // =============================================================================
 function UseCasesSection() {
   return (
-    <Section>
+    <Section id="methode">
       <Container className="space-y-8">
         <div className="space-y-4">
           <p className="eyebrow text-accent">Situations typiques</p>
@@ -402,7 +402,7 @@ function EquipmentsSection() {
 // =============================================================================
 function OfferingsSection() {
   return (
-    <Section className="bg-primary/60">
+    <Section id="preuves" className="bg-primary/60">
       <Container className="space-y-8">
         <div className="space-y-4">
           <p className="eyebrow text-accent">Tarification</p>

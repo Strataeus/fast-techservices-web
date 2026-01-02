@@ -33,7 +33,7 @@ export default function SiteFooter() {
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
-              href={`/${item.href}`}
+              href={item.href.startsWith('#') ? item.href : `/${item.href}`}
               className="transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {item.label}
