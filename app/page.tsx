@@ -5,7 +5,6 @@ import Container from "../components/Container";
 import Section from "../components/ui/Section";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
-import Contact from "../components/Contact";
 import SectionBand from "../components/ui/SectionBand";
 
 export const metadata: Metadata = {
@@ -522,7 +521,7 @@ function CTAFinalSection() {
 }
 
 // =============================================================================
-// Contact Form
+// Contact CTA
 // =============================================================================
 function ContactSection() {
   return (
@@ -538,14 +537,10 @@ function ContactSection() {
           </p>
 
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/contact?objet=fast-remote" className="btn btn-primary">
               Accéder au formulaire
             </Link>
           </div>
-        </div>
-
-        <div id="contact-form" className="mt-8">
-          <Contact />
         </div>
       </Container>
     </Section>

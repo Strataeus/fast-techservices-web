@@ -5,7 +5,6 @@ import Section from '../../components/ui/Section';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import StickyCTA from '../../components/StickyCTA';
-import FormSection from './FormSection';
 
 export const metadata: Metadata = {
   title: 'FAST Remote — Diagnostic & assistance à distance',
@@ -88,7 +87,7 @@ export default function FastRemotePage() {
       <MethodSection />
       <PrerequisitesSection />
       <StartSection />
-      <FormSection />
+      <CTAFormSection />
       <StickyCTA />
     </div>
   );
@@ -276,6 +275,40 @@ function StartSection() {
             className="btn btn-secondary inline-block"
           >
             Appel rapide 10 min
+          </Link>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// CTA to Centralized Form
+// =============================================================================
+function CTAFormSection() {
+  return (
+    <Section id="demarrer" className="bg-primary/60">
+      <Container className="space-y-8">
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">
+            Prêt à démarrer ?
+          </h2>
+          <p className="text-lg text-gray-200">
+            Accédez au formulaire FAST Remote pour une pré-qualification immédiate. Réponse sous 2 heures ouvrables.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/contact?objet=fast-remote"
+            className="btn btn-primary inline-block text-center"
+          >
+            Démarrer FAST Remote
+          </Link>
+          <Link
+            href="/contact"
+            className="btn btn-secondary inline-block text-center"
+          >
+            Voir tous les formulaires
           </Link>
         </div>
       </Container>
