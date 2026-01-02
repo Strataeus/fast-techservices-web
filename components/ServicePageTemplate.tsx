@@ -97,6 +97,21 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
         </Container>
       </Section>
 
+      {/* Bloc remote-first : Avant intervention */}
+      {service.remoteFirstHint && (
+        <Section className="bg-gradient-to-r from-accent/15 via-accent/10 to-transparent border-b border-accent/20">
+          <Container className="max-w-3xl">
+            <div className="rounded-xl border border-accent/30 bg-primary/40 p-6 backdrop-blur-sm">
+              <h3 className="text-lg font-semibold text-white">Avant intervention : FAST Remote</h3>
+              <p className="mt-3 text-gray-300">{service.remoteFirstHint}</p>
+              <Link href="/fast-remote" className="mt-4 inline-flex text-sm font-semibold text-accent transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                Démarrer FAST Remote →
+              </Link>
+            </div>
+          </Container>
+        </Section>
+      )}
+
       <Section>
         <Container className="glass-card text-center">
           <p className="eyebrow">Prendre rendez-vous</p>

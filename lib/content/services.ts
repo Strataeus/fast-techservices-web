@@ -18,6 +18,7 @@ export interface ServiceItem {
   faq: { question: string; answer: string }[];
   metaTitle: string;
   metaDescription: string;
+  remoteFirstHint?: string;
 }
 
 export const services: ServiceItem[] = [
@@ -76,6 +77,8 @@ export const services: ServiceItem[] = [
     metaTitle: "Diagnostic & dépannage | FAST Tech Services",
     metaDescription:
       "Diagnostic structuré, preuves terrain et remise en service sécurisée des équipements industriels.",
+    remoteFirstHint:
+      "Avant de planifier une intervention terrain, un diagnostic guidé à distance (FAST Remote) permet une pré-qualification rapide et des preuves évidentes.",
   },
   {
     slug: "maintenance-industrielle",
@@ -130,6 +133,8 @@ export const services: ServiceItem[] = [
     metaTitle: "Maintenance industrielle | FAST Tech Services",
     metaDescription:
       "Maintenance électromécanique conditionnelle/planifiée avec mesures, tendances et plan d'actions priorisé.",
+    remoteFirstHint:
+      "Commencer par un diagnostic FAST Remote permet une identification rapide des dérives et une priorisation éclairée du plan de maintenance.",
   },
   {
     slug: "interventions-terrain",
@@ -184,6 +189,8 @@ export const services: ServiceItem[] = [
     metaTitle: "Interventions terrain | FAST Tech Services",
     metaDescription:
       "Prise en charge sur site des situations critiques avec sécurisation, preuves et verdict documenté.",
+    remoteFirstHint:
+      "Une session FAST Remote préalable peut sécuriser la situation et documenter les preuves essentielles avant une mobilisation terrain.",
   },
   {
     slug: "fast-remote",

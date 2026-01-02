@@ -88,7 +88,7 @@ export default function Services() {
         {services.map((service) => (
           <article
             key={service.slug}
-            className="glass-card group rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_40px_rgba(0,200,255,0.2)] motion-reduce:transform-none"
+            className="glass-card group rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_40px_rgba(0,200,255,0.2)] motion-reduce:transform-none flex flex-col"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-primary/70 text-accent shadow-[0_0_20px_rgba(0,200,255,0.2)]">
               {icons[service.slug]}
@@ -98,12 +98,22 @@ export default function Services() {
             <p className="mt-3 text-xs uppercase tracking-[0.2em] text-accent">
               {service.result}
             </p>
-            <Link
-              href={`/services/${service.slug}`}
-              className="mt-4 inline-flex text-sm font-semibold text-accent transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              Voir le détail →
-            </Link>
+            <div className="mt-4 flex flex-col gap-2">
+              <Link
+                href={`/services/${service.slug}`}
+                className="inline-flex text-sm font-semibold text-accent transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                Voir le détail →
+              </Link>
+              {service.slug !== "fast-remote" && (
+                <Link
+                  href="/fast-remote"
+                  className="inline-flex text-xs font-semibold text-accent/70 transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  Commencer par FAST Remote →
+                </Link>
+              )}
+            </div>
           </article>
         ))}
       </div>

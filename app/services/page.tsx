@@ -15,6 +15,28 @@ export const metadata: Metadata = {
 export default function ServicesHubPage() {
   return (
     <div className="relative">
+      {/* Bandeau remote-first en haut */}
+      <Section className="bg-gradient-to-r from-accent/20 via-accent/10 to-transparent border-b border-accent/30">
+        <Container className="text-center">
+          <Badge className="w-fit bg-accent/10 text-white border border-accent/30">Approche recommandée</Badge>
+          <h2 className="mt-4 text-2xl font-semibold text-white md:text-3xl">
+            Le plus rapide : commencer par FAST Remote
+          </h2>
+          <p className="mt-2 max-w-2xl mx-auto text-gray-300">
+            Pré-qualification à distance, preuves capturées, préparation de l'intervention terrain.
+          </p>
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/fast-remote" className="btn btn-primary">
+              Démarrer FAST Remote →
+            </Link>
+            <Link href="/contact" className="btn btn-secondary">
+              Ou nous contacter
+            </Link>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Liste des services */}
       <Section>
         <Container className="space-y-6">
           <Badge className="w-fit bg-accent/10 text-white">Services</Badge>
