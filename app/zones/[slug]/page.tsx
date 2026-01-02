@@ -10,8 +10,9 @@ export function generateStaticParams() {
   return zones.map((zone) => ({ slug: zone.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: ZoneSlug } }) {
-  const zone = zoneBySlug[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: ZoneSlug }> }) {
+  const { slug } = await params;
+  const zone = zoneBySlug[slug];
 
   if (!zone) {
     return { title: "Zone d'intervention | FAST Tech Services" };
@@ -24,11 +25,12 @@ export function generateMetadata({ params }: { params: { slug: ZoneSlug } }) {
 }
 
 interface ZonePageProps {
-  params: { slug: ZoneSlug };
+  params: Promise<{ slug: ZoneSlug }>;
 }
 
-export default function ZonePage({ params }: ZonePageProps) {
-  const zone = zoneBySlug[params.slug];
+export default async function ZonePage({ params }: ZonePageProps) {
+  const { slug } = await params;
+  const zone = zoneBySlug[slug];
 
   if (!zone) {
     notFound();

@@ -10,8 +10,9 @@ export function generateStaticParams() {
   return proofs.map((proof) => ({ slug: proof.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: ProofSlug } }) {
-  const proof = proofBySlug[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: ProofSlug }> }) {
+  const { slug } = await params;
+  const proof = proofBySlug[slug];
 
   if (!proof) {
     return { title: "Preuve | FAST Tech Services" };
@@ -24,11 +25,12 @@ export function generateMetadata({ params }: { params: { slug: ProofSlug } }) {
 }
 
 interface ProofPageProps {
-  params: { slug: ProofSlug };
+  params: Promise<{ slug: ProofSlug }>;
 }
 
-export default function ProofPage({ params }: ProofPageProps) {
-  const proof = proofBySlug[params.slug];
+export default async function ProofPage({ params }: ProofPageProps) {
+  const { slug } = await params;
+  const proof = proofBySlug[slug];
 
   if (!proof) {
     notFound();

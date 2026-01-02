@@ -27,10 +27,9 @@ export const siteConfig = {
     "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
   nav: [
     { label: "Accueil", href: "#top" },
-    { label: "Services", href: "#services" },
-    { label: "FAST Remote", href: "#remote" },
+    { label: "Services", href: "services" },
     { label: "Méthode", href: "methode" },
-    { label: "À propos", href: "#apropos" },
+    { label: "Preuves", href: "preuves" },
     { label: "Contact", href: "#contact" },
   ],
   contact: {
