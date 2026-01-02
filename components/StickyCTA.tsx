@@ -13,11 +13,11 @@ export default function StickyCTA() {
           {siteConfig.cta.primary.label}
         </Link>
         <Link
-          href="/contact"
+          href={siteConfig.cta.secondary.href}
           className="btn btn-secondary px-5 py-3 text-xs uppercase tracking-[0.28em] border border-white/20 text-white/80 hover:text-white transition-colors whitespace-nowrap"
-          aria-label="Appel rapide 10 min"
+          aria-label={siteConfig.cta.secondary.label}
         >
-          Appel 10 min
+          {siteConfig.cta.secondary.label?.split(' ')[0]} {siteConfig.cta.secondary.label?.split(' ')[1]?.slice(0, 2)}
         </Link>
       </div>
       <div className="fixed bottom-0 left-0 right-0 z-[70] md:hidden">
@@ -30,11 +30,11 @@ export default function StickyCTA() {
             {siteConfig.cta.primary.label}
           </Link>
           <Link
-            href="/contact"
+            href={siteConfig.cta.secondary.href}
             className="flex-1 border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white rounded-md transition-colors hover:border-white/40 min-h-[44px] flex items-center justify-center"
-            aria-label="Appel rapide 10 min"
+            aria-label={siteConfig.cta.secondary.label}
           >
-            Appel
+            {siteConfig.cta.secondary.label?.split(' ')[0]}
           </Link>
         </div>
       </div>

@@ -74,29 +74,19 @@ export default function SiteHeader() {
             let href = item.href;
             let isActive = false;
             
-            // Transforme les ancres en routes ("#services" → "/services")
-            if (item.href.startsWith("#")) {
-              href = "/" + item.href.slice(1);
-            }
-            
             // Vérifier si le lien est actif
             if (isHome) {
-              // Sur HOME : utiliser le scrolling pour marquer l'ancre active
-              if (item.href.startsWith("#")) {
-                isActive = active === item.href;
-              } else if (item.href === "/") {
-                // "Accueil" est actif sur HOME
-                isActive = true;
-              }
+              // Sur HOME : comparer les chemins
+              isActive = pathname === item.href;
             } else {
               // Sur d'autres pages : comparer les chemins
-              isActive = pathname === href;
+              isActive = pathname === item.href;
             }
             
             return (
               <Link
                 key={item.href}
-                href={href}
+                href={item.href}
                 className={`text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                   isActive
                     ? "text-accent"
@@ -137,24 +127,14 @@ export default function SiteHeader() {
       >
         <Container className="flex flex-col gap-3">
           {items.map((item) => {
-            // Toujours transformer les ancres en routes réelles pour navigation cohérente
+            // Sur HOME : garder les routes normales (plus d'ancres en config)
             let href = item.href;
             let isActive = false;
             
-            // Transforme les ancres en routes ("#services" → "/services")
-            if (item.href.startsWith("#")) {
-              href = "/" + item.href.slice(1);
-            }
-            
             // Vérifier si le lien est actif
             if (isHome) {
-              // Sur HOME : utiliser le scrolling pour marquer l'ancre active
-              if (item.href.startsWith("#")) {
-                isActive = active === item.href;
-              } else if (item.href === "/") {
-                // "Accueil" est actif sur HOME
-                isActive = true;
-              }
+              // Sur HOME : comparer les chemins
+              isActive = pathname === href;
             } else {
               // Sur d'autres pages : comparer les chemins
               isActive = pathname === href;

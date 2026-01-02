@@ -24,10 +24,10 @@ export const siteConfig = {
   nav: [
     { label: "Accueil", href: "/" },
     { label: "FAST Remote", href: "/fast-remote" },
-    { label: "Services", href: "#services" },
-    { label: "Méthode", href: "#methode" },
-    { label: "Preuves", href: "#preuves" },
-    { label: "Contact", href: "#contact" },
+    { label: "Services", href: "/services" },
+    { label: "Méthode", href: "/methode" },
+    { label: "Preuves", href: "/preuves" },
+    { label: "Contact", href: "/contact" },
   ],
   contact: {
     email: contactEmail,
