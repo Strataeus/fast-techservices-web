@@ -315,7 +315,7 @@ function ProblemSection() {
     <Section id="problem" className="bg-primary-darker">
       <Container className="space-y-12">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent-gold uppercase tracking-wider">Le défi</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">Le défi</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Une panne d'équipement = <span className="text-red-400">48h-1 semaine perdue</span>
           </h2>
@@ -384,7 +384,7 @@ function WhyRemoteSection() {
     <Section id="avantages" className="bg-gradient-to-b from-primary-dark via-primary/75 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent uppercase tracking-wider">Pourquoi FAST Remote</p>
+          <p className="eyebrow text-accent uppercase tracking-wider">Pourquoi FAST Remote</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             L'expertise <span className="text-accent-bright">sans l'attente</span>
           </h2>
@@ -441,7 +441,7 @@ function UseCasesSection() {
     <Section id="cas-usage" className="bg-gradient-to-b from-primary/60 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent-gold uppercase tracking-wider">✓ Exemples concrets</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">✓ Exemples concrets</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Équipements que nous <span className="text-accent-gold">sauvons chaque jour</span>
           </h2>
@@ -504,7 +504,7 @@ function ProcessSection() {
     <Section id="process" className="bg-primary-dark">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent-bright uppercase tracking-wider">⚡ Rapide & transparent</p>
+          <p className="eyebrow text-accent-bright uppercase tracking-wider">⚡ Rapide & transparent</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             4 étapes seulement <span className="text-accent-bright">pour votre verdict</span>
           </h2>
@@ -593,7 +593,7 @@ function EquipmentsSection() {
     <Section id="equipements" className="bg-gradient-to-b from-primary/75 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent-gold uppercase tracking-wider">🔧 Notre gamme</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">🔧 Notre gamme</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             500+ modèles <span className="text-accent-gold">diagnostiqués avec succès</span>
           </h2>
@@ -638,7 +638,7 @@ function OfferingsSection() {
     <Section id="offres" className="bg-primary-dark">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent uppercase tracking-wider">Tarification</p>
+          <p className="eyebrow text-accent uppercase tracking-wider">Tarification</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Nos offres <span className="text-accent-bright">transparentes</span>
           </h2>
@@ -706,7 +706,7 @@ function FAQSection() {
     <Section id="faq" className="bg-gradient-to-b from-primary/75 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-xl md:text-2xl lg:text-3xl text-accent-gold uppercase tracking-wider">❓ Les réponses clés</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">❓ Les réponses clés</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             Questions <span className="text-accent-gold">les plus posées</span>
           </h2>
