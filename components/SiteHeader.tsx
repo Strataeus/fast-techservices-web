@@ -18,14 +18,21 @@ export default function SiteHeader() {
       return;
     }
 
-    const sections = items
-      .map((item) => document.querySelector(item.href))
-      .filter(Boolean) as HTMLElement[];
+    // Find all sections and those with missing elements
+    const sectionsMap = new Map<string, HTMLElement>();
+    items.forEach((item) => {
+      const element = document.querySelector(item.href);
+      if (element instanceof HTMLElement) {
+        sectionsMap.set(item.href, element);
+      }
+    });
 
-    if (!sections.length) {
+    // If no sections found, don't set up observer
+    if (sectionsMap.size === 0) {
       return;
     }
 
+    // Create observer with improved threshold handling
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,10 +41,14 @@ export default function SiteHeader() {
           }
         });
       },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0.2 }
+      { 
+        rootMargin: "-45% 0px -45% 0px", 
+        threshold: [0, 0.2, 0.5, 1] 
+      }
     );
 
-    sections.forEach((section) => observer.observe(section));
+    // Observe all found sections
+    sectionsMap.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
   }, [isHome, items]);
