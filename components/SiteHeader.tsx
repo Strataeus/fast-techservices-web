@@ -73,9 +73,16 @@ export default function SiteHeader() {
             // Sur HOME : utilise l'ancre directement
             // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
             let href = item.href;
+            let isActive = active === item.href; // Par défaut, vérifie le scrolling (HOME)
+            
             if (!isHome && item.href.startsWith("#")) {
               // Transforme "#services" en "/services", "#methode" en "/methode", etc.
               href = "/" + item.href.slice(1);
+              // Sur d'autres pages, vérifie si le lien correspond au pathname
+              isActive = pathname === href;
+            } else if (!isHome && !item.href.startsWith("#")) {
+              // Pour les liens qui ne sont pas des ancres (ex: /fast-remote)
+              isActive = pathname === item.href;
             }
             
             return (
@@ -83,11 +90,11 @@ export default function SiteHeader() {
                 key={item.href}
                 href={href}
                 className={`text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
-                  active === item.href
+                  isActive
                     ? "text-accent"
                     : "text-gray-300 hover:text-accent-soft"
                 }`}
-                aria-current={active === item.href ? "page" : undefined}
+                aria-current={isActive ? "page" : undefined}
               >
                 {item.label}
               </Link>
@@ -125,15 +132,24 @@ export default function SiteHeader() {
             // Sur HOME : utilise l'ancre directement
             // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
             let href = item.href;
+            let isActive = active === item.href; // Par défaut, vérifie le scrolling (HOME)
+            
             if (!isHome && item.href.startsWith("#")) {
               href = "/" + item.href.slice(1);
+              // Sur d'autres pages, vérifie si le lien correspond au pathname
+              isActive = pathname === href;
+            } else if (!isHome && !item.href.startsWith("#")) {
+              // Pour les liens qui ne sont pas des ancres (ex: /fast-remote)
+              isActive = pathname === item.href;
             }
             
             return (
               <Link
                 key={item.href}
                 href={href}
-                className="text-sm text-gray-300 transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className={`text-sm transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                  isActive ? "text-accent" : "text-gray-300"
+                }`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
