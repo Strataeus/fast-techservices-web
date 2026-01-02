@@ -7,6 +7,9 @@ import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
 import SectionBand from "../components/ui/SectionBand";
 import VideoIntro from "../components/VideoIntro";
+import ImagePlaceholder from "../components/ImagePlaceholder";
+import Testimonials from "../components/Testimonials";
+import SuccessStories from "../components/SuccessStories";
 
 export const metadata: Metadata = {
   title: "FAST Remote — Diagnostic & assistance à distance pour équipements de garage automobile",
@@ -198,11 +201,17 @@ export default function HomePage() {
       {/* D) Comment ça marche */}
       <ProcessSection />
 
+      {/* SUCCESS STORIES - Avant/Après */}
+      <SuccessStories />
+
       {/* E) Équipements couverts */}
       <EquipmentsSection />
 
       {/* F) Offres */}
       <OfferingsSection />
+
+      {/* TÉMOIGNAGES - Cas réussis */}
+      <Testimonials />
 
       {/* G) FAQ */}
       <FAQSection />
@@ -279,20 +288,23 @@ function HeroSection() {
 function WhyRemoteSection() {
   return (
     <Section id="avantages" className="bg-primary/75">
-      <Container className="space-y-8">
-        <div className="space-y-4">
-          <p className="eyebrow text-accent">Avantages clés</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            Pourquoi FAST Remote ?
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Avantages clés</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Pourquoi choisir <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">FAST Remote</span> ?
           </h2>
+          <p className="text-lg text-gray-300 leading-relaxed">
+            Une approche révolutionnaire pour diagnostic et maintenance d'équipements industriels.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {remoteBenefits.map((benefit) => (
-            <Card key={benefit.title} className="glass-card border border-accent/20 p-6">
-              <div className="text-3xl mb-3">{benefit.icon}</div>
-              <h3 className="font-semibold text-white text-lg">{benefit.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-gray-200">
+            <Card key={benefit.title} className="glass-card border border-accent/20 p-8 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,200,255,0.15)] transition-all">
+              <div className="text-4xl mb-4">{benefit.icon}</div>
+              <h3 className="font-bold text-white text-xl">{benefit.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-gray-200">
                 {benefit.description}
               </p>
             </Card>
@@ -304,29 +316,41 @@ function WhyRemoteSection() {
 }
 
 // =============================================================================
-// C) CAS D'USAGE (3 cartes)
+// C) CAS D'USAGE (3 cartes + image)
 // =============================================================================
 function UseCasesSection() {
   return (
-    <Section id="cas-usage">
-      <Container className="space-y-8">
-        <div className="space-y-4">
-          <p className="eyebrow text-accent">Situations typiques</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            Cas d&apos;usage
+    <Section id="cas-usage" className="bg-primary/60">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Situations typiques</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Cas d&apos;usage <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">courants</span>
           </h2>
+          <p className="text-lg text-gray-300">
+            Vous reconnaissez l'une de ces situations ? Nous avons la réponse.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {useCases.map((useCase) => (
-            <Card key={useCase.title} className="glass-card border border-white/10 p-6 hover:border-accent/40 transition">
-              <div className="text-3xl mb-3">{useCase.icon}</div>
-              <h3 className="font-semibold text-white text-lg">{useCase.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-gray-200">
+            <Card key={useCase.title} className="glass-card border border-white/10 p-8 hover:border-accent/40 transition-all hover:shadow-[0_0_20px_rgba(0,200,255,0.1)]">
+              <div className="text-4xl mb-4">{useCase.icon}</div>
+              <h3 className="font-bold text-white text-xl">{useCase.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-gray-200">
                 {useCase.description}
               </p>
             </Card>
           ))}
+        </div>
+
+        {/* Illustration placeholder */}
+        <div className="mt-12 rounded-2xl overflow-hidden">
+          <ImagePlaceholder 
+            label="Galerie photos des équipements" 
+            height="h-96"
+            className="border-accent/20 hover:border-accent/40"
+          />
         </div>
       </Container>
     </Section>
@@ -334,37 +358,54 @@ function UseCasesSection() {
 }
 
 // =============================================================================
-// D) COMMENT ÇA MARCHE (4 étapes)
+// D) COMMENT ÇA MARCHE (4 étapes + timeline visuel)
 // =============================================================================
 function ProcessSection() {
   return (
-    <Section id="process" className="bg-primary/60">
-      <Container className="space-y-8">
-        <div className="space-y-4">
-          <p className="eyebrow text-accent">Processus</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            Comment ça marche
+    <Section id="process" className="bg-primary-dark">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Processus</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Comment <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">ça marche</span>
           </h2>
+          <p className="text-lg text-gray-300">
+            Un processus clair, transparent et optimisé du diagnostic au verdict.
+          </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-4">
           {processSteps.map((step) => (
-            <Card key={step.number} className="glass-card border border-accent/20 p-6">
-              <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-accent/20 border border-accent/40 mb-4">
-                <span className="text-lg font-bold text-accent">{step.number}</span>
+            <Card key={step.number} className="glass-card border border-accent/20 p-8 hover:border-accent/50 transition-all">
+              <div className="inline-flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/40 mb-6">
+                <span className="text-xl font-bold text-accent">{step.number}</span>
               </div>
-              <h3 className="font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-200">
+              <h3 className="font-bold text-white text-lg">{step.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-gray-200">
                 {step.description}
               </p>
             </Card>
           ))}
         </div>
 
-        <div className="mt-8 p-6 rounded-lg bg-accent/10 border border-accent/20">
-          <p className="text-center text-gray-100">
-            ⏱️ Durée totale : <strong>1-4h entre pré-qualification et verdict</strong>
-          </p>
+        <div className="mt-8 p-8 rounded-lg bg-gradient-to-r from-accent/20 to-blue-500/20 border border-accent/30">
+          <div className="text-center">
+            <p className="text-lg text-gray-100">
+              ⏱️ <strong>Durée totale : 1-4h</strong> entre pré-qualification et verdict écrit
+            </p>
+            <p className="text-sm text-gray-300 mt-2">
+              Disponibilité : 24-72h. Urgences : nous consulter directement.
+            </p>
+          </div>
+        </div>
+
+        {/* Process visual placeholder */}
+        <div className="mt-12 rounded-2xl overflow-hidden">
+          <ImagePlaceholder 
+            label="Diagramme du processus FAST Remote" 
+            height="h-96"
+            className="border-accent/30 hover:border-accent/50"
+          />
         </div>
       </Container>
     </Section>
@@ -376,26 +417,29 @@ function ProcessSection() {
 // =============================================================================
 function EquipmentsSection() {
   return (
-    <Section id="equipements">
-      <Container className="space-y-8">
-        <div className="space-y-4">
-          <p className="eyebrow text-accent">Spécialités</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            Équipements couverts
+    <Section id="equipements" className="bg-primary/75">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Spécialités</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Équipements <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">couverts</span>
           </h2>
+          <p className="text-lg text-gray-300">
+            Nous maîtrisons le diagnostic de tous les équipements industriels majeurs de garage.
+          </p>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {equipmentsCovered.map((equipment) => (
-            <Card key={equipment} className="flex items-center gap-3 glass-card border border-white/10 p-4">
-              <span className="text-accent font-bold text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-100">{equipment}</span>
+            <Card key={equipment} className="flex items-center gap-4 glass-card border border-white/10 p-6 hover:border-accent/40 transition-all">
+              <span className="text-2xl font-bold text-accent flex-shrink-0">✓</span>
+              <span className="text-base text-gray-100 leading-tight">{equipment}</span>
             </Card>
           ))}
         </div>
 
-        <div className="mt-8 p-6 rounded-lg bg-accent/10 border border-accent/20">
-          <p className="text-center text-gray-100">
+        <div className="mt-8 p-8 rounded-lg bg-gradient-to-r from-accent/20 to-blue-500/20 border border-accent/30 text-center">
+          <p className="text-gray-100 text-lg">
             Autres équipements ? <strong>Contactez-nous pour valider la faisabilité.</strong>
           </p>
         </div>
@@ -405,43 +449,46 @@ function EquipmentsSection() {
 }
 
 // =============================================================================
-// F) OFFRES (3 cartes)
+// F) OFFRES (3 cartes de pricing)
 // =============================================================================
 function OfferingsSection() {
   return (
-    <Section id="offres" className="bg-primary/60">
-      <Container className="space-y-8">
-        <div className="space-y-4">
-          <p className="eyebrow text-accent">Tarification</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            Nos offres
+    <Section id="offres" className="bg-primary-dark">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Tarification</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            Nos offres <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">transparentes</span>
           </h2>
+          <p className="text-lg text-gray-300">
+            Aucun frais caché. Devis précis avant chaque intervention.
+          </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {offerings.map((offer) => (
             <Card
               key={offer.title}
-              className={`relative p-8 rounded-xl border transition ${
+              className={`relative p-10 rounded-2xl border transition-all ${
                 offer.primary
-                  ? "bg-gradient-to-br from-accent/20 to-accent/5 border-accent/40 ring-2 ring-accent/20"
-                  : "glass-card border-white/10 hover:border-accent/40"
+                  ? "bg-gradient-to-br from-accent/20 to-accent/5 border-accent/50 ring-2 ring-accent/30 shadow-[0_0_40px_rgba(0,200,255,0.2)]"
+                  : "glass-card border-white/10 hover:border-accent/40 hover:shadow-[0_0_30px_rgba(0,200,255,0.1)]"
               }`}
             >
               {offer.badge && (
-                <Badge className={offer.primary ? "bg-accent/30 text-accent" : "bg-white/10 text-white/80"}>
+                <Badge className={offer.primary ? "bg-accent/30 text-accent font-bold" : "bg-white/10 text-white/80"}>
                   {offer.badge}
                 </Badge>
               )}
 
-              <h3 className="mt-4 text-xl font-semibold text-white">{offer.title}</h3>
-              <p className="mt-2 text-2xl font-bold text-accent">{offer.price}</p>
-              <p className="mt-2 text-sm text-gray-200">{offer.description}</p>
+              <h3 className="mt-6 text-2xl font-bold text-white">{offer.title}</h3>
+              <p className="mt-3 text-3xl font-bold text-accent">{offer.price}</p>
+              <p className="mt-4 text-base text-gray-200">{offer.description}</p>
 
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-8 space-y-4">
                 {offer.benefits.map((benefit) => (
-                  <li key={benefit} className="flex gap-2 text-sm text-gray-100">
-                    <span className="text-accent flex-shrink-0">✓</span>
+                  <li key={benefit} className="flex gap-3 text-base text-gray-100">
+                    <span className="text-accent flex-shrink-0 font-bold text-lg">✓</span>
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -449,10 +496,10 @@ function OfferingsSection() {
 
               <Link
                 href={offer.href}
-                className={`mt-8 block w-full rounded-md px-4 py-3 text-center font-semibold transition-colors ${
+                className={`mt-10 block w-full rounded-lg px-6 py-4 text-center font-bold transition-all text-lg ${
                   offer.primary
-                    ? "bg-action text-white hover:bg-action-strong"
-                    : "border border-accent/50 text-accent hover:border-accent-soft hover:text-accent-soft"
+                    ? "bg-gradient-to-r from-action to-green-500 text-white hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]"
+                    : "border-2 border-accent/50 text-accent hover:border-accent hover:bg-accent/10"
                 }`}
               >
                 {offer.cta}
@@ -470,25 +517,29 @@ function OfferingsSection() {
 // =============================================================================
 function FAQSection() {
   return (
-    <Section id="faq">
-      <Container className="space-y-8">
-        <div className="space-y-4">
-          <p className="eyebrow text-accent">Questions fréquentes</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">
-            FAQ
+    <Section id="faq" className="bg-primary/75">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Questions fréquentes</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            FAQ <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">& questions</span>
           </h2>
+          <p className="text-lg text-gray-300">
+            Réponses rapides aux questions les plus courantes.
+          </p>
         </div>
 
-        <div className="grid gap-4 max-w-3xl">
+        <div className="grid gap-4 max-w-4xl">
           {faqs.map((faq, idx) => (
             <details
               key={idx}
-              className="group rounded-lg border border-white/10 bg-white/5 p-4 transition hover:bg-white/10 hover:border-accent/30"
+              className="group rounded-xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10 hover:border-accent/30 cursor-pointer"
             >
-              <summary className="cursor-pointer font-semibold text-white group-open:text-accent transition">
-                {faq.q}
+              <summary className="font-bold text-lg text-white group-open:text-accent transition flex justify-between items-center">
+                <span>{faq.q}</span>
+                <span className="text-accent group-open:rotate-45 transition">+</span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-gray-200">
+              <p className="mt-4 text-base leading-relaxed text-gray-200">
                 {faq.a}
               </p>
             </details>
@@ -505,21 +556,23 @@ function FAQSection() {
 function CTAFinalSection() {
   return (
     <SectionBand tone="tech" className="text-center">
-      <div className="space-y-6">
-        <h2 className="text-3xl font-semibold text-white md:text-4xl">
-          Prêt à résoudre votre problème ?
+      <div className="space-y-8">
+        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          Résolvez votre <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">problème aujourd'hui</span>
         </h2>
-        <p className="max-w-2xl mx-auto text-base leading-relaxed text-gray-200">
-          Démarrez <strong>FAST Remote immédiatement</strong> ou demandez une intervention terrain.
+        <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-200">
+          Démarrez <strong>FAST Remote immédiatement</strong> pour un diagnostic en 1-4h. 
           <br />
-          Réponse garantie dans les <strong>2 heures</strong>.
+          Ou demandez une <strong>intervention terrain</strong> pour les réparations complexes.
+          <br />
+          <strong className="text-accent">Réponse garantie : 2 heures</strong>
         </p>
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:justify-center pt-4">
-          <Link href="/fast-remote" className="btn btn-primary">
+        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center pt-6">
+          <Link href="/fast-remote" className="btn btn-primary px-8 py-4 text-lg">
             Démarrer FAST Remote
           </Link>
-          <Link href="/contact" className="btn btn-secondary">
+          <Link href="/contact" className="btn btn-secondary px-8 py-4 text-lg">
             Demander une intervention
           </Link>
         </div>
@@ -534,19 +587,22 @@ function CTAFinalSection() {
 function ContactSection() {
   return (
     <Section id="contact">
-      <Container className="space-y-6">
-        <div className="glass-card rounded-xl p-8 border border-white/10 text-center">
-          <p className="eyebrow">Prêt à commencer ?</p>
-          <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
-            Contactez FAST Tech Services
+      <Container className="space-y-8">
+        <div className="glass-card rounded-2xl p-12 border border-accent/30 text-center max-w-3xl mx-auto">
+          <p className="eyebrow text-accent uppercase tracking-wider">Prêt à commencer ?</p>
+          <h3 className="mt-6 text-4xl md:text-5xl font-bold text-white leading-tight">
+            Contactez <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">FAST Tech Services</span>
           </h3>
-          <p className="mt-3 text-gray-200">
-            Besoin de clarifier un détail avant de démarrer ? Nos experts sont là pour vous guider.
+          <p className="mt-6 text-lg text-gray-200 leading-relaxed">
+            Besoin de clarifier un détail avant de démarrer ? Nos experts sont là pour vous guider et valider la faisabilité de votre demande.
           </p>
 
-          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link href="/contact?objet=fast-remote" className="btn btn-primary">
-              Accéder au formulaire
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/contact?objet=fast-remote" className="btn btn-primary px-8 py-4 text-lg">
+              Accéder au formulaire de contact
+            </Link>
+            <Link href="#avantages" className="btn btn-secondary px-8 py-4 text-lg">
+              Remonter au contenu
             </Link>
           </div>
         </div>

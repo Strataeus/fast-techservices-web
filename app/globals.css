@@ -100,7 +100,13 @@ body > * {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 0;
+  }
 }
 
 .glass-card {
