@@ -4,7 +4,7 @@ import { proofs } from "../lib/content/proofs";
 import { zones } from "../lib/content/zones";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://fast-techservices.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://fast-techservices.com";
   const staticRoutes = [
     "",
     "/services",

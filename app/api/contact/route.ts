@@ -34,6 +34,7 @@ export async function POST(request: Request) {
     );
   }
 
+  // Log submission for development
   if (process.env.NODE_ENV !== "production") {
     console.log(`[${new Date().toISOString()}] FORM_SUBMISSION (${formType || 'unknown'}):`, {
       ...body,
@@ -41,15 +42,56 @@ export async function POST(request: Request) {
     });
   }
 
-  // TODO: Integrate email provider (SendGrid, Mailgun, etc.)
-  // Required env in production: SENDGRID_API_KEY or MAILGUN_API_KEY
-  // Example:
-  // if (process.env.SENDGRID_API_KEY) {
-  //   await sendEmail({ to: email, subject: '...', ... });
+  // ============================================
+  // BACKEND INTEGRATION POINT
+  // ============================================
+  // Replace this with actual backend call when ready:
+  // 
+  // const backendUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+  // if (!backendUrl) {
+  //   return NextResponse.json(
+  //     { ok: false, error: "backend_not_configured" },
+  //     { status: 500 }
+  //   );
+  // }
+  //
+  // try {
+  //   const backendResponse = await fetch(`${backendUrl}/api/contact`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${process.env.BACKEND_API_KEY}`,
+  //     },
+  //     body: JSON.stringify({
+  //       formType,
+  //       nom,
+  //       email,
+  //       tel,
+  //       ...body,
+  //       submittedAt: new Date().toISOString(),
+  //       ipAddress: ip,
+  //     }),
+  //   });
+  //
+  //   if (!backendResponse.ok) {
+  //     throw new Error(`Backend error: ${backendResponse.status}`);
+  //   }
+  //
+  //   const result = await backendResponse.json();
+  //   return NextResponse.json({ ok: true, ...result });
+  // } catch (error) {
+  //   console.error('Backend integration error:', error);
+  //   return NextResponse.json(
+  //     { ok: false, error: "backend_error" },
+  //     { status: 500 }
+  //   );
   // }
 
+  // For now, simply acknowledge receipt
+  // Backend will handle email sending, database storage, etc.
   return NextResponse.json({
     ok: true,
     message: "Formulaire reçu avec succès. Nous vous recontacterons bientôt.",
   });
 }
+

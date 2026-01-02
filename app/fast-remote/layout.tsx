@@ -8,9 +8,15 @@ export const metadata: Metadata = {
     title: 'FAST Remote | Diagnostic à distance',
     description: 'Diagnostic guidé à distance avec preuves terrain. Verdict rapide en 1-2h.',
     type: 'website',
+    url: 'https://fast-techservices.com/fast-remote',
+  },
+  twitter: {
+    title: 'FAST Remote | Diagnostic à distance',
+    description: 'Diagnostic guidé à distance avec preuves terrain. Verdict rapide en 1-2h.',
+    card: 'summary_large_image',
   },
 };
 
 export default function FastRemoteLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <>{children}</>;
 }
