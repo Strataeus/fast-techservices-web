@@ -222,8 +222,8 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <>
-      {/* Image hero pure sans texte ni assombrissement */}
-      <section id="top" className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      {/* Image hero bandeau pur - sans texte */}
+      <section id="top" className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
         <Image
           src="/hero/home/fast-hero.png"
           alt="FAST Remote : diagnostic à distance"
