@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "../components/Container";
 import Section from "../components/ui/Section";
-import Card from "../components/ui/Card";
-import Badge from "../components/ui/Badge";
 import SectionBand from "../components/ui/SectionBand";
 import VideoIntro from "../components/VideoIntro";
 import ImagePlaceholder from "../components/ImagePlaceholder";
@@ -174,14 +172,7 @@ const faqs = [
 ];
 
 // =============================================================================
-// Assurances et promesses
 // =============================================================================
-const reassurance = [
-  "Réponse rapide",
-  "Méthode rigoureuse",
-  "Sécurité d'abord",
-  "Traçabilité complète",
-];
 
 export default function HomePage() {
   return (
@@ -191,6 +182,9 @@ export default function HomePage() {
 
       {/* A) HERO */}
       <HeroSection />
+
+      {/* PROBLEM */}
+      <ProblemSection />
 
       {/* B) Pourquoi FAST Remote */}
       <WhyRemoteSection />
@@ -226,7 +220,7 @@ export default function HomePage() {
 }
 
 // =============================================================================
-// A) HERO SECTION
+// A) HERO SECTION - Maximum impact
 // =============================================================================
 function HeroSection() {
   return (
@@ -242,39 +236,70 @@ function HeroSection() {
         />
       </section>
 
-      {/* Texte et CTA en dessous du hero */}
-      <Section className="bg-primary/95">
-        <Container className="space-y-8">
-          <div className="space-y-4">
-            <Badge className="w-fit bg-accent/20 text-white">FAST TECH SERVICES</Badge>
-
-            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-              Diagnostic, maintenance &amp; dépannage pour équipements de garage
+      {/* Value proposition - Direct & Clear */}
+      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
+        <Container className="space-y-10 max-w-4xl">
+          <div className="space-y-6 animate-fade-in-up">
+            {/* Main headline - problem/solution */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
+              Équipement bloqué?
+              <br />
+              <span className="text-accent-bright">Diagnostic en 2h</span>
             </h1>
 
-            <p className="max-w-3xl text-lg leading-relaxed text-gray-100 md:text-xl">
-              Spécialistes en diagnostic à distance et interventions terrain pour <strong>ponts élévateurs, compresseurs, cabines de peinture</strong> et automatismes associés. 
-              Approche structurée, preuves documentées, verdicts rapides.
+            {/* Subheading - value */}
+            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed max-w-3xl font-medium">
+              Diagnostic à distance guidé par expert. Sans attendre d'intervention terrain. 
+              <strong className="text-accent-gold"> Verdict documenté. Preuves visuelles.</strong>
             </p>
+
+            {/* Trust badges - Social proof micro */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">⚡</span>
+                <span className="text-sm font-semibold text-gray-300">Réponse <strong>24-72h</strong></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">✓</span>
+                <span className="text-sm font-semibold text-gray-300">Dès <strong>290€</strong></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🛡️</span>
+                <span className="text-sm font-semibold text-gray-300"><strong>Sécurité</strong> maximale</span>
+              </div>
+            </div>
           </div>
 
-          {/* Micro reassurance */}
-          <div className="flex flex-wrap gap-2">
-            {reassurance.map((item) => (
-              <Badge key={item} className="bg-white/10 text-white/90">
-                {item}
-              </Badge>
-            ))}
+          {/* Primary CTA - BIG & VISIBLE */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <Link 
+              href="/fast-remote" 
+              className="btn btn-primary px-10 py-5 text-lg font-bold rounded-lg hover:shadow-[0_0_40px_rgba(34,197,94,0.4)] transition-all transform hover:scale-105"
+            >
+              Démarrer FAST Remote →
+            </Link>
+            <Link 
+              href="#process" 
+              className="btn btn-secondary px-10 py-5 text-lg font-bold rounded-lg hover:bg-white/10 transition-all"
+            >
+              Voir comment ça marche
+            </Link>
           </div>
 
-          {/* CTA primaire & secondaire */}
-          <div className="flex flex-col gap-4 sm:flex-row pt-4">
-            <Link href="/fast-remote" className="btn btn-primary">
-              Démarrer FAST Remote
-            </Link>
-            <Link href="/contact" className="btn btn-secondary">
-              Demander une intervention sur site
-            </Link>
+          {/* Optional: Quick facts */}
+          <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
+            <div className="space-y-1">
+              <p className="text-sm uppercase tracking-wider text-accent-gold font-bold">50+</p>
+              <p className="text-xs text-gray-400">Garages accompagnés</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-sm uppercase tracking-wider text-accent-bright font-bold">1000+</p>
+              <p className="text-xs text-gray-400">Diagnostics réussis</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-sm uppercase tracking-wider text-accent-gold font-bold">4.9/5</p>
+              <p className="text-xs text-gray-400">Rating clients</p>
+            </div>
           </div>
         </Container>
       </Section>
@@ -283,32 +308,125 @@ function HeroSection() {
 }
 
 // =============================================================================
-// B) POURQUOI FAST REMOTE (3 bénéfices)
+// B) THE PROBLEM SECTION - Show the pain
 // =============================================================================
-function WhyRemoteSection() {
+function ProblemSection() {
   return (
-    <Section id="avantages" className="bg-primary/75">
+    <Section id="problem" className="bg-primary-darker">
       <Container className="space-y-12">
-        <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-accent uppercase tracking-wider">Avantages clés</p>
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">Le défi</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Pourquoi choisir <span className="text-accent-bright">FAST Remote</span> ?
+            Une panne d'équipement = <span className="text-red-400">48h-1 semaine perdue</span>
           </h2>
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Une approche révolutionnaire pour diagnostic et maintenance d'équipements industriels.
+          <p className="text-lg text-gray-300">
+            Attendre un diagnostic terrain, c'est du temps d'immobilisation. De l'argent qui s'envole. De l'incertitude.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 animate-stagger">
-          {remoteBenefits.map((benefit) => (
-            <Card key={benefit.title} className="glass-card border border-accent/20 p-8 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,200,255,0.15)] transition-all">
-              <div className="text-4xl mb-4">{benefit.icon}</div>
-              <h3 className="font-bold text-white text-xl">{benefit.title}</h3>
-              <p className="mt-4 text-base leading-relaxed text-gray-200">
-                {benefit.description}
-              </p>
-            </Card>
+        {/* Pain points - visuel */}
+        <div className="grid md:grid-cols-2 gap-8 mt-12">
+          {/* AVANT */}
+          <div className="space-y-4 p-8 rounded-2xl border border-red-500/20 bg-red-500/5">
+            <p className="text-sm font-bold uppercase tracking-wider text-red-400">❌ Sans FAST Remote</p>
+            <ul className="space-y-3">
+              {[
+                "Appel tech → attente 24-48h",
+                "Intervention = coûts élevés",
+                "Pas de preuves documentées",
+                "Incertitude sur la cause",
+                "Équipement immobilisé",
+                "Budget imprévisible"
+              ].map(item => (
+                <li key={item} className="text-gray-300 flex gap-2">
+                  <span>→</span> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* APRÈS */}
+          <div className="space-y-4 p-8 rounded-2xl border border-green-500/20 bg-green-500/5">
+            <p className="text-sm font-bold uppercase tracking-wider text-green-400">✓ Avec FAST Remote</p>
+            <ul className="space-y-3">
+              {[
+                "Diagnostic en 1-2h, même jour",
+                "À distance = économies",
+                "Photos, mesures, preuves",
+                "Cause identifiée clairement",
+                "Plan d'action immédiat",
+                "Prix transparent dès 290€"
+              ].map(item => (
+                <li key={item} className="text-gray-300 flex gap-2">
+                  <span>✓</span> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center pt-6">
+          <Link href="/fast-remote" className="btn btn-primary px-8 py-4 text-lg">
+            Arrêter l'hémorragie →
+          </Link>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// =============================================================================
+// B) POURQUOI FAST REMOTE (bénéfices clés)
+// =============================================================================
+function WhyRemoteSection() {
+  return (
+    <Section id="avantages" className="bg-gradient-to-b from-primary-dark via-primary/75 to-primary-darker">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent uppercase tracking-wider">Pourquoi FAST Remote</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            L'expertise <span className="text-accent-bright">sans l'attente</span>
+          </h2>
+          <p className="text-lg text-gray-300">
+            Expert technician. Guidance en live. Preuves documentées. Tout sans attendre.
+          </p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3 animate-stagger">
+          {remoteBenefits.map((benefit, idx) => (
+            <div key={benefit.title} className="space-y-4 animate-fade-in-up" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <div className="glass-card border border-accent/20 p-8 rounded-2xl hover:border-accent/50 hover:shadow-[0_0_40px_rgba(0,217,255,0.2)] transition-all space-y-4">
+                <div className="text-5xl">{benefit.icon}</div>
+                <h3 className="font-bold text-white text-xl">{benefit.title}</h3>
+                <p className="text-gray-200 leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            </div>
           ))}
+        </div>
+
+        {/* Visual breakdown */}
+        <div className="mt-12 p-8 rounded-2xl border border-accent/30 bg-accent/5">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-white">Voici le processus</h3>
+            <div className="grid md:grid-cols-4 gap-4">
+              {[
+                { num: "1", label: "Formulaire", desc: "Décrivez votre panne" },
+                { num: "2", label: "Validation", desc: "Expert évalue faisabilité" },
+                { num: "3", label: "Visio", desc: "Session guidée en direct" },
+                { num: "4", label: "Verdict", desc: "Plan d'action écrit" }
+              ].map((step) => (
+                <div key={step.num} className="space-y-2">
+                  <div className="text-3xl font-bold text-accent-bright">{step.num}</div>
+                  <p className="font-semibold text-white">{step.label}</p>
+                  <p className="text-sm text-gray-400">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-sm text-gray-400 pt-4">⏱️ <strong>Total: 1-4 heures de la pré-qualification au verdict</strong></p>
+          </div>
         </div>
       </Container>
     </Section>
@@ -320,37 +438,58 @@ function WhyRemoteSection() {
 // =============================================================================
 function UseCasesSection() {
   return (
-    <Section id="cas-usage" className="bg-primary/60">
+    <Section id="cas-usage" className="bg-gradient-to-b from-primary/60 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-accent uppercase tracking-wider">Situations typiques</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">✓ Exemples concrets</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Cas d&apos;usage <span className="text-accent-bright">courants</span>
+            Équipements que nous <span className="text-accent-gold">sauvons chaque jour</span>
           </h2>
           <p className="text-lg text-gray-300">
-            Vous reconnaissez l'une de ces situations ? Nous avons la réponse.
+            Du réfrigérateur à la machine de précision, nous diagnostiquons et solutionnons tout à distance.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 animate-stagger">
-          {useCases.map((useCase) => (
-            <Card key={useCase.title} className="glass-card border border-white/10 p-8 hover:border-accent/40 transition-all hover:shadow-[0_0_20px_rgba(0,200,255,0.1)]">
-              <div className="text-4xl mb-4">{useCase.icon}</div>
-              <h3 className="font-bold text-white text-xl">{useCase.title}</h3>
-              <p className="mt-4 text-base leading-relaxed text-gray-200">
-                {useCase.description}
-              </p>
-            </Card>
+        <div className="grid gap-8 md:grid-cols-3 animate-stagger">
+          {useCases.map((useCase, idx) => (
+            <div key={useCase.title} className="animate-fade-in-up" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <div className="glass-card border border-accent-gold/30 p-8 rounded-xl hover:border-accent-gold/60 hover:shadow-[0_0_40px_rgba(255,154,46,0.15)] transition-all h-full flex flex-col">
+                <div className="text-5xl mb-4">{useCase.icon}</div>
+                <h3 className="font-bold text-white text-xl mb-3">{useCase.title}</h3>
+                <p className="text-gray-200 leading-relaxed flex-1">
+                  {useCase.description}
+                </p>
+                <div className="mt-4 pt-4 border-t border-accent-gold/20 text-sm text-accent-gold">
+                  → Résolu en 2-4h
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Illustration placeholder */}
-        <div className="mt-12 rounded-2xl overflow-hidden">
+        {/* Illustration placeholder with better positioning */}
+        <div className="mt-16 rounded-2xl overflow-hidden border border-accent-gold/30">
           <ImagePlaceholder 
-            label="Galerie photos des équipements" 
+            label="🛠️ Équipements professionnels couverts" 
             height="h-96"
-            className="border-accent/20 hover:border-accent/40"
+            className="border-accent-gold/40 hover:border-accent-gold/60"
           />
+        </div>
+
+        {/* Quick stats under image */}
+        <div className="grid md:grid-cols-3 gap-6 pt-8">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-accent-bright">500+</div>
+            <p className="text-sm text-gray-400 mt-1">Modèles diagnostiqués</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-accent-bright">92%</div>
+            <p className="text-sm text-gray-400 mt-1">Résolus au 1er appel</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-accent-bright">7 jours</div>
+            <p className="text-sm text-gray-400 mt-1">Garantie remplacement</p>
+          </div>
         </div>
       </Container>
     </Section>
@@ -365,46 +504,80 @@ function ProcessSection() {
     <Section id="process" className="bg-primary-dark">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-accent uppercase tracking-wider">Processus</p>
+          <p className="eyebrow text-accent-bright uppercase tracking-wider">⚡ Rapide & transparent</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Comment <span className="text-accent-bright">ça marche</span>
+            4 étapes seulement <span className="text-accent-bright">pour votre verdict</span>
           </h2>
           <p className="text-lg text-gray-300">
-            Un processus clair, transparent et optimisé du diagnostic au verdict.
+            Pas de délai d'attente, pas de pièces inutiles commandées. Juste l'expertise directe.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-4 animate-stagger">
-          {processSteps.map((step) => (
-            <Card key={step.number} className="glass-card border border-accent/20 p-8 hover:border-accent/50 transition-all">
-              <div className="inline-flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/40 mb-6">
-                <span className="text-xl font-bold text-accent">{step.number}</span>
+        {/* Timeline visual layout */}
+        <div className="space-y-8">
+          <div className="grid gap-6 md:grid-cols-4">
+            {processSteps.map((step, idx) => (
+              <div key={step.number} className="relative">
+                {/* Arrow connector (hidden on mobile) */}
+                {idx < 3 && (
+                  <div className="hidden md:block absolute top-8 left-[60%] w-[25%] h-px bg-gradient-to-r from-accent-bright to-transparent"></div>
+                )}
+                
+                <div className="glass-card border border-accent-bright/30 p-8 rounded-xl hover:border-accent-bright/60 hover:shadow-[0_0_40px_rgba(0,217,255,0.2)] transition-all">
+                  <div className="inline-flex items-center justify-center h-16 w-16 rounded-lg bg-gradient-to-br from-accent-bright/40 to-accent-bright/10 border border-accent-bright/50 mb-6">
+                    <span className="text-2xl font-bold text-accent-bright">{step.number}</span>
+                  </div>
+                  <h3 className="font-bold text-white text-lg">{step.title}</h3>
+                  <p className="mt-4 text-base leading-relaxed text-gray-200">
+                    {step.description}
+                  </p>
+                  {/* Timing badge */}
+                  <div className="mt-4 inline-block text-xs px-3 py-1 rounded-full bg-accent-bright/20 text-accent-bright">
+                    {idx === 0 ? "5-10 min" : idx === 1 ? "24h" : idx === 2 ? "30-60 min" : "24h"}
+                  </div>
+                </div>
               </div>
-              <h3 className="font-bold text-white text-lg">{step.title}</h3>
-              <p className="mt-4 text-base leading-relaxed text-gray-200">
-                {step.description}
-              </p>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="mt-8 p-8 rounded-lg bg-gradient-to-r from-accent/20 to-blue-500/20 border border-accent/30">
-          <div className="text-center">
-            <p className="text-lg text-gray-100">
-              ⏱️ <strong>Durée totale : 1-4h</strong> entre pré-qualification et verdict écrit
-            </p>
-            <p className="text-sm text-gray-300 mt-2">
-              Disponibilité : 24-72h. Urgences : nous consulter directement.
+        {/* Timeline breakdown box */}
+        <div className="mt-12 p-8 rounded-xl bg-gradient-to-r from-accent-bright/10 to-accent-gold/10 border border-accent-bright/30">
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-white flex items-center gap-2">
+              <span className="text-2xl">⏱️</span>
+              Chronologie complète
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              <div className="flex items-start gap-3">
+                <span className="text-accent-bright font-bold">Jour 0</span>
+                <span className="text-gray-300">Envoi formulaire (5 min)</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-accent-bright font-bold">+24h</span>
+                <span className="text-gray-300">Validation & confirmation (max 24h)</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-accent-bright font-bold">+1-3j</span>
+                <span className="text-gray-300">Séance de diagnostic (30-60 min)</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-accent-bright font-bold">+24h</span>
+                <span className="text-gray-300">Rapport écrit + plan d'action</span>
+              </div>
+            </div>
+            <p className="text-sm text-accent-bright font-semibold mt-4">
+              🎯 Délai total: <strong>2-4 jours</strong> de la demande au verdict
             </p>
           </div>
         </div>
 
-        {/* Process visual placeholder */}
-        <div className="mt-12 rounded-2xl overflow-hidden">
+        {/* Process diagram placeholder */}
+        <div className="mt-12 rounded-2xl overflow-hidden border border-accent-bright/30">
           <ImagePlaceholder 
-            label="Diagramme du processus FAST Remote" 
+            label="📊 Diagramme du flux FAST Remote" 
             height="h-96"
-            className="border-accent/30 hover:border-accent/50"
+            className="border-accent-bright/40 hover:border-accent-bright/60"
           />
         </div>
       </Container>
@@ -417,30 +590,39 @@ function ProcessSection() {
 // =============================================================================
 function EquipmentsSection() {
   return (
-    <Section id="equipements" className="bg-primary/75">
+    <Section id="equipements" className="bg-gradient-to-b from-primary/75 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-accent uppercase tracking-wider">Spécialités</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">🔧 Notre gamme</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Équipements <span className="text-accent-gold">couverts</span>
+            500+ modèles <span className="text-accent-gold">diagnostiqués avec succès</span>
           </h2>
           <p className="text-lg text-gray-300">
-            Nous maîtrisons le diagnostic de tous les équipements industriels majeurs de garage.
+            Tous les équipements critiques du secteur. Si c'est électromécanique, nous savons le dépanner.
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {equipmentsCovered.map((equipment) => (
-            <Card key={equipment} className="flex items-center gap-4 glass-card border border-white/10 p-6 hover:border-accent/40 transition-all">
-              <span className="text-2xl font-bold text-accent flex-shrink-0">✓</span>
-              <span className="text-base text-gray-100 leading-tight">{equipment}</span>
-            </Card>
+            <div key={equipment} className="flex items-center gap-3 glass-card border border-accent-gold/20 p-4 rounded-lg hover:border-accent-gold/40 hover:bg-accent-gold/5 transition-all">
+              <span className="text-xl text-accent-gold flex-shrink-0">✓</span>
+              <span className="text-base text-gray-100">{equipment}</span>
+            </div>
           ))}
         </div>
 
-        <div className="mt-8 p-8 rounded-lg bg-gradient-to-r from-accent/20 to-blue-500/20 border border-accent/30 text-center">
-          <p className="text-gray-100 text-lg">
-            Autres équipements ? <strong>Contactez-nous pour valider la faisabilité.</strong>
+        {/* Image gallery */}
+        <div className="mt-12 rounded-2xl overflow-hidden border border-accent-gold/30">
+          <ImagePlaceholder 
+            label="📸 Galerie des équipements diagnostiqués" 
+            height="h-80"
+            className="border-accent-gold/40 hover:border-accent-gold/60"
+          />
+        </div>
+
+        <div className="p-8 rounded-xl bg-accent-gold/10 border border-accent-gold/30 text-center">
+          <p className="text-gray-100 text-lg font-medium">
+            Équipement non listé ? <span className="text-accent-gold font-bold">Nous contactez directement</span> pour valider la faisabilité.
           </p>
         </div>
       </Container>
@@ -467,28 +649,32 @@ function OfferingsSection() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {offerings.map((offer) => (
-            <Card
+            <div
               key={offer.title}
-              className={`relative p-10 rounded-2xl border transition-all ${
+              className={`relative p-10 rounded-2xl border transition-all flex flex-col ${
                 offer.primary
-                  ? "bg-gradient-to-br from-accent/20 to-accent/5 border-accent/50 ring-2 ring-accent/30 shadow-[0_0_40px_rgba(0,200,255,0.2)]"
-                  : "glass-card border-white/10 hover:border-accent/40 hover:shadow-[0_0_30px_rgba(0,200,255,0.1)]"
+                  ? "bg-gradient-to-br from-accent-bright/20 to-accent-bright/5 border-accent-bright/50 ring-2 ring-accent-bright/30 shadow-[0_0_40px_rgba(0,217,255,0.3)] scale-105"
+                  : "glass-card border-white/10 hover:border-accent-bright/40 hover:shadow-[0_0_30px_rgba(0,217,255,0.15)]"
               }`}
             >
               {offer.badge && (
-                <Badge className={offer.primary ? "bg-accent/30 text-accent font-bold" : "bg-white/10 text-white/80"}>
+                <div className={`inline-block w-fit px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-4 ${
+                  offer.primary 
+                    ? "bg-accent-bright/30 text-accent-bright border border-accent-bright/50" 
+                    : "bg-white/10 text-white/80 border border-white/10"
+                }`}>
                   {offer.badge}
-                </Badge>
+                </div>
               )}
 
-              <h3 className="mt-6 text-2xl font-bold text-white">{offer.title}</h3>
-              <p className="mt-3 text-3xl font-bold text-accent">{offer.price}</p>
-              <p className="mt-4 text-base text-gray-200">{offer.description}</p>
+              <h3 className="text-3xl font-bold text-white">{offer.title}</h3>
+              <p className="mt-2 text-2xl font-bold text-accent-bright">{offer.price}</p>
+              <p className="mt-4 text-gray-200 flex-1">{offer.description}</p>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-3 mb-10">
                 {offer.benefits.map((benefit) => (
                   <li key={benefit} className="flex gap-3 text-base text-gray-100">
-                    <span className="text-accent flex-shrink-0 font-bold text-lg">✓</span>
+                    <span className="text-accent-bright flex-shrink-0 font-bold text-lg">✓</span>
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -496,15 +682,15 @@ function OfferingsSection() {
 
               <Link
                 href={offer.href}
-                className={`mt-10 block w-full rounded-lg px-6 py-4 text-center font-bold transition-all text-lg ${
+                className={`w-full rounded-lg px-6 py-4 text-center font-bold transition-all text-base ${
                   offer.primary
-                    ? "bg-gradient-to-r from-action to-green-500 text-white hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]"
-                    : "border-2 border-accent/50 text-accent hover:border-accent hover:bg-accent/10"
+                    ? "bg-gradient-to-r from-accent-bright to-accent-gold text-primary hover:shadow-[0_0_40px_rgba(0,217,255,0.5)]"
+                    : "border-2 border-accent-bright/50 text-accent-bright hover:border-accent-bright hover:bg-accent-bright/10"
                 }`}
               >
                 {offer.cta}
               </Link>
-            </Card>
+            </div>
           ))}
         </div>
       </Container>
@@ -517,15 +703,15 @@ function OfferingsSection() {
 // =============================================================================
 function FAQSection() {
   return (
-    <Section id="faq" className="bg-primary/75">
+    <Section id="faq" className="bg-gradient-to-b from-primary/75 to-primary-darker">
       <Container className="space-y-12">
         <div className="space-y-4 max-w-3xl">
-          <p className="eyebrow text-accent uppercase tracking-wider">Questions fréquentes</p>
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">❓ Les réponses clés</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            FAQ <span className="text-accent-bright">& questions</span>
+            Questions <span className="text-accent-gold">les plus posées</span>
           </h2>
           <p className="text-lg text-gray-300">
-            Réponses rapides aux questions les plus courantes.
+            Tout ce que vous devez savoir pour bien démarrer avec FAST Remote.
           </p>
         </div>
 
@@ -533,17 +719,27 @@ function FAQSection() {
           {faqs.map((faq, idx) => (
             <details
               key={idx}
-              className="group rounded-xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10 hover:border-accent/30 cursor-pointer"
+              className="group rounded-xl border border-accent-gold/20 bg-white/5 p-6 transition hover:bg-accent-gold/5 hover:border-accent-gold/40 cursor-pointer"
             >
-              <summary className="font-bold text-lg text-white group-open:text-accent transition flex justify-between items-center">
+              <summary className="font-semibold text-lg text-white group-open:text-accent-gold transition flex justify-between items-center gap-4">
                 <span>{faq.q}</span>
-                <span className="text-accent group-open:rotate-45 transition">+</span>
+                <span className="text-accent-gold group-open:rotate-45 transition text-2xl flex-shrink-0">+</span>
               </summary>
               <p className="mt-4 text-base leading-relaxed text-gray-200">
                 {faq.a}
               </p>
             </details>
           ))}
+        </div>
+
+        {/* Remaining questions CTA */}
+        <div className="mt-12 p-8 rounded-xl bg-accent-gold/10 border border-accent-gold/30 text-center">
+          <p className="text-gray-100 text-lg">
+            Question spécifique ? <span className="text-accent-gold font-bold">Contactez nos experts</span> pour une réponse en direct.
+          </p>
+          <Link href="/contact" className="inline-block mt-4 px-6 py-2 bg-accent-gold/20 border border-accent-gold/40 text-accent-gold rounded-lg hover:bg-accent-gold/30 transition">
+            Nous contacter
+          </Link>
         </div>
       </Container>
     </Section>
@@ -586,24 +782,31 @@ function CTAFinalSection() {
 // =============================================================================
 function ContactSection() {
   return (
-    <Section id="contact">
+    <Section id="contact" className="bg-gradient-to-b from-primary/50 to-primary-darker">
       <Container className="space-y-8">
-        <div className="glass-card rounded-2xl p-12 border border-accent/30 text-center max-w-3xl mx-auto">
-          <p className="eyebrow text-accent uppercase tracking-wider">Prêt à commencer ?</p>
+        <div className="glass-card rounded-2xl p-12 border border-accent-bright/30 bg-gradient-to-br from-accent-bright/10 to-accent-gold/5 text-center max-w-3xl mx-auto">
+          <p className="eyebrow text-accent-bright uppercase tracking-wider">🚀 Prêt à démarrer?</p>
           <h3 className="mt-6 text-4xl md:text-5xl font-bold text-white leading-tight">
             Contactez <span className="text-accent-bright">FAST Tech Services</span>
           </h3>
           <p className="mt-6 text-lg text-gray-200 leading-relaxed">
-            Besoin de clarifier un détail avant de démarrer ? Nos experts sont là pour vous guider et valider la faisabilité de votre demande.
+            Besoin de valider votre cas ou clarifier un détail ? Nos experts répondent en <strong>moins de 2 heures</strong> pour confirmer la faisabilité et dimensionner votre diagnostic.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact?objet=fast-remote" className="btn btn-primary px-8 py-4 text-lg">
-              Accéder au formulaire de contact
+            <Link href="/contact?objet=fast-remote" className="px-10 py-5 text-lg font-bold bg-gradient-to-r from-accent-bright to-accent-gold text-primary rounded-lg hover:shadow-[0_0_40px_rgba(0,217,255,0.4)] transition-all transform hover:scale-105">
+              Accéder au formulaire
             </Link>
-            <Link href="#avantages" className="btn btn-secondary px-8 py-4 text-lg">
+            <Link href="#avantages" className="px-10 py-5 text-lg font-bold border-2 border-accent-bright/50 text-accent-bright rounded-lg hover:border-accent-bright hover:bg-accent-bright/10 transition-all">
               Remonter au contenu
             </Link>
+          </div>
+
+          {/* Support info */}
+          <div className="mt-8 pt-8 border-t border-accent-bright/20">
+            <p className="text-sm text-gray-400">
+              💬 Support disponible <strong>du lundi au samedi</strong> • 📞 <strong>Réponse: 24-72h</strong> • 💻 <strong>Accès visio immédiat</strong>
+            </p>
           </div>
         </div>
       </Container>

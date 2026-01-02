@@ -1,8 +1,8 @@
 "use client";
 
-import Card from "./ui/Card";
 import Container from "./Container";
 import Section from "./ui/Section";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 const testimonials = [
   {
@@ -11,7 +11,6 @@ const testimonials = [
     challenge: "Pont élévateur bloqué",
     result: "Diagnostic 2h, économie 1500€",
     impact: "↓ 48h immobilisation",
-    color: "from-accent/10 to-accent/5",
   },
   {
     garage: "Compressair Services - Lyon",
@@ -19,7 +18,6 @@ const testimonials = [
     challenge: "Compresseur fuite air",
     result: "Preuves documentées",
     impact: "✓ Client rassuré",
-    color: "from-green-500/10 to-green-500/5",
   },
   {
     garage: "Cabines Peinture Pro - Marseille",
@@ -27,7 +25,6 @@ const testimonials = [
     challenge: "Ventilation défaillante",
     result: "Plan d'action clair",
     impact: "→ Prochaine réparation",
-    color: "from-blue-500/10 to-blue-500/5",
   },
 ];
 
@@ -35,10 +32,10 @@ export default function Testimonials() {
   return (
     <Section id="testimonials" className="bg-gradient-to-b from-primary-darker via-primary-dark to-primary-darker">
       <Container>
-        <div className="space-y-6">
+        <div className="space-y-12">
           {/* Header */}
           <div className="mx-auto max-w-2xl text-center space-y-4">
-            <div className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent border border-accent/30">
+            <div className="inline-block rounded-full bg-accent-bright/10 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-accent-bright border border-accent-bright/30">
               ✓ Cas réussis
             </div>
 
@@ -56,47 +53,56 @@ export default function Testimonials() {
             {testimonials.map((testimonial, idx) => (
               <div
                 key={idx}
-                className={`group relative rounded-2xl bg-gradient-to-br ${testimonial.color} border border-white/10 p-6 transition-all duration-300 hover:border-accent/40 hover:shadow-[0_0_30px_rgba(0,200,255,0.15)]`}
+                className={`group relative rounded-2xl bg-gradient-to-br from-accent-bright/10 to-accent-bright/5 border border-accent-bright/20 p-8 transition-all duration-300 hover:border-accent-bright/50 hover:shadow-[0_0_40px_rgba(0,217,255,0.2)] h-full flex flex-col`}
               >
                 {/* Top accent bar */}
-                <div className="absolute top-0 left-0 h-1 w-8 bg-gradient-to-r from-accent to-blue-400 rounded-b-full transition-all duration-300 group-hover:w-12" />
+                <div className="absolute top-0 left-0 h-1 w-8 bg-gradient-to-r from-accent-bright to-accent-gold rounded-b-full transition-all duration-300 group-hover:w-12" />
 
-                <div className="space-y-4 pt-2">
+                <div className="space-y-4 pt-2 flex-1">
                   {/* Garage name */}
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-accent">📍 {testimonial.garage}</p>
-                    <p className="text-xs text-white/60">{testimonial.role}</p>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-accent-bright">📍 {testimonial.garage}</p>
+                    <p className="text-xs text-gray-400">{testimonial.role}</p>
                   </div>
 
                   {/* Challenge */}
-                  <div className="space-y-1 border-l-2 border-accent/30 pl-4">
-                    <p className="text-xs uppercase tracking-wider text-white/70">Défi</p>
+                  <div className="space-y-1 border-l-2 border-accent-bright/30 pl-4">
+                    <p className="text-xs uppercase tracking-wider text-white/60">Défi</p>
                     <p className="text-sm font-semibold text-white">{testimonial.challenge}</p>
                   </div>
 
                   {/* Result */}
-                  <div className="space-y-1 border-l-2 border-green-500/30 pl-4">
-                    <p className="text-xs uppercase tracking-wider text-white/70">Résultat</p>
+                  <div className="space-y-1 border-l-2 border-accent-gold/30 pl-4">
+                    <p className="text-xs uppercase tracking-wider text-white/60">Résultat</p>
                     <p className="text-sm font-semibold text-white">{testimonial.result}</p>
                   </div>
+                </div>
 
-                  {/* Impact badge */}
-                  <div className="pt-2 inline-block rounded-lg bg-white/5 px-3 py-2 border border-white/10">
-                    <p className="text-xs font-bold text-accent">{testimonial.impact}</p>
-                  </div>
+                {/* Impact badge */}
+                <div className="pt-6 inline-block rounded-lg bg-accent-bright/10 px-4 py-2 border border-accent-bright/30">
+                  <p className="text-sm font-bold text-accent-bright">{testimonial.impact}</p>
                 </div>
               </div>
             ))}
           </div>
 
+          {/* Gallery of garages */}
+          <div className="mt-16 rounded-2xl overflow-hidden border border-accent-bright/30">
+            <ImagePlaceholder 
+              label="📸 Nos partenaires garages" 
+              height="h-64"
+              className="border-accent-bright/40 hover:border-accent-bright/60"
+            />
+          </div>
+
           {/* CTA */}
-          <div className="pt-4 text-center">
-            <p className="text-sm text-gray-400 mb-4">
-              Votre garage pourrait être la prochaine success story. Parlons-en.
+          <div className="pt-8 text-center">
+            <p className="text-gray-300 mb-6 text-lg">
+              Votre garage pourrait être la <span className="font-bold text-accent-bright">prochaine success story</span>
             </p>
             <a
               href="#contact"
-              className="inline-block px-8 py-3 bg-accent hover:bg-accent-strong text-primary font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-[0_0_20px_rgba(0,200,255,0.4)]"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-accent-bright to-accent-gold text-primary font-bold rounded-lg transition-all duration-200 shadow-lg hover:shadow-[0_0_30px_rgba(0,217,255,0.4)]"
             >
               Démarrer un diagnostic
             </a>
