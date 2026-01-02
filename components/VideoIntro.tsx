@@ -50,42 +50,49 @@ export default function VideoIntro({ enabled = false }: VideoIntroProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[90] overflow-hidden bg-black/95"
+      className="fixed inset-0 z-[90] overflow-hidden bg-black/95 flex items-center justify-center"
       role="dialog"
       aria-modal="true"
       aria-label="Introduction FAST Tech Services"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,200,255,0.12),transparent_60%)]" />
       <div className="absolute inset-0 tech-grid opacity-15" />
-      <video
-        className="absolute inset-0 h-full w-full object-cover object-center"
-        autoPlay
-        muted
-        playsInline
-        onLoadedMetadata={(event) => {
-          const duration = event.currentTarget.duration;
-          if (Number.isFinite(duration) && duration > 0) {
-            if (endTimerRef.current) {
-              window.clearTimeout(endTimerRef.current);
-            }
-            endTimerRef.current = window.setTimeout(() => {
+      
+      {/* Video container with max-width */}
+      <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative pt-[56.25%]">
+          <video
+            className="absolute inset-0 h-full w-full object-contain rounded-lg"
+            autoPlay
+            muted
+            playsInline
+            onLoadedMetadata={(event) => {
+              const duration = event.currentTarget.duration;
+              if (Number.isFinite(duration) && duration > 0) {
+                if (endTimerRef.current) {
+                  window.clearTimeout(endTimerRef.current);
+                }
+                endTimerRef.current = window.setTimeout(() => {
+                  closeIntro();
+                }, duration * 1000 + 200);
+              }
+            }}
+            onEnded={closeIntro}
+            onError={() => {
+              setCanPlay(false);
               closeIntro();
-            }, duration * 1000 + 200);
-          }
-        }}
-        onEnded={closeIntro}
-        onError={() => {
-          setCanPlay(false);
-          closeIntro();
-        }}
-        poster={introMedia.home.poster || undefined}
-      >
-        {typeof introMedia.home === "object" && "webm" in introMedia.home && introMedia.home.webm ? (
-          <source src={String(introMedia.home.webm)} type="video/webm" />
-        ) : null}
-        {introMedia.home.mp4 ? <source src={introMedia.home.mp4} type="video/mp4" /> : null}
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+            }}
+            poster={introMedia.home.poster || undefined}
+          >
+            {typeof introMedia.home === "object" && "webm" in introMedia.home && introMedia.home.webm ? (
+              <source src={String(introMedia.home.webm)} type="video/webm" />
+            ) : null}
+            {introMedia.home.mp4 ? <source src={introMedia.home.mp4} type="video/mp4" /> : null}
+          </video>
+        </div>
+      </div>
+      
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 pointer-events-none" />
       <button
         type="button"
         onClick={closeIntro}
