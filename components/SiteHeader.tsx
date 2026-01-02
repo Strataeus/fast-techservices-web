@@ -73,16 +73,24 @@ export default function SiteHeader() {
             // Sur HOME : utilise l'ancre directement
             // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
             let href = item.href;
-            let isActive = active === item.href; // Par défaut, vérifie le scrolling (HOME)
+            let isActive = false;
             
-            if (!isHome && item.href.startsWith("#")) {
-              // Transforme "#services" en "/services", "#methode" en "/methode", etc.
-              href = "/" + item.href.slice(1);
-              // Sur d'autres pages, vérifie si le lien correspond au pathname
+            if (isHome) {
+              // Sur HOME : vérifier si c'est une ancre (scrolling) ou "Accueil"
+              if (item.href.startsWith("#")) {
+                isActive = active === item.href;
+              } else if (item.href === "/") {
+                // "Accueil" est actif sur HOME
+                isActive = true;
+              }
+            } else {
+              // Sur d'autres pages : ne pas utiliser le scrolling
+              if (item.href.startsWith("#")) {
+                // Transforme "#services" en "/services", "#methode" en "/methode", etc.
+                href = "/" + item.href.slice(1);
+              }
+              // Vérifier si le lien correspond au pathname
               isActive = pathname === href;
-            } else if (!isHome && !item.href.startsWith("#")) {
-              // Pour les liens qui ne sont pas des ancres (ex: /fast-remote)
-              isActive = pathname === item.href;
             }
             
             return (
@@ -132,15 +140,23 @@ export default function SiteHeader() {
             // Sur HOME : utilise l'ancre directement
             // Sur autres pages : extrait le nom de la page de l'ancre et crée le lien
             let href = item.href;
-            let isActive = active === item.href; // Par défaut, vérifie le scrolling (HOME)
+            let isActive = false;
             
-            if (!isHome && item.href.startsWith("#")) {
-              href = "/" + item.href.slice(1);
-              // Sur d'autres pages, vérifie si le lien correspond au pathname
+            if (isHome) {
+              // Sur HOME : vérifier si c'est une ancre (scrolling) ou "Accueil"
+              if (item.href.startsWith("#")) {
+                isActive = active === item.href;
+              } else if (item.href === "/") {
+                // "Accueil" est actif sur HOME
+                isActive = true;
+              }
+            } else {
+              // Sur d'autres pages : ne pas utiliser le scrolling
+              if (item.href.startsWith("#")) {
+                href = "/" + item.href.slice(1);
+              }
+              // Vérifier si le lien correspond au pathname
               isActive = pathname === href;
-            } else if (!isHome && !item.href.startsWith("#")) {
-              // Pour les liens qui ne sont pas des ancres (ex: /fast-remote)
-              isActive = pathname === item.href;
             }
             
             return (

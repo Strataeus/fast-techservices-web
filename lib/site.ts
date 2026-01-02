@@ -22,7 +22,7 @@ export const siteConfig = {
   description:
     "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
   nav: [
-    { label: "Accueil", href: "#top" },
+    { label: "Accueil", href: "/" },
     { label: "FAST Remote", href: "/fast-remote" },
     { label: "Services", href: "#services" },
     { label: "Méthode", href: "#methode" },
