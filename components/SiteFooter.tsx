@@ -30,15 +30,27 @@ export default function SiteFooter() {
           FAST Tech Services
         </span>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          {siteConfig.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href.startsWith('#') ? item.href : `/${item.href}`}
-              className="transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {siteConfig.nav.map((item) => {
+            // Toujours transformer les ancres en routes complètes pour cohérence
+            // sur toutes les pages (HOME et pages dynamiques)
+            let href = item.href;
+            if (item.href.startsWith('#')) {
+              // #services → /services, #contact → /contact, etc.
+              href = '/' + item.href.slice(1);
+            } else if (!item.href.startsWith('/')) {
+              href = '/' + item.href;
+            }
+            
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                className="transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href={siteConfig.cta.primary.href}
             className="transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent font-semibold text-accent"

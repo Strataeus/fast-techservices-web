@@ -13,7 +13,7 @@ export default function StickyCTA() {
           {siteConfig.cta.primary.label}
         </Link>
         <Link
-          href="/contact#appel"
+          href="/contact"
           className="btn btn-secondary px-5 py-3 text-xs uppercase tracking-[0.28em] border border-white/20 text-white/80 hover:text-white transition-colors whitespace-nowrap"
           aria-label="Appel rapide 10 min"
         >
@@ -30,7 +30,7 @@ export default function StickyCTA() {
             {siteConfig.cta.primary.label}
           </Link>
           <Link
-            href="/contact#appel"
+            href="/contact"
             className="flex-1 border border-white/20 px-4 py-3 text-center text-sm font-semibold text-white rounded-md transition-colors hover:border-white/40 min-h-[44px] flex items-center justify-center"
             aria-label="Appel rapide 10 min"
           >

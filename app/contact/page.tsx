@@ -45,7 +45,23 @@ function FormSection() {
 function FormSectionContent() {
   const searchParams = useSearchParams();
   const objet = searchParams.get("objet");
-  const initialTab = objet === "fast-remote" ? "fast-remote" : "fast-remote";
+  
+  // Validation stricte du query param objet
+  // Valeurs acceptées: fast-remote, interventions-terrain, contrat-maintenance
+  // Mapping flexible pour supporter plusieurs formats
+  const validObjetMap: Record<string, "fast-remote" | "onsite" | "maintenance"> = {
+    "fast-remote": "fast-remote",
+    "interventions-terrain": "onsite",
+    "terrain": "onsite",
+    "contrat-maintenance": "maintenance",
+    "contrat": "maintenance",
+    "audit": "maintenance",
+  };
+  
+  // Déterminer l'onglet initial: utiliser objet si valide, sinon fast-remote par défaut
+  const initialTab: "fast-remote" | "onsite" | "maintenance" = objet 
+    ? validObjetMap[objet.toLowerCase()] || "fast-remote"
+    : "fast-remote";
 
   return (
     <Section className="bg-primary/60">
@@ -61,7 +77,7 @@ function FormSectionContent() {
             </p>
           </div>
           
-          <FormFastRemote initialSelectedTab={initialTab as "fast-remote" | "onsite" | "maintenance"} />
+          <FormFastRemote initialSelectedTab={initialTab} />
         </div>
       </Container>
     </Section>
