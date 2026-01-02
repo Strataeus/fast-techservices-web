@@ -63,8 +63,8 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/85 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
       <Container className="flex items-center justify-between py-4">
         <Link
-          href="#top"
-          className="text-xs font-semibold uppercase tracking-[0.35em] text-white/90"
+          href="/"
+          className="text-xs font-semibold uppercase tracking-[0.35em] text-white/90 hover:text-accent transition-colors"
         >
           FAST TECH SERVICES
         </Link>
