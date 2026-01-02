@@ -299,7 +299,7 @@ function WhyRemoteSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 animate-stagger">
           {remoteBenefits.map((benefit) => (
             <Card key={benefit.title} className="glass-card border border-accent/20 p-8 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,200,255,0.15)] transition-all">
               <div className="text-4xl mb-4">{benefit.icon}</div>
@@ -332,7 +332,7 @@ function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 animate-stagger">
           {useCases.map((useCase) => (
             <Card key={useCase.title} className="glass-card border border-white/10 p-8 hover:border-accent/40 transition-all hover:shadow-[0_0_20px_rgba(0,200,255,0.1)]">
               <div className="text-4xl mb-4">{useCase.icon}</div>
@@ -374,7 +374,7 @@ function ProcessSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-4 animate-stagger">
           {processSteps.map((step) => (
             <Card key={step.number} className="glass-card border border-accent/20 p-8 hover:border-accent/50 transition-all">
               <div className="inline-flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/40 mb-6">

@@ -9,9 +9,23 @@ import Container from "./Container";
 export default function SiteHeader() {
   const [active, setActive] = useState<string>("#top");
   const [open, setOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const items = useMemo(() => siteConfig.nav, []);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    // Track scroll progress
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!isHome) {
@@ -60,24 +74,29 @@ export default function SiteHeader() {
   }, [isHome, items]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/85 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
-      <Container className="flex items-center justify-between py-4">
-        <Link
-          href="/"
-          className="text-xs font-semibold uppercase tracking-[0.35em] text-white/90 hover:text-accent transition-colors"
-        >
-          FAST TECH SERVICES
-        </Link>
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Navigation">
-          {items.map((item) => {
-            // Toujours transformer les ancres en routes réelles pour navigation cohérente
-            let href = item.href;
-            let isActive = false;
-            
-            // Vérifier si le lien est actif
-            if (isHome) {
-              // Sur HOME : comparer les chemins
-              isActive = pathname === item.href;
+    <>
+      {/* Progress bar */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-bright via-accent-gold to-accent-bright z-[51]" 
+           style={{ width: `${scrollProgress}%`, transition: "width 0.2s ease-out" }} />
+      
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/80 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
+        <Container className="flex items-center justify-between py-4">
+          <Link
+            href="/"
+            className="text-xs font-semibold uppercase tracking-[0.35em] text-white/90 hover:text-accent-bright transition-colors"
+          >
+            FAST TECH SERVICES
+          </Link>
+          <nav className="hidden items-center gap-6 md:flex" aria-label="Navigation">
+            {items.map((item) => {
+              // Toujours transformer les ancres en routes réelles pour navigation cohérente
+              let href = item.href;
+              let isActive = false;
+              
+              // Vérifier si le lien est actif
+              if (isHome) {
+                // Sur HOME : comparer les chemins
+                isActive = pathname === item.href;
             } else {
               // Sur d'autres pages : comparer les chemins
               isActive = pathname === item.href;
@@ -163,6 +182,7 @@ export default function SiteHeader() {
           </Link>
         </Container>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
