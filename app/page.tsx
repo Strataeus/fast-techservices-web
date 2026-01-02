@@ -223,7 +223,7 @@ function HeroSection() {
   return (
     <>
       {/* Image hero bandeau pur - sans texte */}
-      <section id="top" className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+      <section id="top" className="relative w-full h-[35vh] md:h-[45vh] overflow-hidden">
         <Image
           src="/hero/home/fast-hero.png"
           alt="FAST Remote : diagnostic à distance"
