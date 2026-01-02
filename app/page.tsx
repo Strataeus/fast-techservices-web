@@ -249,8 +249,9 @@ function HeroSection() {
 
             {/* Subheading - value */}
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed max-w-3xl font-medium">
-              Diagnostic à distance guidé par expert. Sans attendre d'intervention terrain. 
-              <strong className="text-accent-gold"> Verdict documenté. Preuves visuelles.</strong>
+              Depuis 2010, nous sommes les <strong className="text-accent-bright">spécialistes reconnus</strong> du diagnostic et du dépannage critique. Cabines de peinture, ponts élévateurs, compresseurs d'air comprimé—nous maîtrisons les trois piliers de votre production. Installation, maintenance, retrofit, mise en conformité : nous couvrons tout. Mais c'est dans l'urgence que nous excellons.
+              <br className="hidden md:block" />
+              <strong className="text-accent-gold">Quand la production s'arrête, nous diagnostiquons à distance en 2h. Verdict documenté. Solutions prêtes à déployer.</strong>
             </p>
 
             {/* Trust badges - Social proof micro */}
