@@ -2,7 +2,6 @@
 import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
 import HeroBanner from "../../components/HeroBanner";
-import PageHero from "../../components/PageHero";
 import { zones } from "../../lib/content/zones";
 
 export const metadata = {
@@ -28,7 +27,7 @@ export default function ZonesHubPage() {
               ZONES
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Zones d'intervention
+              Zones d&apos;intervention
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
               Interventions terrain par zone géographique. ⚠️ FAST Remote (diagnostic à distance) couvre la France entière en 1-2h.

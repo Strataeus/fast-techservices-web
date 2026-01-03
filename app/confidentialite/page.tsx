@@ -2,7 +2,6 @@ import Background from "../../components/layout/Background";
 import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
 import HeroBanner from "../../components/HeroBanner";
-import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";
 
 export const metadata = {

@@ -5,7 +5,6 @@ import Section from "../../components/ui/Section";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
 import HeroBanner from "../../components/HeroBanner";
-import PageHero from "../../components/PageHero";
 
 export const metadata: Metadata = {
   title: "Services | FAST Tech Services",

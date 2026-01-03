@@ -1,0 +1,19 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "roots": ["<rootDir>"],
+  "testMatch": ["**/__tests__/**/*.test.ts"],
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/$1"
+  },
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "collectCoverageFrom": [
+    "lib/**/*.{ts,tsx}",
+    "app/api/**/*.{ts,tsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**"
+  ]
+}

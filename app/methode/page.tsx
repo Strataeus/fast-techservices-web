@@ -6,7 +6,6 @@ import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
 import HeroBanner from "../../components/HeroBanner";
-import PageHero from "../../components/PageHero";
 
 export const metadata: Metadata = {
   title: "Méthode FAST | FAST Tech Services",
@@ -132,35 +131,6 @@ export default function MethodeFastPage() {
       <BenefitsSection />
       <FinalCTA />
     </div>
-  );
-}
-
-function HeroSection() {
-  return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,200,255,0.14),transparent_55%)]">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
-      </div>
-      <Container className="relative flex min-h-[60vh] flex-col justify-center gap-6 py-16">
-        <Badge className="w-fit bg-accent/10 text-white">PHILOSOPHIE</Badge>
-        <h1 className="text-4xl font-semibold text-white md:text-5xl">
-          Méthode FAST : la fiabilité par la rigueur
-        </h1>
-        <p className="max-w-3xl text-lg text-gray-200">
-          Éviter les erreurs coûteuses en appliquant une règle simple : 
-          <strong> Terrain → Preuve → Verdict</strong>. Décision humaine documentée, 
-          traçabilité complète, zéro compromis sur la sécurité.
-        </p>
-        <div className="flex flex-col gap-3 sm:flex-row pt-4">
-          <Link href="/fast-remote" className="btn btn-primary">
-            Démarrer FAST Remote
-          </Link>
-          <Link href="/services" className="btn btn-secondary">
-            Voir les services
-          </Link>
-        </div>
-      </Container>
-    </section>
   );
 }
 

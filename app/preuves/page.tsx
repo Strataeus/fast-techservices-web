@@ -2,7 +2,6 @@
 import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
 import HeroBanner from "../../components/HeroBanner";
-import PageHero from "../../components/PageHero";
 import { proofs } from "../../lib/content/proofs";
 
 export const metadata = {
@@ -28,7 +27,7 @@ export default function ProofsHubPage() {
               PREUVES & RÉALISATIONS
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Exemples d'interventions
+              Exemples d&apos;interventions
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
               Cas anonymisés à des fins de démonstration. Structure identique : symptôme, mesure, action et test de sortie.

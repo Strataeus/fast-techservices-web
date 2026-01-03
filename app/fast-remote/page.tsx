@@ -6,7 +6,6 @@ import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import StickyCTA from '../../components/StickyCTA';
 import HeroBanner from '../../components/HeroBanner';
-import PageHero from '../../components/PageHero';
 
 export const metadata: Metadata = {
   title: 'FAST Remote — Diagnostic & assistance à distance',
@@ -87,7 +86,6 @@ export default function FastRemotePage() {
       <HeroBanner
         src="/hero/fast-remote/hero.webp"
         alt="FAST Remote - Assistance à distance"
-        aspectRatio="16/9"
       />
       
       {/* Hero Content Section */}
@@ -101,7 +99,7 @@ export default function FastRemotePage() {
               Assistance à distance guidée pour dépanner vite et décider juste
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
-              FAST Remote : diagnostic et assistance à distance pour équipements industriels. Verdict en 1-2h, preuves documentées, plan d'action clair. Dépannage urgent sans intervention terrain coûteuse.
+              FAST Remote : diagnostic et assistance à distance pour équipements industriels. Verdict en 1-2h, preuves documentées, plan d&apos;action clair. Dépannage urgent sans intervention terrain coûteuse.
             </p>
           </div>
         </Container>
@@ -114,43 +112,6 @@ export default function FastRemotePage() {
       <CTAFormSection />
       <StickyCTA />
     </div>
-  );
-}
-
-function HeroSection() {
-  return (
-    <section className="relative min-h-[60vh] overflow-hidden bg-gradient-to-br from-primary to-primary/80">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/40 via-transparent to-transparent" />
-      </div>
-      <Container className="relative flex min-h-[60vh] flex-col justify-center py-16">
-        <div className="max-w-3xl space-y-6">
-          <Badge className="w-fit bg-accent/20 text-accent uppercase tracking-[0.15em] text-xs font-semibold">
-            FAST Remote
-          </Badge>
-          <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-            Assistance à distance guidée pour dépanner vite et décider juste
-          </h1>
-          <p className="text-xl text-gray-200 leading-relaxed max-w-2xl">
-            Visio + tests terrain + preuves + verdict écrit. Diagnostic expert en 1-2 heures, sans immobiliser une intervention terrain coûteuse.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row pt-4">
-            <Link 
-              href="#demarrer" 
-              className="btn btn-primary inline-block text-center"
-            >
-              Démarrer FAST Remote
-            </Link>
-            <Link 
-              href="/contact" 
-              className="btn btn-secondary inline-block text-center"
-            >
-              Discuter avec un expert
-            </Link>
-          </div>
-        </div>
-      </Container>
-    </section>
   );
 }
 
