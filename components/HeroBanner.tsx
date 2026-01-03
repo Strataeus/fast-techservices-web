@@ -18,7 +18,7 @@ export default function HeroBanner({
         priority
         quality={85}
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-contain object-center"
       />
       {/* Overlay gradient subtil pour améliorer la lisibilité */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
