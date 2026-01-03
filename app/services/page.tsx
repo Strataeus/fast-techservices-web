@@ -240,7 +240,7 @@ export default function ServicesPage() {
         badgeLabel="Portefeuille de services"
         title="Services Techniques pour Équipements de Garage"
         description="Diagnostic structuré, maintenance préventive, interventions terrain et assistance à distance. Même approche : Terrain → Preuves → Verdict documenté"
-        imageUrl="/hero/services.svg"
+        imageUrl="/hero/services/hero.svg"
         imageAlt="Services techniques FAST Tech Services"
       />
 

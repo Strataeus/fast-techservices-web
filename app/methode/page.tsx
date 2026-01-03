@@ -103,7 +103,7 @@ export default function MethodeFastPage() {
         badgeLabel="PHILOSOPHIE"
         title="Méthode FAST : la fiabilité par la rigueur"
         description="Éviter les erreurs coûteuses en appliquant une règle simple : Terrain → Preuve → Verdict. Décision humaine documentée, traçabilité complète, zéro compromis sur la sécurité."
-        imageUrl="/hero/methode.svg"
+        imageUrl="/hero/methode/hero.svg"
         imageAlt="Illustration de la méthode FAST"
       />
       <SchemaSection />

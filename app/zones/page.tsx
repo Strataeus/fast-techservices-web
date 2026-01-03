@@ -16,7 +16,7 @@ export default function ZonesHubPage() {
         badgeLabel="ZONES"
         title="Zones d'intervention"
         description="Interventions terrain par zone géographique. ⚠️ FAST Remote (diagnostic à distance) couvre la France entière en 1-2h."
-        imageUrl="/hero/zones.svg"
+        imageUrl="/hero/zones/hero.svg"
         imageAlt="Zones d'intervention FAST Tech Services"
       />
       <main className="py-16">
