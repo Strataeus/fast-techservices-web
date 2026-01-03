@@ -232,28 +232,38 @@ export default function SiteHeader() {
 
               return (
                 <div key={item.href}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (showSubmenu) {
+                  {showSubmenu ? (
+                    // Items avec submenu - button pour toggle
+                    <button
+                      type="button"
+                      onClick={() => {
                         setMobileSubmenuOpen(isSubmenuOpen ? null : item.href);
-                      } else {
-                        setOpen(false);
-                      }
-                    }}
-                    className={`w-full text-left flex items-center justify-between px-4 py-3 rounded-lg transition-all ${
-                      isItemActive
-                        ? "bg-accent-bright/10 text-accent-bright border-l-2 border-accent-bright"
-                        : "text-gray-300 hover:bg-white/5 border-l-2 border-transparent"
-                    }`}
-                  >
-                    <span className="font-semibold text-sm">{item.label}</span>
-                    {showSubmenu && (
+                      }}
+                      className={`w-full text-left flex items-center justify-between px-4 py-3 rounded-lg transition-all ${
+                        isItemActive
+                          ? "bg-accent-bright/10 text-accent-bright border-l-2 border-accent-bright"
+                          : "text-gray-300 hover:bg-white/5 border-l-2 border-transparent"
+                      }`}
+                    >
+                      <span className="font-semibold text-sm">{item.label}</span>
                       <span className={`text-xs transition-transform ${isSubmenuOpen ? "rotate-180" : ""}`}>
                         ▼
                       </span>
-                    )}
-                  </button>
+                    </button>
+                  ) : (
+                    // Items sans submenu - Link pour naviguer
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all block ${
+                        isItemActive
+                          ? "bg-accent-bright/10 text-accent-bright border-l-2 border-accent-bright"
+                          : "text-gray-300 hover:bg-white/5 border-l-2 border-transparent"
+                      }`}
+                    >
+                      <span className="font-semibold text-sm">{item.label}</span>
+                    </Link>
+                  )}
 
                   {/* Mobile Submenu */}
                   {showSubmenu && isSubmenuOpen && (
