@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "FAST Tech Services",
     description:
       "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
-    images: ["/hero/home/fast-hero.png"],
+    images: ["/hero/home/hero.svg"],
     siteName: "FAST Tech Services",
     locale: "fr_FR",
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "FAST Tech Services",
     description:
       "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
-    images: ["/hero/home/fast-hero.png"],
+    images: ["/hero/home/hero.svg"],
   },
 };
 

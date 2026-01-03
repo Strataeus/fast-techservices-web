@@ -326,7 +326,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* DIAGNOSTIC & DEPANNAGE */}
-      <Section>
+      <Section id="pont-elevateur">
         <Container className="space-y-8">
           <div className="space-y-4">
             <div className="text-4xl">{diagnosticContent.icon}</div>
@@ -384,7 +384,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* MAINTENANCE PREVENTIVE */}
-      <Section className="bg-primary/60">
+      <Section id="compresseur" className="bg-primary/60">
         <Container className="space-y-8">
           <div className="space-y-4">
             <div className="text-4xl">{maintenanceContent.icon}</div>
@@ -460,7 +460,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* INTERVENTIONS TERRAIN */}
-      <Section>
+      <Section id="cabine-peinture">
         <Container className="space-y-8">
           <div className="space-y-4">
             <div className="text-4xl">{interventionsContent.icon}</div>

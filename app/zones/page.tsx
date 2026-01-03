@@ -21,7 +21,7 @@ export default function ZonesHubPage() {
       />
       <main className="py-16">
         <Container>
-          <div className="band band--neutral relative overflow-hidden rounded-2xl px-6 py-10 md:px-10">
+          <div id="ile-de-france" className="band band--neutral relative overflow-hidden rounded-2xl px-6 py-10 md:px-10">
             <div className="absolute inset-0 tech-grid opacity-10" />
             <div className="relative">
               <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">

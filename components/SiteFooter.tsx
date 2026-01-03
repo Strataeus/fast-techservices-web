@@ -9,9 +9,9 @@ const footerLinks = {
     { label: "Maintenance préventive", href: "/contact" },
   ],
   company: [
-    { label: "À propos", href: "#avantages" },
-    { label: "Équipements", href: "#equipements" },
-    { label: "FAQ", href: "#faq" },
+    { label: "À propos", href: "/" },
+    { label: "Équipements", href: "/" },
+    { label: "FAQ", href: "/" },
   ],
   legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
@@ -40,15 +40,17 @@ export default function SiteFooter() {
             {/* Social links */}
             <div className="flex gap-3 pt-4">
               {[
-                { icon: "📱", label: "Socials", href: "#" },
-                { icon: "🔗", label: "LinkedIn", href: "#" },
-                { icon: "💼", label: "Pro", href: "#" },
+                { icon: "📱", label: "Téléphone", href: "tel:+33142868200" },
+                { icon: "🔗", label: "LinkedIn", href: "https://linkedin.com" },
+                { icon: "✉️", label: "Email", href: "mailto:contact@fast-techservices.com" },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
                   title={social.label}
                   className="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-white/10 hover:border-accent-gold/50 transition-all hover:bg-accent-gold/5"
+                  rel="noopener noreferrer"
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
                 >
                   {social.icon}
                 </a>

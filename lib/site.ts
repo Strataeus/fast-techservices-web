@@ -29,12 +29,17 @@ export const siteConfig = {
       href: "/services",
       // Megamenu items
       submenu: [
-        { label: "🚡 Ponts Élévateurs", href: "/services", desc: "Diagnostic hydraulique & sécurité" },
-        { label: "💨 Compresseurs", href: "/services", desc: "Efficacité énergétique & débit" },
-        { label: "🎨 Cabines Peinture", href: "/services", desc: "Conformité & ventilation" },
+        { label: "🚡 Ponts Élévateurs", href: "/services#pont-elevateur", desc: "Diagnostic hydraulique & sécurité" },
+        { label: "💨 Compresseurs", href: "/services#compresseur", desc: "Efficacité énergétique & débit" },
+        { label: "🎨 Cabines Peinture", href: "/services#cabine-peinture", desc: "Conformité & ventilation" },
       ]
     },
-    { label: "Zones Intervention", href: "/zones" },
+    { label: "Zones Intervention", href: "/zones",
+      submenu: [
+        { label: "📍 Île-de-France", href: "/zones#ile-de-france", desc: "Interventions terrain prioritaires" },
+        { label: "🚀 France Entière", href: "/fast-remote", desc: "FAST Remote couvre tout" },
+      ]
+    },
     { label: "Méthode", href: "/methode" },
     { label: "Preuves", href: "/preuves" },
     { label: "Contact", href: "/contact" },
