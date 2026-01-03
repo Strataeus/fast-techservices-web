@@ -3,30 +3,14 @@ import Image from "next/image";
 interface HeroBannerProps {
   src: string;
   alt: string;
-  height?: "sm" | "md" | "lg" | "xl";
 }
 
 export default function HeroBanner({
   src,
   alt,
-  height = "lg",
 }: HeroBannerProps) {
-  const heightClasses = {
-    sm: "h-[20vh]",
-    md: "h-[30vh]",
-    lg: "h-[40vh]",
-    xl: "h-[50vh]",
-  };
-
-  const responsiveHeights = {
-    sm: `${heightClasses.sm} sm:h-[25vh] md:h-[35vh] lg:h-[45vh]`,
-    md: `${heightClasses.md} sm:h-[35vh] md:h-[40vh] lg:h-[50vh]`,
-    lg: `${heightClasses.lg} sm:h-[40vh] md:h-[45vh] lg:h-[55vh]`,
-    xl: `${heightClasses.xl} sm:h-[50vh] md:h-[55vh] lg:h-[60vh]`,
-  };
-
   return (
-    <section className={`relative w-full ${responsiveHeights[height]} overflow-hidden bg-primary-dark`}>
+    <section className="relative w-full aspect-video bg-primary-dark overflow-hidden">
       <Image
         src={src}
         alt={alt}

@@ -18,7 +18,6 @@ export default function ProofsHubPage() {
       <HeroBanner
         src="/hero/preuves/hero.webp"
         alt="Interventions techniques FAST Tech Services"
-        height="lg"
       />
       
       {/* Hero Content Section */}

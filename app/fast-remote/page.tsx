@@ -87,7 +87,6 @@ export default function FastRemotePage() {
       <HeroBanner
         src="/hero/fast-remote/hero.webp"
         alt="FAST Remote - Assistance à distance"
-        height="lg"
       />
       
       {/* Hero Content Section */}

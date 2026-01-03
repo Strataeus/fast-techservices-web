@@ -18,7 +18,6 @@ export default function ConfidentialitePage() {
       <HeroBanner
         src="/hero/confidentialite/hero.webp"
         alt="Politique de confidentialité"
-        height="lg"
       />
       
       {/* Hero Content Section */}

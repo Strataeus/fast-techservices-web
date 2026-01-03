@@ -240,7 +240,6 @@ export default function ServicesPage() {
       <HeroBanner
         src="/hero/services/hero.webp"
         alt="Services techniques FAST Tech Services"
-        height="lg"
       />
       
       {/* Hero Content Section */}

@@ -18,7 +18,6 @@ export default function MentionsPage() {
       <HeroBanner
         src="/hero/mentions-legales/hero.webp"
         alt="Mentions légales"
-        height="lg"
       />
       
       {/* Hero Content Section */}

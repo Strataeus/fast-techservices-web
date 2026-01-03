@@ -16,7 +16,6 @@ export default function ContactPage() {
       <HeroBanner
         src="/hero/contact/hero.webp"
         alt="Équipe FAST Tech Services"
-        height="lg"
       />
       
       {/* Hero Content Section */}

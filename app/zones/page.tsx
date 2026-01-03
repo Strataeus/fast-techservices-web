@@ -18,7 +18,6 @@ export default function ZonesHubPage() {
       <HeroBanner
         src="/hero/zones/hero.webp"
         alt="Zones d'intervention FAST Tech Services"
-        height="lg"
       />
       
       {/* Hero Content Section */}

@@ -243,7 +243,6 @@ function HeroSection() {
       <HeroBanner
         src="/hero/home/hero.webp"
         alt="FAST Remote : diagnostic à distance"
-        height="xl"
       />
 
       {/* Value proposition - Direct & Clear */}

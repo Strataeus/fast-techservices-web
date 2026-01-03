@@ -104,7 +104,6 @@ export default function MethodeFastPage() {
       <HeroBanner
         src="/hero/methode/hero.webp"
         alt="Illustration de la méthode FAST"
-        height="lg"
       />
       
       {/* Hero Content Section */}
