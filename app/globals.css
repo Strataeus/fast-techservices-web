@@ -491,3 +491,126 @@ body > * {
   opacity: 0;
   animation: fadeInUp 0.6s ease-out forwards;
 }
+
+/* ============================================================= */
+/* PREMIUM MENU ANIMATIONS */
+/* ============================================================= */
+
+@keyframes underlineSlide {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes megamenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.6),
+                0 0 40px rgba(0, 217, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.8),
+                0 0 50px rgba(0, 217, 255, 0.4);
+  }
+}
+
+@keyframes logoHover {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes hamburgerTop {
+  from {
+    transform: rotate(0) translateY(0);
+  }
+  to {
+    transform: rotate(45deg) translateY(8px);
+  }
+}
+
+@keyframes hamburgerBottom {
+  from {
+    transform: rotate(0) translateY(0);
+  }
+  to {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}
+
+/* Animation utilities */
+.animate-underline-slide {
+  animation: underlineSlide 0.3s ease-out;
+}
+
+.animate-megamenu-slide {
+  animation: megamenuSlideDown 0.3s ease-out;
+}
+
+.animate-cta-glow {
+  animation: ctaGlow 3s ease-in-out infinite;
+}
+
+.animate-logo-hover {
+  animation: logoHover 0.4s ease-out;
+}
+
+/* Header enhancements */
+header {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Premium color transitions */
+.text-accent-bright {
+  color: #00D9FF;
+  text-shadow: 0 0 12px rgba(0, 217, 255, 0.3);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(120deg, #00D9FF, #FF9A2E);
+}
+
+/* Megamenu styling enhancements */
+.megamenu-item {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.megamenu-item:hover {
+  transform: translateX(4px);
+  background: rgba(0, 217, 255, 0.08);
+}
+
+/* Focus styles */
+a:focus-visible {
+  outline: 2px solid #00D9FF;
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid #00D9FF;
+  outline-offset: 2px;
+}

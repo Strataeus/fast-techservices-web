@@ -24,7 +24,17 @@ export const siteConfig = {
   nav: [
     { label: "Accueil", href: "/" },
     { label: "FAST Remote", href: "/fast-remote" },
-    { label: "Services", href: "/services" },
+    { 
+      label: "Services", 
+      href: "/services",
+      // Megamenu items
+      submenu: [
+        { label: "🚡 Ponts Élévateurs", href: "/services", desc: "Diagnostic hydraulique & sécurité" },
+        { label: "💨 Compresseurs", href: "/services", desc: "Efficacité énergétique & débit" },
+        { label: "🎨 Cabines Peinture", href: "/services", desc: "Conformité & ventilation" },
+      ]
+    },
+    { label: "Zones Intervention", href: "/zones" },
     { label: "Méthode", href: "/methode" },
     { label: "Preuves", href: "/preuves" },
     { label: "Contact", href: "/contact" },
