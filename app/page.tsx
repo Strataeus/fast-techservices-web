@@ -243,38 +243,29 @@ export default function HomePage() {
       {/* A) HERO */}
       <HeroSection />
 
-      {/* PROBLEM */}
+      {/* PROBLEM - La raison d'être */}
       <ProblemSection />
 
-      {/* B) Pourquoi FAST Remote */}
+      {/* B) Pourquoi FAST Remote - 3 avantages clés */}
       <WhyRemoteSection />
 
-      {/* C) Cas d'usage */}
+      {/* C) Cas d'usage - Les 3 équipements principaux */}
       <UseCasesSection />
 
-      {/* C+) Portfolio des 3 équipements clés */}
-      <EquipmentPortfolioSection />
-
-      {/* D) Comment ça marche */}
+      {/* D) Comment ça marche - Process 4 étapes */}
       <ProcessSection />
 
-      {/* SUCCESS STORIES - Avant/Après */}
+      {/* SUCCESS STORIES - Avant/Après & ROI */}
       <SuccessStories />
 
-      {/* E) Équipements couverts */}
-      <EquipmentsSection />
-
-      {/* F) Offres */}
-      <OfferingsSection />
-
-      {/* TÉMOIGNAGES - Cas réussis */}
+      {/* TÉMOIGNAGES - Clients satisfaits */}
       <Testimonials />
 
-      {/* SERVICE GUARANTEE */}
-      <ServiceGuaranteeSection />
+      {/* E) Découvrir plus - Passerelles vers pages secondaires */}
+      <DiscoverySection />
 
-      {/* G) FAQ */}
-      <FAQSection />
+      {/* F) FAQ Compacte */}
+      <FAQCompactSection />
 
       {/* H) CTA final */}
       <CTAFinalSection />
@@ -1013,6 +1004,132 @@ function ServiceGuaranteeSection() {
 // =============================================================================
 // G) FAQ COURTE
 // =============================================================================
+// =============================================================================
+// DISCOVERY SECTION - Passerelles vers pages secondaires
+// =============================================================================
+function DiscoverySection() {
+  return (
+    <Section className="bg-gradient-to-b from-primary-dark via-primary/50 to-primary-darker">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl">
+          <p className="eyebrow text-accent-bright uppercase tracking-wider">🔍 Découvrir plus</p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
+            Approfondissez votre <span className="text-accent-gold">compréhension</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Carte 1: Services détaillés */}
+          <Link href="/services" className="group rounded-2xl border border-white/10 bg-gradient-to-br from-primary/60 to-primary-darker/60 p-8 hover:border-accent-gold/50 hover:bg-gradient-to-br hover:from-primary/80 hover:to-primary-darker/80 transition-all">
+            <div className="space-y-4">
+              <div className="text-4xl">⚙️</div>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent-gold transition">Services Complets</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Diagnostic, maintenance préventive, interventions terrain. Tous nos services détaillés.</p>
+              <div className="flex items-center gap-2 text-accent-bright text-sm font-semibold pt-2">
+                Voir services <span className="group-hover:translate-x-1 transition">→</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Carte 2: FAST Remote détail */}
+          <Link href="/fast-remote" className="group rounded-2xl border border-white/10 bg-gradient-to-br from-primary/60 to-primary-darker/60 p-8 hover:border-accent-bright/50 hover:bg-gradient-to-br hover:from-primary/80 hover:to-primary-darker/80 transition-all">
+            <div className="space-y-4">
+              <div className="text-4xl">💻</div>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent-bright transition">FAST Remote Avancé</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Process détaillé, offres tarifaires, prérequis techniques, et bien plus.</p>
+              <div className="flex items-center gap-2 text-accent-bright text-sm font-semibold pt-2">
+                Découvrir FAST Remote <span className="group-hover:translate-x-1 transition">→</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Carte 3: Cas clients */}
+          <Link href="/preuves" className="group rounded-2xl border border-white/10 bg-gradient-to-br from-primary/60 to-primary-darker/60 p-8 hover:border-accent-gold/50 hover:bg-gradient-to-br hover:from-primary/80 hover:to-primary-darker/80 transition-all">
+            <div className="space-y-4">
+              <div className="text-4xl">📊</div>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent-gold transition">Cas Clients & Preuves</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Études de cas anonymisées montrant notre méthodologie en action.</p>
+              <div className="flex items-center gap-2 text-accent-bright text-sm font-semibold pt-2">
+                Voir cas clients <span className="group-hover:translate-x-1 transition">→</span>
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Carte 4: Méthode */}
+          <Link href="/methode" className="group rounded-2xl border border-white/10 bg-gradient-to-br from-primary/60 to-primary-darker/60 p-8 hover:border-accent-bright/50 hover:bg-gradient-to-br hover:from-primary/80 hover:to-primary-darker/80 transition-all">
+            <div className="space-y-4">
+              <div className="text-4xl">🎯</div>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent-bright transition">Méthode FAST</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Terrain → Preuve → Verdict. Comprendre notre philosophie et approche.</p>
+              <div className="flex items-center gap-2 text-accent-bright text-sm font-semibold pt-2">
+                Lire la méthode <span className="group-hover:translate-x-1 transition">→</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Carte 5: Zones */}
+          <Link href="/zones" className="group rounded-2xl border border-white/10 bg-gradient-to-br from-primary/60 to-primary-darker/60 p-8 hover:border-accent-gold/50 hover:bg-gradient-to-br hover:from-primary/80 hover:to-primary-darker/80 transition-all">
+            <div className="space-y-4">
+              <div className="text-4xl">📍</div>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent-gold transition">Zones d'Intervention</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Couverture géographique FAST Remote (France) et interventions terrain.</p>
+              <div className="flex items-center gap-2 text-accent-bright text-sm font-semibold pt-2">
+                Voir zones <span className="group-hover:translate-x-1 transition">→</span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+// =============================================================================
+// FAQ COMPACT - Seulement 4-5 questions essentielles
+// =============================================================================
+function FAQCompactSection() {
+  const compactFaqs = faqs.slice(0, 4); // Seulement les 4 premières FAQ
+
+  return (
+    <Section id="faq" className="bg-gradient-to-b from-primary/75 to-primary-darker">
+      <Container className="space-y-12">
+        <div className="space-y-4 max-w-3xl px-4 sm:px-0">
+          <p className="eyebrow text-accent-gold uppercase tracking-wider">❓ Vos questions</p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
+            Les réponses <span className="text-accent-gold">essentielles</span>
+          </h2>
+        </div>
+
+        <div className="grid gap-3 sm:gap-4 max-w-4xl px-4 sm:px-0">
+          {compactFaqs.map((faq, idx) => (
+            <details
+              key={idx}
+              className="group rounded-xl border border-accent-gold/20 bg-white/5 p-4 sm:p-6 transition hover:bg-accent-gold/5 hover:border-accent-gold/40 cursor-pointer"
+            >
+              <summary className="font-semibold text-base sm:text-lg text-white group-open:text-accent-gold transition flex justify-between items-center gap-4">
+                <span className="text-left">{faq.q}</span>
+                <span className="text-accent-gold group-open:rotate-45 transition text-xl sm:text-2xl flex-shrink-0">+</span>
+              </summary>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-gray-200">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+
+        {/* More questions CTA */}
+        <div className="mt-12 p-6 sm:p-8 rounded-xl bg-accent-gold/10 border border-accent-gold/30 text-center px-4 sm:px-8">
+          <p className="text-gray-100 text-base sm:text-lg">
+            Plus de questions ? Consultez <Link href="/fast-remote" className="text-accent-gold font-bold hover:underline">la page FAST Remote complète</Link> ou <Link href="/contact" className="text-accent-gold font-bold hover:underline">contactez-nous directement</Link>.
+          </p>
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
 function FAQSection() {
   return (
     <Section id="faq" className="bg-gradient-to-b from-primary/75 to-primary-darker">
