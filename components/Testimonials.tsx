@@ -86,7 +86,7 @@ export default function Testimonials() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Diagnostics qui ont <span className="text-accent-bright">sauvé du temps et de l'argent</span>
+              Diagnostics qui ont <span className="text-accent-bright">sauvé du temps et de l&apos;argent</span>
             </h2>
 
             <p className="text-lg text-gray-300 leading-relaxed">
@@ -135,7 +135,7 @@ export default function Testimonials() {
           {/* ROI Testimonials Section */}
           <div className="mt-16 pt-12 border-t border-white/10">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-              L'impact en <span className="text-accent-gold">chiffres</span>
+              L&apos;impact en <span className="text-accent-gold">chiffres</span>
             </h3>
 
             <div className="grid gap-8 md:grid-cols-3">
@@ -160,7 +160,7 @@ export default function Testimonials() {
 
                   {/* Quote */}
                   <p className="text-gray-200 italic text-sm mb-6 leading-relaxed">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
 
                   {/* ROI Metrics */}

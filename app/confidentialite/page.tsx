@@ -1,5 +1,4 @@
 import Background from "../../components/layout/Background";
-import HeroBase from "../../components/hero/HeroBase";
 import Container from "../../components/Container";
 import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";

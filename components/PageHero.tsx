@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "./Container";
 import Section from "./ui/Section";
 import Badge from "./ui/Badge";
@@ -45,9 +46,11 @@ export default function PageHero({
           <div className="lg:order-2">
             {imageUrl ? (
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                <img
+                <Image
                   src={imageUrl}
                   alt={imageAlt}
+                  width={800}
+                  height={600}
                   className="w-full h-auto object-cover aspect-video sm:aspect-square lg:aspect-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent pointer-events-none" />

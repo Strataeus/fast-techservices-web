@@ -8,9 +8,9 @@ import Container from "./Container";
 
 type NavItem = (typeof siteConfig.nav)[number];
 type SubMenuItem = { label: string; href: string; desc: string };
+type NavItemWithSubmenu = NavItem & { submenu: SubMenuItem[] };
 
 export default function SiteHeader() {
-  const [active, setActive] = useState<string>("#top");
   const [open, setOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +59,8 @@ export default function SiteHeader() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActive(`#${entry.target.id}`);
+            // Active section tracking disabled - not used for navigation
+            // setActive(`#${entry.target.id}`);
           }
         });
       },
@@ -74,14 +75,17 @@ export default function SiteHeader() {
     return () => observer.disconnect();
   }, [isHome, items]);
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change - with dependency on pathname
   useEffect(() => {
-    setOpen(false);
-    setMobileSubmenuOpen(null);
+    const closeMenus = () => {
+      setOpen(false);
+      setMobileSubmenuOpen(null);
+    };
+    closeMenus();
   }, [pathname]);
 
-  const hasSubmenu = (item: NavItem): item is NavItem & { submenu: NonNullable<any> } => {
-    return "submenu" in item && Array.isArray((item as any).submenu) && (item as any).submenu.length > 0;
+  const hasSubmenu = (item: NavItem): item is NavItemWithSubmenu => {
+    return "submenu" in item && Array.isArray((item as NavItemWithSubmenu).submenu) && (item as NavItemWithSubmenu).submenu.length > 0;
   };
 
   return (

@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
-import Badge from "../../components/ui/Badge";
 import FormFastRemote from "../../components/FormFastRemote";
 import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";

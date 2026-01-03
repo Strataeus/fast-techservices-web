@@ -187,50 +187,6 @@ const faqs = [
   },
 ];
 
-// Testimonials with detailed ROI context
-const testimonialsWithROI = [
-  {
-    author: "Jean Martin",
-    company: "Garage Martin SARL",
-    location: "Île-de-France",
-    role: "Gérant",
-    quote: "Notre pont était bloqué depuis 4 jours. Coût estimé de perte : 8000€. FAST Remote a diagnostiqué un simple défaut capteur en 2h pour 500€. Production relancée le jour même.",
-    impact: "Économie : 7500€ | Temps gagné : 3 jours",
-    rating: 5,
-    image: "👨‍💼"
-  },
-  {
-    author: "Sophie Laurent",
-    company: "Centre de Maintenance Automobiles",
-    location: "Région Parisienne",
-    role: "Responsable Technique",
-    quote: "Avant FAST Remote, chaque panne équipement = 24-48h d'arrêt minimum. Maintenant : diagnostic en 2h, décision en 4h. Notre productivité a augmenté de 15%.",
-    impact: "Gain productivité : +15% | Coûts d'arrêt : -60%",
-    rating: 5,
-    image: "👩‍💼"
-  },
-  {
-    author: "Thierry Dupont",
-    company: "Atelier Spécialisé",
-    location: "Rhône-Alpes",
-    role: "Chef d'Atelier",
-    quote: "J'avais besoin de valider si la réparation valait le coup. FAST a diagnostiqué le problème (fusible + relais) pour 290€. Nous avons pu réparer nous-mêmes pour 50€.",
-    impact: "Coût diagnostic : 290€ | Coût réparation réelle : 50€",
-    rating: 5,
-    image: "👨‍🔧"
-  },
-  {
-    author: "Marie Rousseau",
-    company: "Garage Premium",
-    location: "Bretagne",
-    role: "Directrice",
-    quote: "Après 3 diagnostics FAST Remote, nos techniciens connaissent maintenant la méthode. Nous avons réduit nos immobilisations d'équipement de 70%.",
-    impact: "Réduction immobilisations : -70% | Compétences améliorées",
-    rating: 5,
-    image: "👩‍💼"
-  }
-];
-
 // =============================================================================
 // =============================================================================
 
@@ -306,9 +262,9 @@ function HeroSection() {
 
             {/* Subheading - value */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-3xl font-medium">
-              Depuis 2010, <strong className="text-accent-bright">FAST Tech Services</strong> maîtrise la <strong>mécatronique industrielle</strong> appliquée aux équipements critiques. Cabines de peinture, ponts élévateurs, compresseurs d'air comprimé—nous dominons les trois piliers de votre production. Installation, maintenance, retrofit, mise en conformité : nous couvrons tout. Mais c'est dans l'urgence que nous excellons.
+              Depuis 2010, <strong className="text-accent-bright">FAST Tech Services</strong> maîtrise la <strong>mécatronique industrielle</strong> appliquée aux équipements critiques. Cabines de peinture, ponts élévateurs, compresseurs d&apos;air comprimé—nous dominons les trois piliers de votre production. Installation, maintenance, retrofit, mise en conformité : nous couvrons tout. Mais c&apos;est dans l&apos;urgence que nous excellons.
               <br className="hidden md:block" />
-              <strong className="text-accent-gold">Quand la production s'arrête, FAST Tech Services diagnostique à distance en 2h. Verdict documenté. Solutions prêtes à déployer.</strong>
+              <strong className="text-accent-gold">Quand la production s&apos;arrête, FAST Tech Services diagnostique à distance en 2h. Verdict documenté. Solutions prêtes à déployer.</strong>
             </p>
 
             {/* Trust badges - Social proof micro */}
@@ -375,10 +331,10 @@ function ProblemSection() {
         <div className="text-center space-y-4 max-w-3xl mx-auto px-4">
           <p className="eyebrow text-accent-gold uppercase tracking-wider">Le défi</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
-            Une panne d'équipement = <span className="text-red-400">48h-1 semaine perdue</span>
+            Une panne d&apos;équipement = <span className="text-red-400">48h-1 semaine perdue</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-300">
-            Attendre un diagnostic terrain, c'est du temps d'immobilisation. De l'argent qui s'envole. De l'incertitude.
+            Attendre un diagnostic terrain, c&apos;est du temps d&apos;immobilisation. De l&apos;argent qui s&apos;envole. De l&apos;incertitude.
           </p>
         </div>
 
@@ -426,7 +382,7 @@ function ProblemSection() {
         {/* CTA */}
         <div className="text-center pt-6">
           <Link href="/fast-remote" className="btn btn-primary px-8 py-4 text-lg">
-            Arrêter l'hémorragie →
+            Arrêter l&apos;hémorragie →
           </Link>
         </div>
       </Container>
@@ -444,7 +400,7 @@ function WhyRemoteSection() {
         <div className="space-y-4 max-w-3xl">
           <p className="eyebrow text-accent uppercase tracking-wider">Pourquoi FAST Tech Services</p>
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-            14 ans d'excellence <span className="text-accent-bright">en mécatronique</span>
+            14 ans d&apos;excellence <span className="text-accent-bright">en mécatronique</span>
           </h2>
           <p className="text-lg text-gray-300">
             Depuis 2010, nous sommes le partenaire de confiance pour les dépannages critiques. Expertise reconnue. Certifications. Garanties.
@@ -455,7 +411,7 @@ function WhyRemoteSection() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-8 border-y border-white/10">
           <div className="text-center space-y-2">
             <div className="text-2xl sm:text-3xl font-bold text-accent-bright">14+</div>
-            <p className="text-xs sm:text-sm text-gray-300">Ans d'expertise</p>
+            <p className="text-xs sm:text-sm text-gray-300">Ans d&apos;expertise</p>
           </div>
           <div className="text-center space-y-2">
             <div className="text-2xl sm:text-3xl font-bold text-accent-gold">1000+</div>
@@ -720,7 +676,7 @@ function ProcessSection() {
             4 étapes seulement <span className="text-accent-bright">pour votre verdict</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-300">
-            Pas de délai d'attente, pas de pièces inutiles commandées. Juste l'expertise directe.
+            Pas de délai d&apos;attente, pas de pièces inutiles commandées. Juste l&apos;expertise directe.
           </p>
         </div>
 
@@ -1073,7 +1029,7 @@ function DiscoverySection() {
           <Link href="/zones" className="group rounded-2xl border border-white/10 bg-gradient-to-br from-primary/60 to-primary-darker/60 p-8 hover:border-accent-gold/50 hover:bg-gradient-to-br hover:from-primary/80 hover:to-primary-darker/80 transition-all">
             <div className="space-y-4">
               <div className="text-4xl">📍</div>
-              <h3 className="text-xl font-bold text-white group-hover:text-accent-gold transition">Zones d'Intervention</h3>
+              <h3 className="text-xl font-bold text-white group-hover:text-accent-gold transition">Zones d&apos;Intervention</h3>
               <p className="text-gray-300 text-sm leading-relaxed">Couverture géographique FAST Remote (France) et interventions terrain.</p>
               <div className="flex items-center gap-2 text-accent-bright text-sm font-semibold pt-2">
                 Voir zones <span className="group-hover:translate-x-1 transition">→</span>
@@ -1183,7 +1139,7 @@ function CTAFinalSection() {
     <SectionBand tone="tech" className="text-center">
       <div className="space-y-8">
         <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-          Résolvez votre <span className="text-accent-gold">problème aujourd'hui</span>
+          Résolvez votre <span className="text-accent-gold">problème aujourd&apos;hui</span>
         </h2>
         <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-200">
           Démarrez <strong>FAST Remote immédiatement</strong> pour un diagnostic en 1-4h. 

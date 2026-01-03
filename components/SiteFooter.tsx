@@ -161,7 +161,7 @@ export default function SiteFooter() {
                 type="submit"
                 className="px-6 py-2 bg-accent-bright text-primary font-bold rounded-lg hover:bg-accent-soft transition-colors text-sm whitespace-nowrap"
               >
-                S'abonner
+                S&apos;abonner
               </button>
             </form>
 

@@ -24,47 +24,6 @@ function getClientIp(request: NextRequest): string {
 // Type definitions
 type FormType = "fast-remote" | "onsite" | "maintenance";
 
-// Type definitions (for documentation and future extensibility)
-// These interfaces document the expected shape of form data for each type
-interface FastRemoteData {
-  nom: string;
-  telephone: string;
-  email: string;
-  ville: string;
-  codePostal: string;
-  urgence: "arret-total" | "degrade" | "preventif";
-  equipement: string;
-  symptome: string;
-  disponibilite: string;
-  consentement: boolean;
-  societe?: string;
-  marque?: string;
-  acces?: boolean;
-}
-
-interface OnsiteData {
-  nom: string;
-  telephone: string;
-  email: string;
-  ville: string;
-  codePostal: string;
-  equipement: string;
-  symptome: string;
-  consentement: boolean;
-  societe?: string;
-}
-
-interface MaintenanceData {
-  nom: string;
-  telephone: string;
-  email: string;
-  ville: string;
-  codePostal: string;
-  type: "contrat" | "audit" | "maintenance";
-  consentement: boolean;
-  societe?: string;
-}
-
 // Validations
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
-import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
 import PageHero from "../../components/PageHero";
-import { siteConfig } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Services | FAST Tech Services",
@@ -474,7 +472,7 @@ export default function ServicesPage() {
             <p className="text-gray-300">{interventionsContent.overview}</p>
 
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Cas d'intervention</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Cas d&apos;intervention</h3>
               <div className="space-y-3">
                 {interventionsContent.scenarios.map((scenario, idx) => (
                   <div key={idx} className="glass-card border border-white/10 p-5">
@@ -487,7 +485,7 @@ export default function ServicesPage() {
 
             <div className="grid gap-6 md:grid-cols-2">
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Inclus dans l'intervention</h3>
+                <h3 className="text-lg font-semibold text-white mb-3">Inclus dans l&apos;intervention</h3>
                 <ul className="space-y-2">
                   {interventionsContent.perimeter.included.map((item, idx) => (
                     <li key={idx} className="text-sm text-gray-200 flex gap-2">
@@ -576,7 +574,7 @@ export default function ServicesPage() {
             Quel service pour votre situation ?
           </h2>
           <p className="max-w-2xl mx-auto text-center text-gray-200">
-            Contactez-nous pour discuter de votre contexte. Une pré-qualification rapide permet de recommander l'approche optimale.
+            Contactez-nous pour discuter de votre contexte. Une pré-qualification rapide permet de recommander l&apos;approche optimale.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center pt-4">
             <Link href="/fast-remote" className="btn btn-primary">

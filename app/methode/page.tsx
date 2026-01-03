@@ -241,11 +241,11 @@ function StopCallSection() {
               <ol className="space-y-1 text-gray-200 text-sm">
                 <li className="flex gap-2">
                   <span className="text-orange-300 font-bold">1.</span>
-                  <span>Arrêt immédiat du diagnostic ou de l'intervention</span>
+                  <span>Arrêt immédiat du diagnostic ou de l&apos;intervention</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-orange-300 font-bold">2.</span>
-                  <span>Sécurisation physique de l'installation</span>
+                  <span>Sécurisation physique de l&apos;installation</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-orange-300 font-bold">3.</span>

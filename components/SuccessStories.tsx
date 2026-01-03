@@ -44,7 +44,7 @@ export default function SuccessStories() {
             </h2>
 
             <p className="text-lg text-gray-300">
-              Voir comment FAST Remote transforme l'incertitude en clarté pour les équipes techniques.
+              Voir comment FAST Remote transforme l&apos;incertitude en clarté pour les équipes techniques.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function SuccessStories() {
                   className="border-red-500/20 hover:border-red-500/40"
                 />
                 <p className="text-sm text-gray-400">
-                  Incertitude, temps d'arrêt, coûts imprévisibles. L'équipe ne sait pas par où commencer.
+                  Incertitude, temps d&apos;arrêt, coûts imprévisibles. L&apos;équipe ne sait pas par où commencer.
                 </p>
               </div>
 
@@ -130,7 +130,7 @@ export default function SuccessStories() {
                   className="border-green-500/20 hover:border-green-500/40"
                 />
                 <p className="text-sm text-gray-400">
-                  Verdict documenté, preuves visuelles, plan de réparation clair. L'équipe agit avec confiance.
+                  Verdict documenté, preuves visuelles, plan de réparation clair. L&apos;équipe agit avec confiance.
                 </p>
               </div>
             </div>
