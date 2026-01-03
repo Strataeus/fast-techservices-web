@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Container from '../components/Container';
 import Section from '../components/ui/Section';
+import PageHero from '../components/PageHero';
 
 export default function Error({
   error,
@@ -23,17 +24,24 @@ export default function Error({
 
   return (
     <div className="relative min-h-screen bg-primary">
+      <PageHero
+        badgeLabel="Erreur 500"
+        title="Oups ! Une erreur est survenue"
+        description="Une erreur inattendue s'est produite lors du chargement de cette page. Nos équipes techniques en ont été notifiées."
+        imageUrl="/hero/error-500.svg"
+        accentColor="gold"
+      />
       <Section>
-        <Container className="flex flex-col items-center justify-center min-h-[60vh] text-center gap-6">
+        <Container className="flex flex-col items-center justify-center min-h-[40vh] text-center gap-6">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-2">Erreur</p>
-            <h1 className="text-4xl font-semibold text-white md:text-5xl">
-              Oups ! Une erreur est survenue
-            </h1>
+            <p className="text-sm uppercase tracking-[0.3em] text-accent mb-2">Dépannage</p>
+            <h2 className="text-3xl font-semibold text-white md:text-4xl">
+              Que faire maintenant ?
+            </h2>
           </div>
 
           <p className="max-w-md text-lg text-gray-200">
-            Nous nous excusons pour le désagrément. Une erreur inattendue s&apos;est produite lors du chargement de cette page.
+            Consultez les liens ci-dessous ou retournez à l&apos;accueil pour continuer votre visite.
           </p>
 
           {process.env.NODE_ENV === 'development' && error.message && (

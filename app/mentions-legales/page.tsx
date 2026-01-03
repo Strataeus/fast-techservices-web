@@ -17,6 +17,7 @@ export default function MentionsPage() {
         badgeLabel="Mentions légales"
         title="Mentions légales"
         description="Informations légales et administratives"
+        imageUrl="/hero/mentions-legales.svg"
         imageAlt="Mentions légales"
       />
       <main className="py-16">

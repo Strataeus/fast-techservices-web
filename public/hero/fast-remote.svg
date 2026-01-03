@@ -1,0 +1,31 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="remoteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="100" cy="100" r="90" fill="url(#remoteGrad)" opacity="0.1"/>
+  
+  <!-- Laptop -->
+  <rect x="35" y="50" width="80" height="50" fill="none" stroke="#00D9FF" stroke-width="2" rx="3"/>
+  <rect x="30" y="105" width="90" height="4" fill="#00D9FF" rx="2"/>
+  
+  <!-- Screen content - signal lines -->
+  <line x1="50" y1="65" x2="50" y2="85" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  <line x1="60" y1="65" x2="60" y2="80" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  <line x1="70" y1="65" x2="70" y2="90" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  <line x1="80" y1="65" x2="80" y2="75" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  <line x1="90" y1="65" x2="90" y2="85" stroke="#00D9FF" stroke-width="1.5" opacity="0.7"/>
+  
+  <!-- Wifi symbol below (connection) -->
+  <g transform="translate(100, 130)">
+    <path d="M -15 0 Q -8 -8 0 -10 Q 8 -8 15 0" fill="none" stroke="#00D9FF" stroke-width="1.5"/>
+    <circle cx="0" cy="2" r="2" fill="#00D9FF"/>
+  </g>
+  
+  <!-- Glow -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#00D9FF" stroke-width="1" opacity="0.3"/>
+</svg>

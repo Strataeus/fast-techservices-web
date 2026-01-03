@@ -86,6 +86,7 @@ export default function FastRemotePage() {
         badgeLabel="FAST Remote"
         title="Assistance à distance guidée pour dépanner vite et décider juste"
         description="FAST Remote : diagnostic et assistance à distance pour équipements industriels. Verdict en 1-2h, preuves documentées, plan d'action clair. Dépannage urgent sans intervention terrain coûteuse."
+        imageUrl="/hero/fast-remote.svg"
         imageAlt="FAST Remote - Assistance à distance"
         accentColor="bright"
       />
