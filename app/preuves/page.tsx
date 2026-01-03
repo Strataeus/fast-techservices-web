@@ -16,7 +16,7 @@ export default function ProofsHubPage() {
         badgeLabel="PREUVES & RÉALISATIONS"
         title="Exemples d'interventions"
         description="Cas anonymisés à des fins de démonstration. Structure identique : symptôme, mesure, action et test de sortie."
-        imageUrl="/hero/preuves/hero.svg"
+        imageUrl="/hero/preuves/hero.webp"
         imageAlt="Interventions techniques FAST Tech Services"
       />
       <main className="py-16">

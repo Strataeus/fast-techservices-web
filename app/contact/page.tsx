@@ -15,7 +15,7 @@ export default function ContactPage() {
         badgeLabel="CONTACT"
         title="Contactez FAST Tech Services"
         description="Choisissez votre type de demande : FAST Remote pour diagnostic immédiat, intervention terrain pour la région parisienne, ou contrat/audit."
-        imageUrl="/hero/contact/hero.svg"
+        imageUrl="/hero/contact/hero.webp"
         imageAlt="Équipe FAST Tech Services"
       />
       <FormSection />

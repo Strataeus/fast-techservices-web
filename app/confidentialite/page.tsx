@@ -16,7 +16,7 @@ export default function ConfidentialitePage() {
         badgeLabel="Confidentialité"
         title="Politique de confidentialité"
         description="Protection de vos données personnelles"
-        imageUrl="/hero/confidentialite/hero.svg"
+        imageUrl="/hero/confidentialite/hero.webp"
         imageAlt="Politique de confidentialité"
       />
       <main className="py-16">
