@@ -45,19 +45,30 @@ export default function PageHero({
           {/* Espace pour image */}
           <div className="lg:order-2">
             {imageUrl ? (
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[3/2]">
+              <div 
+                className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900"
+                style={{
+                  aspectRatio: '3 / 2',
+                  width: '100%',
+                }}
+              >
                 <Image
                   src={imageUrl}
                   alt={imageAlt}
-                  width={1200}
-                  height={800}
+                  fill
                   className="w-full h-full object-contain"
                   priority={true}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent pointer-events-none" />
               </div>
             ) : (
-              <div className="relative rounded-2xl overflow-hidden border border-white/20 bg-gradient-to-br from-primary-dark/50 to-primary-darker/50 aspect-[3/2] flex items-center justify-center backdrop-blur">
+              <div 
+                className="relative rounded-2xl overflow-hidden border border-white/20 bg-gradient-to-br from-primary-dark/50 to-primary-darker/50 flex items-center justify-center backdrop-blur"
+                style={{
+                  aspectRatio: '3 / 2',
+                  width: '100%',
+                }}
+              >
                 <div className="text-center space-y-3">
                   <div className="text-6xl">🖼️</div>
                   <p className="text-gray-400 text-sm font-medium">
