@@ -10,7 +10,7 @@ export default function HeroBanner({
   alt,
 }: HeroBannerProps) {
   return (
-    <section className="relative w-full aspect-video bg-primary-dark overflow-hidden">
+    <section className="relative w-full aspect-[3/2] bg-primary-dark overflow-hidden">
       <Image
         src={src}
         alt={alt}
