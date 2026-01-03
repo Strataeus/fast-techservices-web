@@ -5,6 +5,7 @@ import Section from "../../components/ui/Section";
 import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
+import PageHero from "../../components/PageHero";
 
 export const metadata: Metadata = {
   title: "Méthode FAST | FAST Tech Services",
@@ -98,7 +99,12 @@ const benefits = [
 export default function MethodeFastPage() {
   return (
     <div className="relative">
-      <HeroSection />
+      <PageHero
+        badgeLabel="PHILOSOPHIE"
+        title="Méthode FAST : la fiabilité par la rigueur"
+        description="Éviter les erreurs coûteuses en appliquant une règle simple : Terrain → Preuve → Verdict. Décision humaine documentée, traçabilité complète, zéro compromis sur la sécurité."
+        imageAlt="Illustration de la méthode FAST"
+      />
       <SchemaSection />
       <PillarsSection />
       <StopCallSection />

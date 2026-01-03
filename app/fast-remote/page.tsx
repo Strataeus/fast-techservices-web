@@ -5,6 +5,7 @@ import Section from '../../components/ui/Section';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import StickyCTA from '../../components/StickyCTA';
+import PageHero from '../../components/PageHero';
 
 export const metadata: Metadata = {
   title: 'FAST Remote — Diagnostic & assistance à distance',
@@ -81,7 +82,13 @@ const stopAndCallNote = 'Si vous n\'êtes pas sûr(e), contactez-nous. Nous éva
 export default function FastRemotePage() {
   return (
     <div className="relative">
-      <HeroSection />
+      <PageHero
+        badgeLabel="FAST Remote"
+        title="Assistance à distance guidée pour dépanner vite et décider juste"
+        description="FAST Remote : diagnostic et assistance à distance pour équipements industriels. Verdict en 1-2h, preuves documentées, plan d'action clair. Dépannage urgent sans intervention terrain coûteuse."
+        imageAlt="FAST Remote - Assistance à distance"
+        accentColor="bright"
+      />
       <WhenBestSection />
       <DeliverablesSection />
       <MethodSection />

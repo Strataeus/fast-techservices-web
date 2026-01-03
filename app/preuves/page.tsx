@@ -2,6 +2,7 @@
 import Background from "../../components/layout/Background";
 import HeroBase from "../../components/hero/HeroBase";
 import Container from "../../components/Container";
+import PageHero from "../../components/PageHero";
 import { proofs } from "../../lib/content/proofs";
 
 export const metadata = {
@@ -13,19 +14,17 @@ export default function ProofsHubPage() {
   return (
     <div className="relative">
       <Background variant="services" />
+      <PageHero
+        badgeLabel="PREUVES & RÉALISATIONS"
+        title="Exemples d'interventions"
+        description="Cas anonymisés à des fins de démonstration. Structure identique : symptôme, mesure, action et test de sortie."
+        imageAlt="Interventions techniques FAST Tech Services"
+      />
       <main className="py-16">
         <Container>
           <div className="band band--neutral relative overflow-hidden rounded-2xl px-6 py-10 md:px-10">
             <div className="absolute inset-0 tech-grid opacity-10" />
             <div className="relative">
-              <HeroBase
-                eyebrow="Preuves / Réalisations"
-                title="Exemples d'interventions"
-                subtitle={
-                  "Cas anonymisés à des fins de démonstration. Structure identique : symptôme, mesure, action et test de sortie."
-                }
-                align="left"
-              />
               <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
                 {proofs.map((item, idx) => (
                   <article key={idx} className="glass-card rounded-xl p-6">

@@ -6,31 +6,21 @@ import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
 import Badge from "../../components/ui/Badge";
 import FormFastRemote from "../../components/FormFastRemote";
+import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";
 
 export default function ContactPage() {
   return (
     <div className="relative">
-      <HeroSection />
+      <PageHero
+        badgeLabel="CONTACT"
+        title="Contactez FAST Tech Services"
+        description="Choisissez votre type de demande : FAST Remote pour diagnostic immédiat, intervention terrain pour la région parisienne, ou contrat/audit."
+        imageAlt="Équipe FAST Tech Services"
+      />
       <FormSection />
       <DetailsSection />
     </div>
-  );
-}
-
-function HeroSection() {
-  return (
-    <Section>
-      <Container className="space-y-6 text-center">
-        <Badge className="w-fit mx-auto bg-accent/10 text-white">CONTACT</Badge>
-        <h1 className="text-4xl font-semibold text-white md:text-5xl">
-          Contactez FAST Tech Services
-        </h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-200">
-          Choisissez votre type de demande : FAST Remote pour diagnostic immédiat, intervention terrain pour la région parisienne, ou contrat/audit.
-        </p>
-      </Container>
-    </Section>
   );
 }
 

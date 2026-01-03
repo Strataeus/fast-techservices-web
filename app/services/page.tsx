@@ -5,6 +5,7 @@ import Section from "../../components/ui/Section";
 import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
+import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";
 
 export const metadata: Metadata = {
@@ -236,21 +237,13 @@ const fastRemoteContent = {
 export default function ServicesPage() {
   return (
     <div className="relative">
-      {/* HERO */}
-      <Section className="bg-gradient-to-b from-primary/80 to-primary pt-20 pb-12">
-        <Container>
-          <div className="space-y-6">
-            <Badge className="w-fit bg-accent/20 text-white">Portefeuille de services</Badge>
-            <h1 className="text-5xl font-semibold text-white md:text-6xl">
-              Services Techniques pour Équipements de Garage
-            </h1>
-            <p className="max-w-3xl text-xl text-gray-200">
-              Diagnostic structuré, maintenance préventive, interventions terrain et assistance à distance.
-              Même approche : <strong>Terrain → Preuves → Verdict documenté</strong>
-            </p>
-          </div>
-        </Container>
-      </Section>
+      {/* PAGE HERO */}
+      <PageHero
+        badgeLabel="Portefeuille de services"
+        title="Services Techniques pour Équipements de Garage"
+        description="Diagnostic structuré, maintenance préventive, interventions terrain et assistance à distance. Même approche : Terrain → Preuves → Verdict documenté"
+        imageAlt="Services techniques FAST Tech Services"
+      />
 
       {/* FAST REMOTE - RECOMMENDED PATH */}
       <Section className="bg-gradient-to-r from-accent/15 to-transparent border-b border-accent/30">

@@ -1,6 +1,7 @@
 import Background from "../../components/layout/Background";
 import HeroBase from "../../components/hero/HeroBase";
 import Container from "../../components/Container";
+import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";
 
 export const metadata = {
@@ -12,18 +13,17 @@ export default function ConfidentialitePage() {
   return (
     <div className="relative">
       <Background variant="contact" />
+      <PageHero
+        badgeLabel="Confidentialité"
+        title="Politique de confidentialité"
+        description="Protection de vos données personnelles"
+        imageAlt="Politique de confidentialité"
+      />
       <main className="py-16">
         <Container>
           <div className="band band--neutral relative overflow-hidden rounded-2xl px-6 py-10 md:px-10">
             <div className="absolute inset-0 tech-grid opacity-10" />
             <div className="relative space-y-6">
-              <HeroBase
-                eyebrow="Confidentialité"
-                title="Politique de confidentialité"
-                subtitle="Protection de vos données personnelles"
-                align="left"
-              />
-
               <div className="space-y-6 text-sm text-gray-200">
                 <section className="space-y-2">
                   <h2 className="text-lg font-semibold text-white">Responsable de traitement</h2>
