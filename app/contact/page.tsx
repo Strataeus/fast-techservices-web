@@ -5,19 +5,36 @@ import { Suspense } from "react";
 import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
 import FormFastRemote from "../../components/FormFastRemote";
+import HeroBanner from "../../components/HeroBanner";
 import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";
 
 export default function ContactPage() {
   return (
     <div className="relative">
-      <PageHero
-        badgeLabel="CONTACT"
-        title="Contactez FAST Tech Services"
-        description="Choisissez votre type de demande : FAST Remote pour diagnostic immédiat, intervention terrain pour la région parisienne, ou contrat/audit."
-        imageUrl="/hero/contact/hero.webp"
-        imageAlt="Équipe FAST Tech Services"
+      {/* Hero Banner full-width */}
+      <HeroBanner
+        src="/hero/contact/hero.webp"
+        alt="Équipe FAST Tech Services"
+        height="lg"
       />
+      
+      {/* Hero Content Section */}
+      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
+        <Container>
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-block px-3 py-1 rounded-full bg-accent-bright/20 text-accent-bright text-sm font-medium">
+              CONTACT
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Contactez FAST Tech Services
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
+              Choisissez votre type de demande : FAST Remote pour diagnostic immédiat, intervention terrain pour la région parisienne, ou contrat/audit.
+            </p>
+          </div>
+        </Container>
+      </Section>
       <FormSection />
       <DetailsSection />
     </div>

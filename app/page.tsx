@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "../components/Container";
 import Section from "../components/ui/Section";
 import SectionBand from "../components/ui/SectionBand";
+import HeroBanner from "../components/HeroBanner";
 import VideoIntro from "../components/VideoIntro";
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import Testimonials from "../components/Testimonials";
@@ -238,16 +239,12 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <>
-      {/* Image hero bandeau pur - sans texte */}
-      <section id="top" className="relative w-full h-[25vh] sm:h-[30vh] md:h-[40vh] lg:h-[45vh] overflow-hidden">
-        <Image
-          src="/hero/home/hero.webp"
-          alt="FAST Remote : diagnostic à distance"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-      </section>
+      {/* Image hero bandeau full-width responsive */}
+      <HeroBanner
+        src="/hero/home/hero.webp"
+        alt="FAST Remote : diagnostic à distance"
+        height="xl"
+      />
 
       {/* Value proposition - Direct & Clear */}
       <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">

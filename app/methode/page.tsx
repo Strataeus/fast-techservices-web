@@ -5,6 +5,7 @@ import Section from "../../components/ui/Section";
 import Card from "../../components/ui/Card";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
+import HeroBanner from "../../components/HeroBanner";
 import PageHero from "../../components/PageHero";
 
 export const metadata: Metadata = {
@@ -99,13 +100,30 @@ const benefits = [
 export default function MethodeFastPage() {
   return (
     <div className="relative">
-      <PageHero
-        badgeLabel="PHILOSOPHIE"
-        title="Méthode FAST : la fiabilité par la rigueur"
-        description="Éviter les erreurs coûteuses en appliquant une règle simple : Terrain → Preuve → Verdict. Décision humaine documentée, traçabilité complète, zéro compromis sur la sécurité."
-        imageUrl="/hero/methode/hero.webp"
-        imageAlt="Illustration de la méthode FAST"
+      {/* Hero Banner full-width */}
+      <HeroBanner
+        src="/hero/methode/hero.webp"
+        alt="Illustration de la méthode FAST"
+        height="lg"
       />
+      
+      {/* Hero Content Section */}
+      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
+        <Container>
+          <div className="max-w-3xl space-y-6">
+            <Badge className="w-fit bg-accent-bright/20 text-accent-bright">
+              PHILOSOPHIE
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Méthode FAST : la fiabilité par la rigueur
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
+              Éviter les erreurs coûteuses en appliquant une règle simple : Terrain → Preuve → Verdict. Décision humaine documentée, traçabilité complète, zéro compromis sur la sécurité.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
       <SchemaSection />
       <PillarsSection />
       <StopCallSection />

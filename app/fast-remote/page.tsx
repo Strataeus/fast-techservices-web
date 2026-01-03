@@ -5,6 +5,7 @@ import Section from '../../components/ui/Section';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import StickyCTA from '../../components/StickyCTA';
+import HeroBanner from '../../components/HeroBanner';
 import PageHero from '../../components/PageHero';
 
 export const metadata: Metadata = {
@@ -82,14 +83,29 @@ const stopAndCallNote = 'Si vous n\'êtes pas sûr(e), contactez-nous. Nous éva
 export default function FastRemotePage() {
   return (
     <div className="relative">
-      <PageHero
-        badgeLabel="FAST Remote"
-        title="Assistance à distance guidée pour dépanner vite et décider juste"
-        description="FAST Remote : diagnostic et assistance à distance pour équipements industriels. Verdict en 1-2h, preuves documentées, plan d'action clair. Dépannage urgent sans intervention terrain coûteuse."
-        imageUrl="/hero/fast-remote/hero.webp"
-        imageAlt="FAST Remote - Assistance à distance"
-        accentColor="bright"
+      {/* Hero Banner full-width */}
+      <HeroBanner
+        src="/hero/fast-remote/hero.webp"
+        alt="FAST Remote - Assistance à distance"
+        height="lg"
       />
+      
+      {/* Hero Content Section */}
+      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
+        <Container>
+          <div className="max-w-3xl space-y-6">
+            <Badge className="w-fit bg-accent-bright/20 text-accent-bright">
+              FAST Remote
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Assistance à distance guidée pour dépanner vite et décider juste
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
+              FAST Remote : diagnostic et assistance à distance pour équipements industriels. Verdict en 1-2h, preuves documentées, plan d'action clair. Dépannage urgent sans intervention terrain coûteuse.
+            </p>
+          </div>
+        </Container>
+      </Section>
       <WhenBestSection />
       <DeliverablesSection />
       <MethodSection />

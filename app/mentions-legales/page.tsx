@@ -1,5 +1,7 @@
 ﻿import Background from "../../components/layout/Background";
 import Container from "../../components/Container";
+import Section from "../../components/ui/Section";
+import HeroBanner from "../../components/HeroBanner";
 import PageHero from "../../components/PageHero";
 import { siteConfig } from "../../lib/site";
 
@@ -12,13 +14,29 @@ export default function MentionsPage() {
   return (
     <div className="relative">
       <Background variant="contact" />
-      <PageHero
-        badgeLabel="Mentions légales"
-        title="Mentions légales"
-        description="Informations légales et administratives"
-        imageUrl="/hero/mentions-legales/hero.webp"
-        imageAlt="Mentions légales"
+      {/* Hero Banner full-width */}
+      <HeroBanner
+        src="/hero/mentions-legales/hero.webp"
+        alt="Mentions légales"
+        height="lg"
       />
+      
+      {/* Hero Content Section */}
+      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
+        <Container>
+          <div className="max-w-3xl space-y-6">
+            <div className="inline-block px-3 py-1 rounded-full bg-accent-bright/20 text-accent-bright text-sm font-medium">
+              Mentions légales
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Mentions légales
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
+              Informations légales et administratives
+            </p>
+          </div>
+        </Container>
+      </Section>
       <main className="py-16">
         <Container>
           <div className="band band--neutral relative overflow-hidden rounded-2xl px-6 py-10 md:px-10">

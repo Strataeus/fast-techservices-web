@@ -4,6 +4,7 @@ import Container from "../../components/Container";
 import Section from "../../components/ui/Section";
 import Badge from "../../components/ui/Badge";
 import SectionBand from "../../components/ui/SectionBand";
+import HeroBanner from "../../components/HeroBanner";
 import PageHero from "../../components/PageHero";
 
 export const metadata: Metadata = {
@@ -235,14 +236,29 @@ const fastRemoteContent = {
 export default function ServicesPage() {
   return (
     <div className="relative">
-      {/* PAGE HERO */}
-      <PageHero
-        badgeLabel="Portefeuille de services"
-        title="Services Techniques pour Équipements de Garage"
-        description="Diagnostic structuré, maintenance préventive, interventions terrain et assistance à distance. Même approche : Terrain → Preuves → Verdict documenté"
-        imageUrl="/hero/services/hero.webp"
-        imageAlt="Services techniques FAST Tech Services"
+      {/* Hero Banner full-width */}
+      <HeroBanner
+        src="/hero/services/hero.webp"
+        alt="Services techniques FAST Tech Services"
+        height="lg"
       />
+      
+      {/* Hero Content Section */}
+      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
+        <Container>
+          <div className="max-w-3xl space-y-6">
+            <Badge className="w-fit bg-accent-bright/20 text-accent-bright">
+              Portefeuille de services
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Services Techniques pour Équipements de Garage
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
+              Diagnostic structuré, maintenance préventive, interventions terrain et assistance à distance. Même approche : Terrain → Preuves → Verdict documenté
+            </p>
+          </div>
+        </Container>
+      </Section>
 
       {/* FAST REMOTE - RECOMMENDED PATH */}
       <Section className="bg-gradient-to-r from-accent/15 to-transparent border-b border-accent/30">
