@@ -60,6 +60,6 @@
 export const introMedia = {
   home: {
     mp4: "/intro/fast-intro.mp4",
-    poster: "/hero/home/fast-hero.png",
+    poster: "/hero/home/hero.webp",
   },
 } as const;
