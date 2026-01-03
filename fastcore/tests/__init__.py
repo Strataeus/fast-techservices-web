@@ -1,0 +1,1 @@
+"""FASTCore tests"""
