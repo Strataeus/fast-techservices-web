@@ -14,7 +14,7 @@ export default function HeroBanner({
   // Calcul des hauteurs selon le ratio
   const heightMap = {
     "3/2": "h-[200px] sm:h-[280px] md:h-[360px] lg:h-[420px]",
-    "16/9": "h-[150px] sm:h-[240px] md:h-[320px] lg:h-[380px]",
+    "16/9": "h-[280px] sm:h-[400px] md:h-[520px] lg:h-[620px]",
   };
 
   return (
