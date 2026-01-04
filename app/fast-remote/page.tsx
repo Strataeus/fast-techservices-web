@@ -6,7 +6,7 @@ import { FastRemoteProcess } from "@/components/sections/FastRemoteProcess";
 import { FASTRemotePrereqs } from "@/components/sections/FASTRemotePrereqs";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FastRemoteCTAFinal } from "@/components/sections/FastRemoteCTAFinal";
-import { ContactForm } from "@/components/sections/ContactForm";
+import { FastRemoteQualifyingForm } from "@/components/sections/FastRemoteQualifyingForm";
 import { colors, spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
@@ -67,8 +67,8 @@ export default function FastRemotePage() {
         </div>
       </section>
 
-      {/* 7. Formulaire FAST Remote (UI only, Zod validation, minLength=40) */}
-      <ContactForm formType="fast_remote" />
+      {/* 7. Formulaire FAST Remote Qualifiant (UI only, Zod validation, minLength=40) */}
+      <FastRemoteQualifyingForm />
 
       {/* 8. CTA final */}
       <FastRemoteCTAFinal />
