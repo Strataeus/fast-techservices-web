@@ -1,81 +1,34 @@
-﻿import Background from "../../components/layout/Background";
-import Container from "../../components/Container";
-import Section from "../../components/ui/Section";
-import HeroBanner from "../../components/HeroBanner";
-import { siteConfig } from "../../lib/site";
+﻿import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Mentions légales | FAST Tech Services",
-  description: "Mentions légales et informations éditeur",
+export const metadata: Metadata = {
+  title: "Mentions légales — FAST Tech Services",
+  description: "Mentions légales et conditions d'utilisation du site FAST Tech Services.",
 };
 
-export default function MentionsPage() {
+export default function MentionsLegalesPage() {
   return (
-    <div className="relative">
-      <Background variant="contact" />
-      {/* Hero Banner full-width */}
-      <HeroBanner
-        src="/hero/mentions-legales/hero.webp"
-        alt="Mentions légales"
-      />
-      
-      {/* Hero Content Section */}
-      <Section className="bg-gradient-to-b from-primary/95 to-primary-dark">
-        <Container>
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-accent-bright/20 text-accent-bright text-sm font-medium">
-              Mentions légales
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Mentions légales
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
-              Informations légales et administratives
-            </p>
-          </div>
-        </Container>
-      </Section>
-      <main className="py-16">
-        <Container>
-          <div className="band band--neutral relative overflow-hidden rounded-2xl px-6 py-10 md:px-10">
-            <div className="absolute inset-0 tech-grid opacity-10" />
-            <div className="relative space-y-6">
-              <div className="space-y-6 text-sm text-gray-200">
-                <section className="space-y-2">
-                  <h2 className="text-lg font-semibold text-white">Éditeur</h2>
-                  <p><strong>FAST Tech Services</strong></p>
-                  <p>Email: {siteConfig.contact.email || "contact@fast-techservices.fr"}</p>
-                </section>
+    <main style={{ padding: "3rem 1.5rem" }}>
+      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "2rem" }}>Mentions légales</h1>
 
-                <section className="space-y-2">
-                  <h2 className="text-lg font-semibold text-white">Hébergeur</h2>
-                  <p><strong>Vercel Inc.</strong></p>
-                  <p>440 N Barranca Ave, Covina, CA 91723, USA</p>
-                </section>
+        <section style={{ marginBottom: "2rem" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>Identification</h2>
+          <p>FAST Tech Services</p>
+          <p>Siège social : [Adresse]</p>
+          <p>Tél. : [Téléphone]</p>
+          <p>Email : contact@fast-techservices.com</p>
+        </section>
 
-                <section className="space-y-2">
-                  <h2 className="text-lg font-semibold text-white">Propriété intellectuelle</h2>
-                  <p>Tous contenus propriété FAST Tech Services. Reproduction interdite sans autorisation.</p>
-                </section>
+        <section style={{ marginBottom: "2rem" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>Propriété intellectuelle</h2>
+          <p>Tous les contenus du site (textes, images, logos) sont la propriété exclusive de FAST Tech Services ou utilisés avec autorisation.</p>
+        </section>
 
-                <section className="space-y-2">
-                  <h2 className="text-lg font-semibold text-white">Responsabilité</h2>
-                  <p>Déclinons responsabilité pour indisponibilité, erreurs ou pertes données.</p>
-                </section>
-
-                <section className="space-y-2">
-                  <h2 className="text-lg font-semibold text-white">Confidentialité</h2>
-                  <p>Consultez notre <a href="/confidentialite" className="text-accent">politique de confidentialité</a>.</p>
-                </section>
-
-                <p className="text-xs text-gray-400 border-t border-white/10 pt-4">
-                  Dernière mise à jour: Janvier 2026
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </main>
-    </div>
+        <section style={{ marginBottom: "2rem" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>Responsabilité</h2>
+          <p>Les informations fournies sur ce site sont à titre informatif. FAST Tech Services décline toute responsabilité en cas d&apos;erreur ou d&apos;omission.</p>
+        </section>
+      </div>
+    </main>
   );
 }
