@@ -36,17 +36,30 @@ export function CaseStudiesTeaser() {
       }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-        <h2
-          style={{
-            fontSize: "2.25rem",
-            fontWeight: 700,
-            textAlign: "center",
-            marginBottom: spacing[12],
-            color: colors.slate[900],
-          }}
-        >
-          Cas de clients
-        </h2>
+        <div style={{ marginBottom: spacing[16], textAlign: "center" }}>
+          <h2
+            style={{
+              fontSize: "2.25rem",
+              fontWeight: 700,
+              color: colors.slate[900],
+              margin: `0 0 ${spacing[4]} 0`,
+            }}
+          >
+            Interventions réalisées
+          </h2>
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: colors.slate[600],
+              margin: 0,
+              maxWidth: "700px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            Résultat fiable + dossier clair : ce qui a été constaté, ce qui a été fait, ce qui a été testé, ce qui reste à faire.
+          </p>
+        </div>
 
         <div
           style={{

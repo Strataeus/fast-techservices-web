@@ -1,32 +1,45 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { EquipmentGrid } from "@/components/sections/EquipmentGrid";
-import { MethodSteps } from "@/components/sections/MethodSteps";
-import { CaseStudiesTeaser } from "@/components/sections/CaseStudiesTeaser";
-import { ContactForm } from "@/components/sections/ContactForm";
-import { getCTA } from "@/content/config";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { FastRemotePromoSection } from "@/components/sections/FastRemotePromoSection";
+import { ServicesTabsSection } from "@/components/sections/ServicesTabsSection";
+import { MethodTeaserSection } from "@/components/sections/MethodTeaserSection";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { ProofsTeaser } from "@/components/sections/ProofsTeaser";
+import { ZonesTeaser } from "@/components/sections/ZonesTeaser";
+import { PremiumCTASection } from "@/components/sections/PremiumCTASection";
+import { FinalContactCTASection } from "@/components/sections/FinalContactCTASection";
 
 export const metadata: Metadata = {
-  title: "FAST Tech Services — Dépannage premium (FAST Remote) ponts, compresseurs, cabines",
+  title: "FAST Tech Services — Maintenance équipements garage (ponts, compresseurs, cabines) | Diagnostic FAST Remote",
   description:
-    "Maintenance, diagnostic et remise en service d&apos;équipements de garage (ponts, compresseurs, cabines, stations). FAST Remote en visio : preuves, tests, verdict.",
-  keywords: ["diagnostic HVAC", "maintenance climatisation", "ponts élévateurs", "compresseurs", "cabines peinture"],
+    "Expert électromécanicien terrain. Dépannage, maintenance, diagnostic d'équipements de garage : ponts élévateurs, compresseurs, cabines peinture, stations lavage. FAST Remote : diagnostic visio en 4h. Méthode : TERRAIN→PREUVE→VERDICT. Tests de sortie + dossier clair.",
+  keywords: [
+    "dépannage ponts élévateurs",
+    "maintenance compresseurs",
+    "diagnostic cabines peinture",
+    "stations lavage",
+    "FAST Remote",
+    "diagnostic visio",
+    "maintenance atelier",
+    "expertise mécatronique",
+    "électromécanique garage",
+  ],
 };
 
 export default function HomePage() {
-  const primaryCTA = getCTA("primary");
-
   return (
     <main>
-      <HeroSection
-        headline="Dépannage premium d'équipements de garage — FAST Remote & interventions sur site"
-        subheadline="Approche terrain-first : diagnostic guidé, sécurisation, remise en exploitation propre, avec preuves et tests de sortie."
-        ctaLabel={primaryCTA.label}
-      />
-      <EquipmentGrid />
-      <MethodSteps />
-      <CaseStudiesTeaser />
-      <ContactForm />
+      <HeroSection />
+      <AboutSection />
+      <FastRemotePromoSection />
+      <ServicesTabsSection />
+      <MethodTeaserSection />
+      <StatsSection />
+      <ProofsTeaser />
+      <ZonesTeaser />
+      <PremiumCTASection />
+      <FinalContactCTASection />
     </main>
   );
 }

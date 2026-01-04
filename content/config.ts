@@ -71,7 +71,7 @@ export const siteConfig: SiteConfig = {
   phone: "+33 (placeholder)",
   email: "contact@fast-techservices.com",
 
-  // ⚠️ SLA: SINGLE DEFINITION
+  // ⚠️ SLA: SINGLE DEFINITION (source de vérité : content-map.yml)
   // This is injected into:
   // - /fast-remote page (SLABadges component)
   // - /contact page (SLABadges component)
@@ -79,10 +79,10 @@ export const siteConfig: SiteConfig = {
   // - All CTAs & testimonials
   // If you change this, it updates EVERYWHERE. No contradictions possible.
   sla: {
-    title: "Réponse garantie",
-    timeframe: "2h",
+    title: "Garantie de traitement",
+    timeframe: "Immédiat → 4h → 24h → 2h",
     description:
-      "Diagnostic et premiers conseils en 2 heures. Session visio guidée par expert.",
+      "Accusé immédiat. Réponse sous 4h ouvrées. Créneau visio sous 24h ouvrées (J+1 ouvré). Verdict / plan sous 2h après session (si preuves suffisantes), sinon UNKNOWN + plan.",
   },
 
   cta: {
