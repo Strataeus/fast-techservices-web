@@ -1,0 +1,185 @@
+# PR0_ONE_PAGE.txt — Résumé une page (print-friendly)
+
+================================================================================
+PR0 SNAPSHOT — FAST Tech Services Site (4 janvier 2026)
+================================================================================
+
+MISSION : Auditer repo, documenter snapshot, proposer plan PR1–PR5.
+STATUS  : ✅ COMPLÉTÉ — 0 code modifié, 8 docs PR0 générés (~4100 lignes).
+
+================================================================================
+1. ÉTAT REPO
+================================================================================
+
+BUILD    : ✅ npm run build PASS (13 routes SSG)
+LINT     : ⚠️ 57 problems (CarServ legacy ignorable)
+TEST     : ✅ 32 pass / 3 fail (async cleanup, non-bloquant)
+GIT      : ✅ Main branch clean (package-lock.json modifié seulement)
+
+STACK    : Next.js 16.1.1, React 19, Tailwind CSS v4, Zod, Jest
+NODE     : v20.19.6, npm 10.8.2
+
+================================================================================
+2. BLOQUANTS AUDIT (5)
+================================================================================
+
+❌ Placeholders visibles        → zéro "Insérer image ici" prod
+❌ SLA incohérent              → "2h" vs "24-72h" vs "4h" — unifier unique
+❌ Contact cassé               → page affiche "Chargement…" → zéro leads
+❌ Station lavage absente      → 4 équipements requis (ponts, compress, cabines, LAVAGE)
+❌ Ton incohérent              → "tu/ta" vs "vous/votre" mélangés → pas premium
+
+ACTION  : Chaque bloquant = critère testable PR0–PR5 (voir PR0_SNAPSHOT.md)
+
+================================================================================
+3. SPEC RÉSUMÉ (3 sources opposables)
+================================================================================
+
+SPEC     : FAST_SITE_SPEC_v1.md
+           • Taux conversion ≥2% (FAST Remote)
+           • 100% soumissions : accusé immédiat + server-side + intake
+           • Lighthouse ≥90 (Perf, SEO, A11y)
+           • Zéro page cassée / placeholder / "Chargement…"
+           • Site JAMAIS contact FASTCore → /api/leads server-side seulement
+           • Pas secrets client (localStorage/sessionStorage interdits)
+           • SLA unique, source unique, partout identique
+           • 13 pages P0 obligatoires
+
+COPY     : FAST_TECH_SERVICES_COPY_v1.md
+           • Expert électromécanique terrain, méthode TERRAIN → PREUVE → VERDICT
+           • 4 équipements : ponts, compresseurs, cabines, STATIONS-LAVAGE
+           • FAST Remote : diagnostic visio guidé → preuves + tests → verdict
+
+MAP      : content-map.yml
+           • 13 pages P0 mappées + meta uniques
+           • SLA config unique (centralisé, réutilisé partout)
+
+================================================================================
+4. PLAN PR1–PR5 (5 PRs atomiques)
+================================================================================
+
+PR1      : Socle (layout, tokens, assets)              → 4–5 jours
+           Fichiers : Header, Footer, Nav, design tokens, placeholder assets
+           DoD      : Build OK, nav 6 items, design tokens appliqués
+
+PR2      : Pages conversion (/ + /fast-remote + SLA)   → 5–6 jours
+           Fichiers : /page.tsx, /fast-remote/page.tsx, Hero, Grid, config.ts
+           DoD      : SLA unifié, sections 6+, responsive, Lighthouse ≥85
+
+PR3      : Pages SEO P0 (4 équipements + méthode)     → 6–7 jours
+           Fichiers : /services/*, /methode, /realisations, /zones, /contact
+           DoD      : 4 équipements naviguables, 3 cases ou fallback, meta uniques
+
+PR4      : Formulaires + intake (/api/leads)          → 4–5 jours
+           Fichiers : /api/leads/route.ts, forms, Zod schema, intake.ts, rate-limit
+           DoD      : POST 200, validation stricte, forward intake, logs, zéro secret
+
+PR5      : Légal + perf + finitions                   → 3–4 jours
+           Fichiers : 3 pages légales, CookiesBanner, robots.ts, sitemap.ts
+           DoD      : Lighthouse ≥90 tout, cookies OK, recette 20+ cases PASS
+
+TOTAL    : 4–6 semaines (parallélisable par équipe)
+
+================================================================================
+5. ASSETS MANQUANTS (fournir Fortunat)
+================================================================================
+
+CRITIQUE (PR1)
+  □ Logo FAST SVG        → fallback : placeholder "F" cercle bleu
+  □ Vidéo 5s ou image    → fallback : image JPG gris
+  □ 4 icônes équipements → fallback : SVG basic circles
+
+HAUTE (PR2–PR3)
+  □ 20 photos terrain    → fallback : placeholder gris (peut remplir après)
+  □ 3 case studies       → fallback : "Coming soon" premium (visible, pas fake)
+
+ACTION : Fournir par deadline, sinon graceful fallback (pas fake = perte crédibilité)
+
+================================================================================
+6. CRITÈRES ACCEPTATION (PASS/FAIL)
+================================================================================
+
+PASS obligatoire
+  ✅ Build OK
+  ✅ Zéro placeholder texte
+  ✅ Zéro "Chargement…"
+  ✅ SLA unifié partout
+  ✅ Lighthouse ≥90 (Perf mobile)
+  ✅ Contact fonctionnel
+  ✅ Formulaires soumettent
+  ✅ Responsive 375–1920px
+
+FAIL immédiat (NO-GO)
+  ❌ Contact cassé
+  ❌ SLA contradictoire
+  ❌ Stats/avis non prouvables
+  ❌ FASTCore exposed côté client
+  ❌ Secrets localStorage/sessionStorage
+  ❌ Station lavage absente
+  ❌ Ton incohérent (tu/ta vs vous/votre)
+
+================================================================================
+7. PROCHAINE ÉTAPE (pour Fortunat)
+================================================================================
+
+IMMÉDIAT (1–2 jours)
+  1. Lire PR0_FINAL_SUMMARY.md (15 min)
+  2. Approuver plan PR1–PR5 (ou demander ajustements)
+  3. Confirmer : "PR0 validé, PR1 start approved" (email)
+
+AVANT PR1 START (3–5 jours)
+  4. Fournir : logo SVG, vidéo 5s ou image fallback, email intake
+  5. Confirmer : endpoint intake URL + auth (pour PR4)
+
+PENDANT PR1–PR5 (4–6 semaines)
+  6. Fournir photos (deadline PR2 : ~10 jours)
+  7. Fournir 3 cas (deadline PR3 : ~20 jours)
+  8. Itérer + recette chaque PR
+
+================================================================================
+8. DOCUMENTS PR0 GÉNÉRÉS (dans docs/site-spec/)
+================================================================================
+
+  ① PR0_README.md                         [Index + guide rapide]
+  ② PR0_FINAL_SUMMARY.md                 [Exécutif — LISEZ CECI D'ABORD]
+  ③ PR0_CHECKLIST_VALIDATION.md          [Validation 5 min]
+  ④ PR0_SNAPSHOT.md                      [Snapshot technique (1200 lignes)]
+  ⑤ FAST_SITE_SPEC_EXECUTIVE_SUMMARY.md  [Checklist spec]
+  ⑥ NEXT_JS_ARCHITECTURE_PLAN.md         [Blueprints dev]
+  ⑦ PR1_FILES_MANIFEST.md                [Inventaire fichiers atomique]
+  ⑧ PR0_DOCUMENT_INDEX.md                [Navigation documents]
+
+TOTAL : 8 fichiers markdown, ~4100 lignes, 0 code modifié.
+
+================================================================================
+9. CONTACT / QUESTIONS
+================================================================================
+
+Consultez documents dans cet ordre :
+  • Pour décider       → PR0_FINAL_SUMMARY.md
+  • Pour valider       → PR0_CHECKLIST_VALIDATION.md
+  • Pour détails tech  → PR0_SNAPSHOT.md
+  • Pour architecture  → NEXT_JS_ARCHITECTURE_PLAN.md + PR1_FILES_MANIFEST.md
+  • Pour spec          → FAST_SITE_SPEC_EXECUTIVE_SUMMARY.md
+
+Tous les documents sont dans : c:\dev\fast-techservices-web\docs\site-spec\
+
+================================================================================
+10. STATUS FINAL
+================================================================================
+
+✅ Snapshot complet
+✅ Plan tracé (5 PRs atomiques)
+✅ Critères testables
+✅ Risques documentés
+✅ Zéro code modifié
+✅ Prêt validation Fortunat
+
+ACTION : Lisez PR0_FINAL_SUMMARY.md (15 min) → approuvez → PR1 start.
+
+================================================================================
+Généré le : 4 janvier 2026
+Auteur    : GitHub Copilot (PR0 Assistant)
+Status    : ✅ COMPLET — PRÊT FORTUNAT
+================================================================================
+

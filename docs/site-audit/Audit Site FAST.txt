@@ -1,0 +1,206 @@
+## Périmètre audité (pages réellement accessibles)
+
+J’ai pu analyser : **/** (Accueil), **/fast-remote**, **/services**, **/methode**, **/preuves**, **/zones**, **/contact**, **/mentions-legales**, **/confidentialite**. ([FAST Tech Services][1])
+**UNKNOWN** : pages “À propos / Équipements / FAQ” sont affichées dans le footer mais je ne vois pas de contenu dédié exploitable (liens qui semblent renvoyer au même endroit). ([FAST Tech Services][2])
+
+---
+
+# Verdict total (sans filtre)
+
+**NO-GO “premium” + NO-GO “conversion” en l’état.**
+Le site peut exister comme brouillon interne, mais **il ne doit pas être considéré “finalisable rapidement” sans corrections lourdes**, parce que tu as des **bloquants de crédibilité** + **bloquants de prise de contact** + **incohérences de promesse**.
+
+## Les 6 blocages qui te tuent la vente
+
+1. **Placeholders visibles** (“Insérer image ici…”, “Diagramme…”) → ça crie “site pas fini”, donc fuite immédiate. ([FAST Tech Services][1])
+2. **Promesse incohérente sur les délais** (2h / 2-4h / 24-72h selon les sections) → perte de confiance. ([FAST Tech Services][3])
+3. **Crédibilité risquée** : stats + avis + noms cités sans preuve (ex: “1000+ diagnostics”, “4.9/5”, témoignages nommés) → à minima “marketing fragile”, au pire “trompeur” si non vérifiable. ([FAST Tech Services][1])
+4. **Contact non opérationnel** : la page affiche “Chargement…” (symptôme typique d’un composant client qui ne rend pas / widget cassé) → tu perds les leads. ([FAST Tech Services][4])
+5. **Services incomplets vs ton offre** : tu veux inclure **Station de lavage**, mais elle n’apparaît pas dans le portefeuille de services. ([FAST Tech Services][5])
+6. **Menu “Services ▼” trompeur** : les sous-items (Ponts/Compresseurs/Cabines) renvoient au même endroit, donc UX cheap + SEO faible (pas de pages service ciblées). ([FAST Tech Services][5])
+
+---
+
+# Analyse par page (ce qui va / ce qui casse)
+
+## 1) Accueil (/)
+
+**Points OK**
+
+* Intention claire : mettre FAST Remote au centre (CTA présent). ([FAST Tech Services][1])
+
+**Points cassants**
+
+* Placeholders d’images et de sections → stop net. ([FAST Tech Services][1])
+* Texte hors sujet repéré (“Du réfrigérateur à la machine de précision”) → bruit + perte de positionnement garage. ([FAST Tech Services][1])
+* Témoignages / chiffres / promesses multiples non alignés entre eux (et potentiellement non prouvés). ([FAST Tech Services][1])
+
+**Correction rapide**
+
+* Accueil doit devenir une **landing page courte** (6–8 blocs max) orientée **1 action** : *Démarrer FAST Remote*.
+
+---
+
+## 2) FAST Remote (/fast-remote)
+
+**Points OK**
+
+* Structure “bénéfices + protocole + livrables” cohérente. ([FAST Tech Services][3])
+
+**Points cassants**
+
+* Ton pas premium : passages en “tu/ta” (“Donne-nous… ta situation”) au milieu d’un site en “vous” → dissonance. ([FAST Tech Services][3])
+* Promesse de délai (“Réponse sous 2 heures ouvrables”) à harmoniser avec le reste. ([FAST Tech Services][3])
+
+**Correction rapide**
+
+* Fixer un **SLA unique** (ex: “réponse < X h ouvrées” + “créneau visio sous Y h” + “verdict sous Z h”) et le répéter partout.
+
+---
+
+## 3) Services (/services)
+
+**Points OK**
+
+* “Portefeuille de services” existe et parle méthode. ([FAST Tech Services][5])
+
+**Points cassants**
+
+* Pas de **Station de lavage**. ([FAST Tech Services][5])
+* Sous-menu Services qui ne mène pas à des pages dédiées → manque de pages “Pont élévateur / Compresseur / Cabine / Station” avec FAQ, pannes typiques, preuves, CTA. ([FAST Tech Services][5])
+
+**Correction rapide**
+
+* Créer 4 pages SEO :
+  `/services/ponts-elevateurs`
+  `/services/compresseurs-air`
+  `/services/cabines-peinture`
+  `/services/stations-lavage`
+
+---
+
+## 4) Méthode (/methode)
+
+**Points OK**
+
+* Très bon angle : protocole, risques, livrables. ([FAST Tech Services][6])
+
+**Point de vigilance**
+
+* Certaines formulations vendent des garanties “fortes” (preuves “certifiées”, formats, etc.). Si ce n’est pas strictement tenu, ça devient un boomerang. ([FAST Tech Services][6])
+
+**Correction**
+
+* Remplacer les termes absolus par du **contractuel clair** : “preuves horodatées”, “mesures relevées”, “PV structuré”, etc.
+
+---
+
+## 5) Preuves (/preuves)
+
+**État actuel : trop léger**
+
+* Page très courte : pas de cas réels, pas d’extraits, pas de dossier preuve type. ([FAST Tech Services][4])
+
+**Ce qu’un site premium doit montrer**
+
+* 3 **mini case studies** (avant → diagnostic → action → résultat) + 1 exemple “PV” anonymisé + 6 photos “preuves”.
+
+---
+
+## 6) Zones (/zones)
+
+**Point de vigilance**
+
+* Tu annonces des “partenaires” / zones comme si c’était établi. Si ce n’est pas factuel : supprime. ([FAST Tech Services][3])
+
+**Recommandation premium**
+
+* Simple : **Île-de-France onsite prioritaire** + **France entière en FAST Remote**.
+
+---
+
+## 7) Contact (/contact)
+
+**Bloquant**
+
+* “Chargement…” → formulaire probablement cassé / non rendu côté serveur. ([FAST Tech Services][4])
+
+**Correction P0**
+
+* Formulaire **HTML simple** + validation + envoi (email + stockage lead). Pas de widget fragile.
+
+---
+
+## 8) Mentions légales & Confidentialité
+
+**Points OK**
+
+* Hébergeur mentionné (Vercel). ([FAST Tech Services][2])
+
+**Risque**
+
+* Mentions légales semblent incomplètes pour un site FR (identité légale, adresse, SIRET, directeur de publication, etc.). ([FAST Tech Services][2])
+* Confidentialité mentionne un bandeau cookies (“bannau consentement”) → à corriger + s’assurer qu’il existe réellement. ([FAST Tech Services][7])
+
+---
+
+# Recommandation stratégique : basculer sur un template open-source (bonne décision)
+
+Tu veux du “premium” vite : **tu ne dois pas designer à la main**, tu dois **adopter un template solide** puis injecter ton contenu.
+
+## Templates open-source pertinents (Next.js)
+
+1. **NextJSTemplates – Startup (Next.js)**
+
+   * “premium-quality” marketing template, bon socle pour landing + pages. ([GitHub][8])
+2. **nobruf – shadcn-landing-page**
+
+   * Moderne, clean, high-tech, très bon pour une landing conversion. ([GitHub][9])
+3. **ixartz – Next JS Landing Page Starter Template**
+
+   * Starter robuste, structure claire, facile à adapter. ([GitHub][10])
+4. **arthelokyo – tailnext**
+
+   * Basique mais propre, bon si tu veux minimal + rapide. ([GitHub][11])
+
+**Mon choix “FAST / high-tech premium” : shadcn-landing-page** (look moderne + composants réutilisables) + tes visuels industriels.
+
+---
+
+# Plan d’exécution “finaliser rapidement” (P0 → P1)
+
+## P0 (obligatoire avant toute pub / SEO) — PASS/FAIL
+
+* **PASS** : zéro placeholder visible nulle part (texte/visuels). ([FAST Tech Services][1])
+* **PASS** : un seul SLA cohérent sur toutes les pages. ([FAST Tech Services][3])
+* **PASS** : contact fonctionnel (formulaire envoie + confirmation + log lead). ([FAST Tech Services][4])
+* **PASS** : 4 services affichés (incluant Station de lavage) + pages dédiées. ([FAST Tech Services][5])
+* **PASS** : suppression/neutralisation de tout chiffre/avis non prouvable. ([FAST Tech Services][1])
+
+## P1 (premium réel)
+
+* 3 case studies + extrait PV anonymisé (page Preuves)
+* 4 pages services SEO (pannes typiques + CTA)
+* Harmonisation ton (vouvoiement) + micro-copy premium
+* Mentions légales complètes + cookies réellement gérés
+
+---
+
+# Conclusion
+
+Ton site a une **bonne intention** (FAST Remote au centre), mais **l’exécution actuelle détruit la confiance** : placeholders, incohérences, contact cassé, services incomplets. ([FAST Tech Services][1])
+La voie la plus rapide vers “premium” : **prendre un template Next.js open-source propre (shadcn landing)**, **refaire / en landing courte**, **créer 4 pages services**, **réparer contact**, **nettoyer toutes les promesses non alignées**.
+
+Si tu appliques P0 strictement, tu passes de “brouillon” à “site vendable”. Ensuite seulement tu polish P1.
+
+[1]: https://fast-techservices.com/ "FAST Remote — Diagnostic & assistance à distance pour équipements de garage automobile"
+[2]: https://fast-techservices.com/mentions-legales "Mentions légales | FAST Tech Services | FAST Tech Services"
+[3]: https://fast-techservices.com/zones "Zones d'intervention | FAST Tech Services | FAST Tech Services"
+[4]: https://fast-techservices.com/preuves "Preuves & réalisations | FAST Tech Services | FAST Tech Services"
+[5]: https://fast-techservices.com/services "Services | FAST Tech Services | FAST Tech Services"
+[6]: https://fast-techservices.com/methode "Méthode FAST | FAST Tech Services | FAST Tech Services"
+[7]: https://fast-techservices.com/confidentialite "Confidentialité | FAST Tech Services | FAST Tech Services"
+[8]: https://github.com/NextJSTemplates/startup-nextjs?utm_source=chatgpt.com "Startup is free Next.js template for SaaS ..."
+[9]: https://github.com/nobruf/shadcn-landing-page?utm_source=chatgpt.com "nobruf/shadcn-landing-page: New design 🎉 Nextjs + ..."
+[10]: https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template?utm_source=chatgpt.com "ixartz/Next-JS-Landing-Page-Starter-Template: 🚀 Free ..."
+[11]: https://github.com/arthelokyo/tailnext?utm_source=chatgpt.com "️ TailNext: Free template using Next.js 14 app router and ..."

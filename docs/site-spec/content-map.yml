@@ -1,0 +1,566 @@
+# content-map.yml — Source de vérité SEO/sections/copy (v1.1)
+# Statut: ACTIF / OPPOSABLE
+# Règles:
+# - FR uniquement, vouvoiement uniforme.
+# - SLA unique, source unique (config), réutilisé partout.
+# - Aucune statistique/avis/chiffre non prouvable.
+# - Le copywriting doit suivre docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md (condensation OK, sens inchangé).
+# - Zéro placeholder visible en prod.
+
+site:
+  brand: "FAST Tech Services"
+  locale: "fr-FR"
+  domain: "fast-techservices.com"
+
+  primary_cta:
+    label: "Démarrer FAST Remote"
+    href: "/fast-remote#demarrer"
+
+  secondary_cta:
+    label: "Demander une intervention sur site"
+    href: "/contact#onsite"
+
+  phone_cta:
+    label: "Appeler"
+    # Renseigner avec le numéro réel au format international
+    href: "tel:+33XXXXXXXXX"
+
+  sla:
+    # SLA unique — doit être identique partout
+    ack: "Accusé immédiat"
+    response: "Réponse sous 4h ouvrées"
+    slot: "Créneau visio sous 24h ouvrées (J+1 ouvré)"
+    verdict: "Verdict / plan sous 2h après session (si preuves suffisantes), sinon UNKNOWN + plan"
+
+  content_sources:
+    # Ordre de priorité (source de vérité)
+    spec: "docs/site-spec/FAST_SITE_SPEC_v1.md"
+    copy: "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md"
+    audits: "docs/site-audit/*"
+
+  constraints:
+    language: "fr"
+    tone: "premium-technique"
+    no_placeholders: true
+    no_unproven_claims: true
+    html_first: true
+    js_minimal: true
+
+navigation:
+  header:
+    - label: "FAST Remote"
+      href: "/fast-remote"
+    - label: "Services"
+      href: "/services"
+    - label: "Méthode"
+      href: "/methode"
+    - label: "Réalisations"
+      href: "/realisations"
+    - label: "Zones"
+      href: "/zones"
+    - label: "Contact"
+      href: "/contact"
+  footer:
+    - label: "Mentions légales"
+      href: "/mentions-legales"
+    - label: "Confidentialité"
+      href: "/confidentialite"
+    - label: "Cookies"
+      href: "/cookies"
+
+sections:
+  # Sections réutilisables et normalisées (évite les dérives)
+  hero:
+    required_fields: ["headline", "subheadline", "cta_primary", "cta_secondary", "sla_badges"]
+  equipment_grid:
+    required_fields: ["items"]
+  method_5_steps:
+    required_fields: ["steps"]
+  case_studies_teaser:
+    required_fields: ["items"]
+  case_studies:
+    required_fields: ["items"]
+  contact_form:
+    required_fields: ["lead_type", "fields", "consent"]
+  pricing_block:
+    required_fields: ["mode"] # "show" | "teaser" | "hidden"
+  legal:
+    required_fields: ["content"]
+
+pages:
+  - id: "home"
+    slug: "/"
+    nav_label: "Accueil"
+    seo:
+      meta_title: "FAST Tech Services — Dépannage premium (FAST Remote) ponts, compresseurs, cabines"
+      meta_description: "Maintenance, diagnostic et remise en service d’équipements de garage (ponts, compresseurs, cabines, stations). FAST Remote en visio : preuves, tests, verdict."
+      og_image: "/media/hero-fast-remote-fallback.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Promesse"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Différenciation"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#FAST Remote"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Services cœur"
+    sections:
+      - type: "hero"
+        key: "hero_home"
+        headline: "Dépannage premium d’équipements de garage — FAST Remote & interventions sur site"
+        subheadline: "Approche terrain-first : diagnostic guidé, sécurisation, remise en exploitation propre, avec preuves et tests de sortie."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "video_optional"
+          video_src: "/media/hero-fast-remote-5s.mp4"
+          image_fallback: "/media/hero-fast-remote-fallback.jpg"
+
+      - type: "equipment_grid"
+        key: "equipment_home"
+        items:
+          - title: "Ponts élévateurs"
+            href: "/services/ponts-elevateurs"
+            icon: "/icons/lift.svg"
+            bullets:
+              - "Sécurité, conformité, tests de sortie"
+              - "Diagnostic électrique/hydraulique"
+          - title: "Compresseurs & réseau d’air"
+            href: "/services/compresseurs-air"
+            icon: "/icons/compressor.svg"
+            bullets:
+              - "Stabilité pression, fuites, régulation"
+              - "Vis / piston, traitement d’air"
+          - title: "Cabines peinture & ventilation"
+            href: "/services/cabines-peinture-ventilation"
+            icon: "/icons/booth.svg"
+            bullets:
+              - "Ventilation/extraction, variateurs, coffrets"
+              - "Stabilité process, sécurité"
+          - title: "Stations de lavage"
+            href: "/services/stations-lavage"
+            icon: "/icons/wash.svg"
+            bullets:
+              - "Commande, puissance, pompage, sécurités"
+              - "Remise en exploitation & fiabilisation"
+
+      - type: "method_5_steps"
+        key: "method_teaser_home"
+        steps:
+          - title: "Cadrage"
+            desc: "Périmètre, prérequis, risques, objectif clair."
+          - title: "Preuves & baseline"
+            desc: "Mesures et constats avant action. Pas de preuve = pas fait."
+          - title: "Tests discriminants"
+            desc: "Tests qui tranchent. Contrôle de cohérence."
+          - title: "Action"
+            desc: "Intervention propre, sécurisée, orientée résultat."
+          - title: "Validation & verdict"
+            desc: "Tests de sortie + verdict écrit (PASS/FAIL/RESERVE/ONSITE)."
+
+      - type: "case_studies_teaser"
+        key: "cases_teaser_home"
+        items:
+          - title: "Cas #1 — Pont élévateur : remise en sécurité + stabilité"
+            href: "/realisations#case-01"
+            image: "/proofs/cases/case-01/after.jpg"
+          - title: "Cas #2 — Compresseur : instabilité pression, cause racine"
+            href: "/realisations#case-02"
+            image: "/proofs/cases/case-02/after.jpg"
+          - title: "Cas #3 — Cabine : ventilation / variateur, tests de sortie"
+            href: "/realisations#case-03"
+            image: "/proofs/cases/case-03/after.jpg"
+
+      - type: "hero"
+        key: "emergency_cta"
+        headline: "Machine bloquée ? On vise une décision rapide."
+        subheadline: "FAST Remote permet de diagnostiquer, tester et décider : résolution à distance ou intervention sur site."
+        cta_primary: "@site.primary_cta"
+        cta_secondary:
+          label: "@site.phone_cta.label"
+          href: "@site.phone_cta.href"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+
+  - id: "fast_remote"
+    slug: "/fast-remote"
+    nav_label: "FAST Remote"
+    seo:
+      meta_title: "FAST Remote — Diagnostic à distance (visio) | FAST Tech Services"
+      meta_description: "Assistance technique à distance : tests guidés, mesures, preuves, verdict clair. Réponse 4h ouvrées, créneau visio J+1 ouvré."
+      og_image: "/media/hero-remote.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#FAST Remote"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail"
+    sections:
+      - type: "hero"
+        key: "hero_remote"
+        headline: "FAST Remote — dépannage à distance en visio"
+        subheadline: "Diagnostic guidé, mesures et preuves : vous obtenez un verdict clair ou un plan d’action, sans perte de temps."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-remote.jpg"
+
+      - type: "pricing_block"
+        key: "pricing_remote"
+        mode: "teaser"
+        teaser:
+          headline: "Tarif clair, périmètre cadré"
+          subheadline: "Le remote vise un verdict rapide ou une décision d’onsite nécessaire. Le détail tarifaire sera publié en P1."
+
+      - type: "contact_form"
+        key: "form_remote"
+        lead_type: "fast_remote"
+        fields:
+          - name: "name"
+            label: "Nom"
+            type: "text"
+            required: true
+          - name: "company"
+            label: "Société"
+            type: "text"
+            required: false
+          - name: "email"
+            label: "Email"
+            type: "email"
+            required: true
+          - name: "phone"
+            label: "Téléphone"
+            type: "tel"
+            required: true
+          - name: "city"
+            label: "Ville"
+            type: "text"
+            required: true
+          - name: "postal_code"
+            label: "Code postal"
+            type: "text"
+            required: true
+          - name: "equipment_category"
+            label: "Équipement"
+            type: "select"
+            required: true
+            options:
+              - "Pont élévateur"
+              - "Compresseur / air comprimé"
+              - "Cabine peinture / ventilation"
+              - "Station de lavage"
+              - "Autre"
+          - name: "brand_model"
+            label: "Marque / Modèle (si connu)"
+            type: "text"
+            required: false
+          - name: "symptom"
+            label: "Symptôme / problème constaté"
+            type: "textarea"
+            required: true
+            min_length: 40
+          - name: "urgency"
+            label: "Urgence"
+            type: "select"
+            required: true
+            options:
+              - "Atelier bloqué (urgent)"
+              - "Dégradation performance"
+              - "Contrôle / prévention"
+          - name: "availability"
+            label: "Disponibilités (créneaux)"
+            type: "textarea"
+            required: false
+        consent:
+          required: true
+          label: "J’accepte que mes données soient utilisées pour traiter ma demande (RGPD)."
+
+  - id: "services_hub"
+    slug: "/services"
+    nav_label: "Services"
+    seo:
+      meta_title: "Services | FAST Tech Services — Ponts, compresseurs, cabines, stations"
+      meta_description: "Maintenance, dépannage, retrofit, remise en service. FAST Remote en priorité, interventions sur site si nécessaire."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Services principaux"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#FAST Remote"
+    sections:
+      - type: "hero"
+        key: "hero_services"
+        headline: "Services"
+        subheadline: "Dépannage premium, remise en service, fiabilisation — avec méthode, preuves et tests de sortie."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+      - type: "equipment_grid"
+        key: "equipment_services"
+        items: "@pages[home].sections[equipment_home].items" # réutilisation logique (implémentation via code)
+
+  - id: "svc_lifts"
+    slug: "/services/ponts-elevateurs"
+    nav_label: "Ponts élévateurs"
+    seo:
+      meta_title: "Ponts élévateurs — dépannage, sécurité, conformité | FAST Tech Services"
+      meta_description: "Diagnostic électrique/hydraulique, sécurités, remise en conformité, tests de sortie. FAST Remote possible selon conditions."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Ponts élévateurs"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail"
+    sections:
+      - type: "hero"
+        key: "hero_equipment_lifts"
+        headline: "Ponts élévateurs"
+        subheadline: "Sécurité, conformité, stabilité : diagnostic, remise en service et tests de sortie."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+
+  - id: "svc_air"
+    slug: "/services/compresseurs-air"
+    nav_label: "Compresseurs & air"
+    seo:
+      meta_title: "Compresseurs & air comprimé — dépannage, réseau, régulation | FAST Tech Services"
+      meta_description: "Compresseurs à vis/piston, régulation, traitement d’air, fuites, stabilité pression. Diagnostic guidé FAST Remote."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Compresseurs"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail"
+    sections:
+      - type: "hero"
+        key: "hero_equipment_air"
+        headline: "Compresseurs & réseau d’air comprimé"
+        subheadline: "Stabilité pression, régulation, fuites, fiabilisation : diagnostic guidé et remise en exploitation."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+
+  - id: "svc_booth"
+    slug: "/services/cabines-peinture-ventilation"
+    nav_label: "Cabines & ventilation"
+    seo:
+      meta_title: "Cabines de peinture — ventilation, variateurs, coffrets | FAST Tech Services"
+      meta_description: "Ventilation/extraction, variateurs, coffrets de commande, sécurités, stabilité process. Tests de sortie & preuves."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Cabines de peinture"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail"
+    sections:
+      - type: "hero"
+        key: "hero_equipment_booth"
+        headline: "Cabines de peinture & ventilation"
+        subheadline: "Ventilation, commande, variateurs : stabilité process, sécurité et tests de sortie."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+
+  - id: "svc_wash"
+    slug: "/services/stations-lavage"
+    nav_label: "Stations de lavage"
+    seo:
+      meta_title: "Stations de lavage — dépannage, commande, puissance, sécurité | FAST Tech Services"
+      meta_description: "Dépannage électromécanique stations de lavage : commande, puissance, pompage, sécurités. Remote possible selon cas."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Stations de lavage"
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail"
+    sections:
+      - type: "hero"
+        key: "hero_equipment_wash"
+        headline: "Stations de lavage"
+        subheadline: "Commande, puissance, pompage, sécurités : dépannage et remise en exploitation."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+
+  - id: "method"
+    slug: "/methode"
+    nav_label: "Méthode"
+    seo:
+      meta_title: "Méthode FAST — preuve, sécurité, tests de sortie | FAST Tech Services"
+      meta_description: "Process d’intervention : baseline, preuves, tests discriminants, STOP&CALL, verdict écrit et opposable."
+      og_image: "/media/hero-method.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail"
+      - "docs/site-spec/FAST_SITE_SPEC_v1.md#Doctrine"
+    sections:
+      - type: "hero"
+        key: "hero_method"
+        headline: "Méthode FAST"
+        subheadline: "Terrain → Preuve → Verdict. Une intervention maîtrisée, traçable, et défendable."
+        cta_primary: "@site.secondary_cta"
+        cta_secondary: "@site.primary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-method.jpg"
+
+  - id: "cases"
+    slug: "/realisations"
+    nav_label: "Réalisations"
+    seo:
+      meta_title: "Réalisations — preuves terrain, cas concrets | FAST Tech Services"
+      meta_description: "Études de cas structurées : avant/diag/action/tests/verdict, avec preuves terrain."
+      og_image: "/media/hero-cases.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md#Culture preuve"
+    sections:
+      - type: "hero"
+        key: "hero_cases"
+        headline: "Réalisations & preuves"
+        subheadline: "Cas concrets, preuves terrain, tests de sortie : ce qui est fait est prouvable."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-cases.jpg"
+      - type: "case_studies"
+        key: "case_studies"
+        items:
+          - id: "case-01"
+            title: "Cas #1 — Pont élévateur : remise en sécurité + stabilité"
+            equipment: "Pont élévateur"
+            images:
+              before: "/proofs/cases/case-01/before.jpg"
+              diagnostic: "/proofs/cases/case-01/diagnostic.jpg"
+              action: "/proofs/cases/case-01/action.jpg"
+              after: "/proofs/cases/case-01/after.jpg"
+            status: "TODO_TEXT"
+          - id: "case-02"
+            title: "Cas #2 — Compresseur : instabilité pression, cause racine"
+            equipment: "Compresseur / air"
+            images:
+              before: "/proofs/cases/case-02/before.jpg"
+              diagnostic: "/proofs/cases/case-02/diagnostic.jpg"
+              action: "/proofs/cases/case-02/action.jpg"
+              after: "/proofs/cases/case-02/after.jpg"
+            status: "TODO_TEXT"
+          - id: "case-03"
+            title: "Cas #3 — Cabine : ventilation/variateur, tests de sortie"
+            equipment: "Cabine peinture / ventilation"
+            images:
+              before: "/proofs/cases/case-03/before.jpg"
+              diagnostic: "/proofs/cases/case-03/diagnostic.jpg"
+              action: "/proofs/cases/case-03/action.jpg"
+              after: "/proofs/cases/case-03/after.jpg"
+            status: "TODO_TEXT"
+
+  - id: "zones"
+    slug: "/zones"
+    nav_label: "Zones"
+    seo:
+      meta_title: "Zones d’intervention | FAST Remote France entière, onsite selon zones"
+      meta_description: "FAST Remote disponible partout en France. Interventions sur site selon zones et disponibilité."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_SITE_SPEC_v1.md#Zones"
+    sections:
+      - type: "hero"
+        key: "hero_zones"
+        headline: "Zones d’intervention"
+        subheadline: "FAST Remote : France entière. Sur site : selon zones et disponibilité."
+        cta_primary: "@site.primary_cta"
+        cta_secondary: "@site.secondary_cta"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+
+  - id: "contact"
+    slug: "/contact"
+    nav_label: "Contact"
+    seo:
+      meta_title: "Contact | FAST Tech Services — Demande FAST Remote ou intervention"
+      meta_description: "Formulaire fiable, accusé immédiat, réponse sous 4h ouvrées."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_SITE_SPEC_v1.md#Formulaires"
+    sections:
+      - type: "hero"
+        key: "hero_contact"
+        headline: "Contact"
+        subheadline: "Expliquez votre besoin. Vous recevez un accusé immédiat et une réponse sous 4h ouvrées."
+        cta_primary: "@site.primary_cta"
+        cta_secondary:
+          label: "@site.phone_cta.label"
+          href: "@site.phone_cta.href"
+        sla_badges: "@site.sla"
+        media:
+          mode: "image"
+          image_fallback: "/media/hero-services.jpg"
+      - type: "contact_form"
+        key: "form_contact"
+        lead_type: "contact"
+        fields:
+          - name: "name"
+            label: "Nom"
+            type: "text"
+            required: true
+          - name: "email"
+            label: "Email"
+            type: "email"
+            required: true
+          - name: "phone"
+            label: "Téléphone"
+            type: "tel"
+            required: false
+          - name: "message"
+            label: "Message"
+            type: "textarea"
+            required: true
+            min_length: 40
+        consent:
+          required: true
+          label: "J’accepte que mes données soient utilisées pour traiter ma demande (RGPD)."
+
+  - id: "legal_mentions"
+    slug: "/mentions-legales"
+    nav_label: "Mentions légales"
+    seo:
+      meta_title: "Mentions légales | FAST Tech Services"
+      meta_description: "Informations légales de FAST Tech Services."
+      og_image: "/media/hero-services.jpg"
+    copy_sources:
+      - "docs/site-spec/FAST_SITE_SPEC_v1.md#Légal"
+    sections:
+      - type: "legal"
+        key: "legal_mentions"
+        content_ref: "content/legal/mentions-legales.mdx"
+
+  - id: "legal_privacy"
+    slug: "/confidentialite"
+    nav_label: "Confidentialité"
+    seo:
+      meta_title: "Confidentialité | FAST Tech Services"
+      meta_description: "Politique de confidentialité et traitement des données."
+      og_image: "/media/hero-services.jpg"
+    sections:
+      - type: "legal"
+        key: "legal_privacy"
+        content_ref: "content/legal/confidentialite.mdx"
+
+  - id: "legal_cookies"
+    slug: "/cookies"
+    nav_label: "Cookies"
+    seo:
+      meta_title: "Cookies | FAST Tech Services"
+      meta_description: "Gestion des cookies et préférences."
+      og_image: "/media/hero-services.jpg"
+    sections:
+      - type: "legal"
+        key: "legal_cookies"
+        content_ref: "content/legal/cookies.mdx"

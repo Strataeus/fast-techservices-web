@@ -1,0 +1,79 @@
+# PR: <TITRE COURT — 1 intention>
+
+## 1) Objectif
+<1-2 phrases max.>
+
+## 2) Scope (IN)
+- [ ] <item>
+- [ ] <item>
+
+## 3) Hors scope (OUT)
+- [ ] Pas de refacto opportuniste
+- [ ] Pas de changement non demandé
+
+## 4) Sources de vérité utilisées
+- [ ] docs/site-spec/FAST_SITE_SPEC.md
+- [ ] docs/site-spec/FAST_TECH_SERVICES_COPY_v1.md
+- [ ] docs/site-spec/content-map.yml
+- [ ] docs/site-spec/assets-manifest.md
+- [ ] docs/site-audit/* (si applicable)
+
+## 5) Fichiers touchés (liste)
+- <path>
+- <path>
+
+## 6) Validations (preuves brutes)
+Coller outputs bruts (pas de résumé sans preuve) :
+
+### Frontend
+```bash
+<commande canonique lint>
+<output>
+<commande canonique test>
+<output>
+<commande canonique build>
+<output>
+
+## 7) Checklist PASS/FAIL (DoD)
+
+ SLA unique affiché via source unique (config)
+ Zéro placeholder visible
+
+ Page(s) concernée(s) ok mobile/desktop
+
+ Pas de secret côté client
+
+ Formulaires (si concernés) -> /api/leads uniquement
+
+## 8) Risques / UNKNOWN
+
+UNKNOWN: <décrire>
+
+Décision safe-by-default: <ce qui est fait tant que UNKNOWN>
+
+## 9) Screenshots / preuves visuelles (si UI)
+
+ Desktop
+
+ Mobile
+
+
+---
+
+## 3) Template commit (format recommandé)
+- `PR0: snapshot + plan conversion CarServ -> Next.js`
+- `PR1: layout + tokens + assets (socle)`
+- `PR2: pages conversion (Home + FAST Remote)`
+- `PR3: pages services + méthode + réalisations`
+- `PR4: formulaires + /api/leads (intake)`
+- `PR5: légal + cookies + perf + finitions`
+
+---
+
+### Prochaine action immédiate (ordre strict)
+1) Ajoute `docs/site-spec/PR0_CHECKLIST.md`  
+2) Ajoute `.github/pull_request_template.md`  
+3) Commit “tooling docs site”  
+4) Lance Copilot sur PR0 avec la checklist + le spec
+
+Ça verrouille le cadre. Ensuite seulement, on le laisse coder PR1.
