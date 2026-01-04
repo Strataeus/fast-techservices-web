@@ -59,9 +59,28 @@ export default function RootLayout({
       >
         <ScrollToHash />
         <JsonLd />
+        <style>{`
+          .skip-link {
+            position: absolute;
+            left: -9999px;
+            z-index: 999;
+          }
+          .skip-link:focus {
+            position: fixed;
+            left: 1.5rem;
+            top: 1.5rem;
+            z-index: 90;
+            border-radius: 0.375rem;
+            background-color: #0f172a;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0,200,255,0.25);
+          }
+        `}</style>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-[90] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:shadow-[0_0_20px_rgba(0,200,255,0.25)]"
+          className="skip-link"
         >
           Aller au contenu principal
         </a>

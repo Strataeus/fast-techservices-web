@@ -128,21 +128,30 @@ export function HeroSection({
           )}
         </div>
 
-        {/* Image Placeholder */}
+        {/* Image Placeholder - Premium Gradient */}
         <div
           style={{
             aspectRatio: "16 / 9",
-            backgroundColor: colors.slate[800],
+            background: `linear-gradient(135deg, ${colors.slate[800]} 0%, ${colors.slate[700]} 50%, ${colors.cyan[900]} 100%)`,
             borderRadius: "0.5rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: `1px solid ${colors.slate[700]}`,
-            color: colors.slate[600],
-            fontSize: "0.875rem",
+            border: `1px solid ${colors.cyan[700]}`,
+            position: "relative",
+            overflow: "hidden",
           }}
         >
-          [Image placeholder]
+          {/* Optional: Subtle pattern overlay */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage:
+                "radial-gradient(circle at 20% 50%, rgba(0,217,255,0.1) 0%, transparent 50%)",
+              pointerEvents: "none",
+            }}
+          />
         </div>
       </div>
     </section>
