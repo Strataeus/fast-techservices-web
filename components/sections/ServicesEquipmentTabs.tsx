@@ -17,6 +17,7 @@ interface Equipment {
   icon: string;
   description: string;
   benefits: string[];
+  detailPageHref: string;
 }
 
 const EQUIPMENT_DATA: Equipment[] = [
@@ -32,6 +33,7 @@ const EQUIPMENT_DATA: Equipment[] = [
       "Retrofit & améliorations",
       "PV de vérification inclus",
     ],
+    detailPageHref: "/services/ponts-elevateurs",
   },
   {
     id: "compresseurs",
@@ -45,6 +47,7 @@ const EQUIPMENT_DATA: Equipment[] = [
       "Remplacement pièces usées",
       "Certification post-intervention",
     ],
+    detailPageHref: "/services/compresseurs-air",
   },
   {
     id: "cabines",
@@ -58,6 +61,7 @@ const EQUIPMENT_DATA: Equipment[] = [
       "Moteurs validés",
       "Mise en route guidée",
     ],
+    detailPageHref: "/services/cabines-peinture-ventilation",
   },
   {
     id: "stations",
@@ -71,6 +75,7 @@ const EQUIPMENT_DATA: Equipment[] = [
       "Circuits électriques",
       "Documentation fournie",
     ],
+    detailPageHref: "/services/stations-lavage",
   },
 ];
 
@@ -307,7 +312,7 @@ export function ServicesEquipmentTabs() {
 
             {/* CTA */}
             <a
-              href="/fast-remote"
+              href={activeEquipment.detailPageHref}
               style={{
                 display: "inline-block",
                 padding: `${spacing[3]} ${spacing[6]}`,
@@ -328,7 +333,7 @@ export function ServicesEquipmentTabs() {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
               }}
             >
-              Intervention d&apos;urgence? → FAST Remote
+              En savoir plus → Fiche complète
             </a>
           </div>
         </div>
