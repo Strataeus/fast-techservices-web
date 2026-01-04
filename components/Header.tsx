@@ -142,7 +142,7 @@ export function Header() {
                       minWidth: "220px",
                       marginTop: spacing[2],
                       boxShadow: `0 10px 25px rgba(0, 0, 0, 0.3)`,
-                      zIndex: 50,
+                      zIndex: 9999,
                     }}
                   >
                     {SERVICES_SUBMENU.map((subitem, idx) => (
