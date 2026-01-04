@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServicesHero } from "@/components/sections/ServicesHero";
-import { EquipmentGrid } from "@/components/sections/EquipmentGrid";
+import { ServicesAboutSection } from "@/components/sections/ServicesAboutSection";
+import { ServicesEquipmentTabs } from "@/components/sections/ServicesEquipmentTabs";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PremiumCTASection } from "@/components/sections/PremiumCTASection";
 import { colors, spacing } from "@/lib/design/tokens";
@@ -37,10 +38,13 @@ export default function ServicesPage() {
       {/* 1. Hero Premium (dark, SLA badges from config) */}
       <ServicesHero />
 
-      {/* 2. Equipment Grid (4 items: Ponts, Compresseurs, Cabines, Stations) */}
-      <EquipmentGrid />
+      {/* 2. About Services (image + 3 numbered features: Diagnostic, Maintenance, Tests) */}
+      <ServicesAboutSection />
 
-      {/* 3. Service Methods & Approach (HTML-first section) */}
+      {/* 3. Equipment Interactive Tabs (CarServ style: left menu + right content) */}
+      <ServicesEquipmentTabs />
+
+      {/* 4. Service Methods & Approach (HTML-first section) */}
       <section
         style={{
           padding: `${spacing[20]} ${spacing[6]}`,
@@ -207,10 +211,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 4. FAQ */}
+      {/* 5. FAQ */}
       <FAQSection />
 
-      {/* 5. CTA Premium */}
+      {/* 6. CTA Premium */}
       <PremiumCTASection />
     </main>
   );
