@@ -186,26 +186,31 @@ describe("FastRemoteFormSchema", () => {
     const data = {
       name: "Jean",
       email: "jean@example.com",
-      message: "Urgent: compresseur en panne, débit très faible depuis ce matin",
+      phone: "+33612345678",
+      city: "Paris",
+      postal_code: "75008",
+      equipment_category: "Compresseur / air comprimé",
+      symptom: "Urgent: compresseur en panne, débit très faible depuis ce matin, inspection nécessaire",
+      urgency: "Atelier bloqué (urgent)",
+      availability: "Demain après-midi",
       consent: true,
-      equipement: "Compresseur ATLAS COPCO",
-      urgence: "arret-total" as const,
-      disponibilite: "Demain après-midi",
-      codePostal: "75008",
-      ville: "Paris",
     };
 
     const result = FastRemoteFormSchema.safeParse(data);
     expect(result.success).toBe(true);
   });
 
-  it("should reject invalid urgence value", () => {
+  it("should reject invalid urgency value", () => {
     const data = {
       name: "Jean",
       email: "jean@example.com",
-      message: "This is a long test message that exceeds the forty character minimum requirement",
+      phone: "+33612345678",
+      city: "Paris",
+      postal_code: "75008",
+      equipment_category: "Compresseur / air comprimé",
+      symptom: "This is a long test message that exceeds the forty character minimum requirement",
+      urgency: "invalid",
       consent: true,
-      urgence: "invalid",
     };
 
     const result = FastRemoteFormSchema.safeParse(data);
@@ -216,9 +221,13 @@ describe("FastRemoteFormSchema", () => {
     const data = {
       name: "Jean",
       email: "jean@example.com",
-      message: "This is a long test message that exceeds the forty character minimum requirement",
+      phone: "+33612345678",
+      city: "Paris",
+      postal_code: "ABC",
+      equipment_category: "Compresseur / air comprimé",
+      symptom: "This is a long test message that exceeds the forty character minimum requirement",
+      urgency: "Atelier bloqué (urgent)",
       consent: true,
-      codePostal: "ABC",
     };
 
     const result = FastRemoteFormSchema.safeParse(data);
