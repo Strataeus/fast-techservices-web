@@ -1,68 +1,42 @@
 # FASTCore Backend
 
-FastAPI backend service for lead ingestion from fast-techservices.com
+FastAPI backend service for lead ingestion from fast-techservices.com with queue management, email notifications, and admin dashboard.
 
-## Quick Start
+## Features
 
-### Local Development (Docker)
+✅ **Lead Ingestion** - POST /inbound/leads with Pydantic validation
+✅ **Queue Fallback** - Accept leads even if FASTCore down
+✅ **Queue Flush Job** - Background cron (every 5 min) with retry logic (max 3 retries)
+✅ **Email Notifications** - Welcome emails + admin alerts
+✅ **Admin Dashboard** - View leads, manage queue, monitor jobs
+✅ **Audit Log** - Append-only event tracking
+✅ **Security** - Bearer token auth, PII minimization, CORS
+
+## Quick Start (Docker)
 
 ```bash
 cd fastcore
 docker-compose up
 ```
 
-This will:
-- Start PostgreSQL on port 5432
-- Start FastAPI on port 8000
-- Initialize database tables
-- Enable hot-reload
-
-### Local Development (Manual)
-
-```bash
-# 1. Install dependencies
-pip install -r requirements.txt
-
-# 2. Create .env file
-cp .env.example .env
-# Edit .env with your database URL and token
-
-# 3. Create database
-python -c "from database import init_db; init_db()"
-
-# 4. Run server
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
+Access:
+- API: http://localhost:8000
+- Docs: http://localhost:8000/docs
+- Queue Stats: http://localhost:8000/admin/queue/stats (with token)
 
 ## API Endpoints
 
-### POST /inbound/leads
+### Lead Ingestion
 
-Ingest a lead from fast-techservices.com
-
-**Authorization**: Bearer token (env: FASTCORE_SITE_INGEST_TOKEN)
-
-**Request**:
 ```bash
-curl -X POST http://localhost:8000/inbound/leads \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer your-token-here" \
-  -d '{
-    "name": "Jean Dupont",
-    "email": "jean@example.com",
-    "message": "Message here",
-    "consent": true,
-    "meta": {
-      "source": "fast-techservices.com",
-      "request_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-      "ip_hash": "abc123def456",
-      "timestamp_utc": "2024-01-03T10:30:45.123456Z"
-    }
-  }'
-```
+POST /inbound/leads
+Authorization: Bearer {FASTCORE_SITE_INGEST_TOKEN}
 
-**Response** (201):
-```json
+curl -X POST http://localhost:8000/inbound/leads \
+  -H "Authorization: Bearer dev-token-xyz-123" \
+  -d '{...lead payload...}'
+
+# Response (201)
 {
   "leadId": "550e8400-e29b-41d4-a716-446655440000",
   "timestamp": "2024-01-03T10:30:45.123456Z",
@@ -70,35 +44,131 @@ curl -X POST http://localhost:8000/inbound/leads \
 }
 ```
 
-### GET /health
+### Admin Dashboard
 
-Health check endpoint
+```bash
+# List leads
+GET /admin/leads?limit=50&offset=0&status_filter=received
 
-**Response** (200):
-```json
-{
-  "status": "ok",
-  "version": "1.0.0"
-}
+# Get lead details
+GET /admin/leads/{lead_id}
+
+# Update lead status
+PATCH /admin/leads/{lead_id}/status?new_status=processing
+
+# Queue stats
+GET /admin/queue/stats
+
+# Flush queue manually
+POST /admin/queue/flush
+
+# Clear queue
+DELETE /admin/queue/clear
+
+# Scheduler jobs
+GET /admin/scheduler/jobs
+
+# Health check
+GET /admin/health
 ```
+
+All admin endpoints require Bearer token authorization.
+
+## Background Jobs
+
+### Queue Flush (Every 5 Minutes)
+
+Automatically:
+1. Loads queued leads from Next.js site
+2. Submits each to FastCore /inbound/leads
+3. Retries failed submissions (max 3 retries with backoff)
+4. Removes successful leads from queue
+5. Logs events to audit_log
+
+Monitoring:
+- Check status: `GET /admin/queue/stats`
+- Check jobs: `GET /admin/scheduler/jobs`
+- Manual trigger: `POST /admin/queue/flush`
+- View logs: `docker-compose logs fastcore`
 
 ## Database
 
 ### Tables
 
-- `lead_inbox`: Stores leads from fast-techservices.com
-- `audit_log`: Append-only log of all events
+- **lead_inbox**: Leads from fast-techservices.com (indexed on email, request_id, created_at)
+- **audit_log**: Append-only event log (indexed on event, lead_id, request_id, created_at)
 
-### Sample Query
+### Sample Queries
 
 ```sql
--- View received leads
-SELECT id, email, service, created_at_utc FROM lead_inbox 
-ORDER BY created_at_utc DESC;
+-- Recent leads
+SELECT id, email, service, status, created_at_utc 
+FROM lead_inbox 
+ORDER BY created_at_utc DESC LIMIT 20;
 
--- View audit log
-SELECT event, actor, status_code, created_at_utc FROM audit_log 
+-- Leads by status
+SELECT status, COUNT(*) FROM lead_inbox GROUP BY status;
+
+-- Queue stats
+SELECT 
+  COUNT(*) as total_leads,
+  COUNT(CASE WHEN status = 'received' THEN 1 END) as received,
+  COUNT(CASE WHEN status = 'processing' THEN 1 END) as processing
+FROM lead_inbox;
+
+-- Audit trail for a lead
+SELECT event, actor, status_code, details_json, created_at_utc
+FROM audit_log
+WHERE lead_id = '550e8400-e29b-41d4-a716-446655440000'
 ORDER BY created_at_utc DESC;
+```
+
+## Email Configuration
+
+### Gmail (Development)
+
+1. Enable 2FA: https://myaccount.google.com/security
+2. Generate app password: https://myaccount.google.com/apppasswords
+3. Set in `.env`:
+   ```
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASSWORD=your-app-password
+   SMTP_TLS=true
+   ```
+
+### SendGrid (Production)
+
+```
+SMTP_HOST=smtp.sendgrid.net
+SMTP_PORT=587
+SMTP_USER=apikey
+SMTP_PASSWORD=SG.your-api-key
+SMTP_TLS=true
+```
+
+## Environment Variables
+
+```bash
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/fastcore
+
+# Security
+FASTCORE_SITE_INGEST_TOKEN=<openssl rand -base64 32>
+
+# API
+DEBUG=false
+LOG_LEVEL=INFO
+
+# Email (SMTP)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-app-password
+FROM_EMAIL=noreply@fast-techservices.com
+ADMIN_EMAIL=admin@fast-techservices.com
+SMTP_TLS=true
 ```
 
 ## Testing
@@ -110,78 +180,106 @@ pytest
 # Run with coverage
 pytest --cov=. --cov-report=html
 
-# Run specific test
+# Specific test
 pytest tests/test_leads.py::test_ingest_lead_success -v
 ```
 
-## Environment Variables
-
-- `DATABASE_URL`: PostgreSQL connection string
-- `FASTCORE_SITE_INGEST_TOKEN`: Bearer token for authentication (generate with `openssl rand -base64 32`)
-- `DEBUG`: Enable debug mode (false/true)
-- `LOG_LEVEL`: Logging level (DEBUG, INFO, WARNING, ERROR)
-
 ## Deployment
 
-### Generate token
+### Generate Token
 
 ```bash
 openssl rand -base64 32
 ```
 
-### Production
+### Production Checklist
 
-1. Set environment variables in deployment:
-   ```
-   DATABASE_URL=postgresql://user:pass@db.example.com/fastcore
-   FASTCORE_SITE_INGEST_TOKEN=<secure-token>
-   DEBUG=false
-   LOG_LEVEL=INFO
-   ```
+- [ ] Set DEBUG=false
+- [ ] Use strong token (openssl rand -base64 32)
+- [ ] PostgreSQL: Use managed RDS/Cloud SQL
+- [ ] SMTP: Use SendGrid or AWS SES
+- [ ] HTTPS only
+- [ ] Update CORS origins
+- [ ] Set up monitoring/alerting
+- [ ] Test queue flush job
+- [ ] Test email notifications
+- [ ] Database backups configured
 
-2. Run migrations (if any):
-   ```bash
-   python -c "from database import init_db; init_db()"
-   ```
+### Docker Production
 
-3. Start service:
-   ```bash
-   uvicorn main:app --host 0.0.0.0 --port 8000
-   ```
+```bash
+docker build -t fastcore:latest .
 
-## Security Notes
-
-- ✅ Token in environment variables only (never in client)
-- ✅ IP/UA hashed from site (PII minimization)
-- ✅ Email truncated in audit logs
-- ✅ Audit log is append-only (immutable)
-- ✅ request_id is unique (duplicate detection)
-- ✅ CORS restricted to fast-techservices.com
-- ✅ HTTPS required in production
-
-## Integration with Site Forms API
-
-The site (fast-techservices.com) sends leads to this endpoint:
-
-```
-POST {FASTCORE_BASE_URL}/inbound/leads
-Authorization: Bearer {FASTCORE_SITE_INGEST_TOKEN}
-
-Payload: {
-  name, email, phone, company, service, message, consent,
-  meta: { source, request_id, ip_hash, user_agent_hash, timestamp_utc }
-}
+docker run -d \
+  -e DATABASE_URL=postgresql://... \
+  -e FASTCORE_SITE_INGEST_TOKEN=... \
+  -e SMTP_HOST=smtp.sendgrid.net \
+  -e SMTP_PASSWORD=SG.xxx \
+  -p 8000:8000 \
+  fastcore:latest
 ```
 
-The site includes in its environment:
+## Architecture
+
 ```
-FASTCORE_BASE_URL=https://fastcore.example.com
-FASTCORE_SITE_INGEST_TOKEN=<token>
+fast-techservices.com (Next.js)
+  ↓
+POST /api/contact (validate + rate limit + queue)
+  ↓
+POST /inbound/leads (FASTCore)
+  ↓
+[FastAPI Backend] ← This service
+  ├─ Lead Ingest (POST /inbound/leads)
+  ├─ Queue Flush (Background job, every 5 min)
+  ├─ Admin Dashboard (GET /admin/*)
+  └─ Email Service (SMTP)
+  ↓
+PostgreSQL (LeadInbox + AuditLog)
+```
+
+## Troubleshooting
+
+### Queue not flushing?
+
+```bash
+# Check scheduler status
+curl http://localhost:8000/admin/scheduler/jobs \
+  -H "Authorization: Bearer your-token"
+
+# Manual trigger
+curl -X POST http://localhost:8000/admin/queue/flush \
+  -H "Authorization: Bearer your-token"
+
+# Check logs
+docker-compose logs fastcore | grep "Queue"
+```
+
+### Email not sending?
+
+```bash
+# Check SMTP config in .env
+# Test with: python -m smtplib
+
+# View logs
+docker-compose logs fastcore | grep "SMTP\|email"
+```
+
+### Database issues?
+
+```bash
+# Check connection
+psql $DATABASE_URL -c "SELECT 1"
+
+# View tables
+psql $DATABASE_URL -c "\dt"
+
+# Check lead data
+psql $DATABASE_URL -c "SELECT COUNT(*) FROM lead_inbox"
 ```
 
 ## Support
 
-For issues or questions, check:
-- API docs: http://localhost:8000/docs
+- API Docs: http://localhost:8000/docs
 - OpenAPI: http://localhost:8000/openapi.json
 - Logs: `docker-compose logs fastcore`
+- Bugs: Create GitHub issue

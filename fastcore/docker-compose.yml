@@ -24,6 +24,10 @@ services:
       FASTCORE_SITE_INGEST_TOKEN: dev-token-xyz-123
       LOG_LEVEL: INFO
       DEBUG: "false"
+      SMTP_HOST: localhost
+      SMTP_PORT: 1025
+      FROM_EMAIL: noreply@fast-techservices.com
+      ADMIN_EMAIL: admin@fast-techservices.com
     ports:
       - "8000:8000"
     depends_on:

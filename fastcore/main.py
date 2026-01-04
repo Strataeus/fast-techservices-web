@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 
 from database import init_db
 from routes import router as leads_router
+from routes_admin import router as admin_router
+from background_tasks import scheduler_manager
 
 # Load environment variables
 load_dotenv()
@@ -32,14 +34,20 @@ async def lifespan(app: FastAPI):
     try:
         init_db()
         logger.info("Database initialized")
+        
+        # Start background scheduler
+        scheduler_manager.start()
+        logger.info("Background scheduler started")
+        
     except Exception as e:
-        logger.error(f"Failed to initialize database: {str(e)}")
+        logger.error(f"Failed to initialize: {str(e)}")
         raise
     
     yield
     
     # Shutdown
     logger.info("Shutting down FASTCore backend...")
+    scheduler_manager.stop()
 
 
 # Create FastAPI app
@@ -55,12 +63,13 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://fast-techservices.com", "https://www.fast-techservices.com"],
     allow_credentials=True,
-    allow_methods=["POST"],
+    allow_methods=["POST", "GET", "PATCH", "DELETE"],
     allow_headers=["Content-Type", "Authorization"],
 )
 
 # Include routers
 app.include_router(leads_router)
+app.include_router(admin_router)
 
 
 @app.get("/health", tags=["Health"])
