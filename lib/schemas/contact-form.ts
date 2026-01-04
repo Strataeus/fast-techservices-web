@@ -18,21 +18,21 @@ export const ContactFormSchema = z.object({
   // Required
   name: z
     .string()
+    .trim()
     .min(2, "Nom doit contenir au moins 2 caractères")
-    .max(80, "Nom trop long (max 80 caractères)")
-    .trim(),
+    .max(80, "Nom trop long (max 80 caractères)"),
   
   email: z
     .string()
     .email("Email invalide")
     .max(120, "Email trop long")
-    .toLowerCase(),
+    .pipe(z.string().toLowerCase()),
   
   message: z
     .string()
+    .trim()
     .min(20, "Message doit contenir au moins 20 caractères")
-    .max(2000, "Message trop long (max 2000 caractères)")
-    .trim(),
+    .max(2000, "Message trop long (max 2000 caractères)"),
   
   consent: z
     .boolean()

@@ -46,7 +46,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "Test",
         email: "TEST@EXAMPLE.COM",
-        message: "Test message here",
+        message: "This is a test message that's longer than 20",
         consent: true,
       };
 
@@ -150,7 +150,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "  Jean Dupont  ",
         email: "jean@example.com",
-        message: "Test message here",
+        message: "This is a test message that is definitely longer than 20",
         consent: true,
       };
 
@@ -165,7 +165,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "Jean",
         email: "jean@example.com",
-        message: "Test message here",
+        message: "Test message here is now definitely longer than minimum",
         phone: "",
         company: "",
         consent: true,

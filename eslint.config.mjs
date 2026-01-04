@@ -12,6 +12,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Scripts with legacy CommonJS syntax
+    "scripts/*.cjs",
+    // Vendor templates and external code
+    "vendor/**",
+    "tools/templates/**",
+    // Documentation
+    "docs/**",
   ]),
 ]);
 
