@@ -25,6 +25,7 @@ export function ServicesTabsSection() {
         "Remise en exploitation sécurisée",
       ],
       image: "/hero/home/hero.webp",
+      href: "/services/ponts-elevateurs",
     },
     {
       icon: "💨",
@@ -38,6 +39,7 @@ export function ServicesTabsSection() {
         "Fiabilisation et maintenance",
       ],
       image: "/hero/home/hero.webp",
+      href: "/services/compresseurs-air",
     },
     {
       icon: "🎨",
@@ -51,6 +53,7 @@ export function ServicesTabsSection() {
         "Mise en service complète",
       ],
       image: "/hero/home/hero.webp",
+      href: "/services/cabines-peinture-ventilation",
     },
     {
       icon: "💧",
@@ -64,6 +67,7 @@ export function ServicesTabsSection() {
         "Disponibilité garantie",
       ],
       image: "/hero/home/hero.webp",
+      href: "/services/stations-lavage",
     },
   ];
 
@@ -287,14 +291,15 @@ export function ServicesTabsSection() {
                 ))}
               </div>
 
-              {/* CTA Button */}
+              {/* CTA Link */}
               <div>
-                <button
+                <a
+                  href={activeService.href}
                   style={{
                     padding: `${spacing[3]} ${spacing[6]}`,
                     backgroundColor: colors.cyan[500],
                     color: colors.white,
-                    border: "none",
+                    textDecoration: "none",
                     borderRadius: "0.5rem",
                     fontSize: "1rem",
                     fontWeight: 600,
@@ -322,7 +327,7 @@ export function ServicesTabsSection() {
                 >
                   En savoir plus
                   <span style={{ fontSize: "1.25rem" }}>→</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
