@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { FastRemotePromoSection } from "@/components/sections/FastRemotePromoSection";
-import { ServicesTabsSection } from "@/components/sections/ServicesTabsSection";
 import { MethodTeaserSection } from "@/components/sections/MethodTeaserSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { ProofsTeaser } from "@/components/sections/ProofsTeaser";
@@ -33,7 +32,6 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <FastRemotePromoSection />
-      <ServicesTabsSection />
       <MethodTeaserSection />
       <StatsSection />
       <ProofsTeaser />
