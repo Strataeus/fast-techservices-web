@@ -72,7 +72,7 @@ export function Header() {
         </nav>
 
         {/* Primary CTA Button */}
-        <Link href={primaryCTA.url} style={{ textDecoration: "none" }}>
+        <Link href={primaryCTA.href} style={{ textDecoration: "none" }}>
           <button
             style={{
               backgroundColor: colors.cyan[500],

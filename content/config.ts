@@ -15,7 +15,7 @@ export interface SLAConfig {
 
 export interface CTAConfig {
   label: string;
-  url: string;
+  href: string;
 }
 
 export interface SiteConfig {
@@ -88,11 +88,11 @@ export const siteConfig: SiteConfig = {
   cta: {
     primary: {
       label: "Démarrer diagnostic",
-      url: "/fast-remote",
+      href: "/fast-remote",
     },
     secondary: {
       label: "En savoir plus",
-      url: "/methode",
+      href: "/methode",
     },
   },
 

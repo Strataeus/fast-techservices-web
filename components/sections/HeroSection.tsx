@@ -73,7 +73,7 @@ export function HeroSection({
 
           {/* CTA Button */}
           <a
-            href={primaryCTA.url}
+            href={primaryCTA.href}
             style={{
               display: "inline-block",
               backgroundColor: colors.cyan[500],
