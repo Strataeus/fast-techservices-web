@@ -15,6 +15,11 @@ describe("RateLimiter", () => {
     });
   });
 
+  afterEach(() => {
+    // Cleanup timer to prevent Jest hanging
+    limiter.destroy();
+  });
+
   it("should allow requests within limit", () => {
     const status1 = limiter.check("ip-1");
     expect(status1.allowed).toBe(true);
@@ -66,6 +71,7 @@ describe("RateLimiter", () => {
     setTimeout(() => {
       const status2 = fastLimiter.check("ip-test");
       expect(status2.allowed).toBe(true);
+      fastLimiter.destroy(); // Cleanup
       done();
     }, 60);
   });
@@ -93,6 +99,7 @@ describe("RateLimiter", () => {
     expect(status.retryAfter).toBeGreaterThan(0);
     expect(status.retryAfter).toBeLessThanOrEqual(1); // Should be ~1 second
 
+    fastLimiter.destroy(); // Cleanup
     done();
   });
 });

@@ -10,7 +10,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "Jean Dupont",
         email: "jean@example.com",
-        message: "Mon équipement a un problème sérieux",
+        message: "Mon équipement a un problème sérieux qui doit être corrigé",
         consent: true,
       };
 
@@ -46,7 +46,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "Test",
         email: "TEST@EXAMPLE.COM",
-        message: "This is a test message that's longer than 20",
+        message: "This is a test message that is definitely longer than forty characters minimum",
         consent: true,
       };
 
@@ -73,7 +73,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "Jean",
         email: "not-an-email",
-        message: "Test message",
+        message: "This is a long test message that exceeds the forty character minimum requirement",
         consent: true,
       };
 
@@ -150,7 +150,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "  Jean Dupont  ",
         email: "jean@example.com",
-        message: "This is a test message that is definitely longer than 20",
+        message: "This is a test message that is definitely longer than forty characters minimum",
         consent: true,
       };
 
@@ -165,7 +165,7 @@ describe("ContactFormSchema", () => {
       const data = {
         name: "Jean",
         email: "jean@example.com",
-        message: "Test message here is now definitely longer than minimum",
+        message: "Test message here is now definitely longer than the forty character minimum requirement",
         phone: "",
         company: "",
         consent: true,
@@ -186,7 +186,7 @@ describe("FastRemoteFormSchema", () => {
     const data = {
       name: "Jean",
       email: "jean@example.com",
-      message: "Urgent: compresseur en panne",
+      message: "Urgent: compresseur en panne, débit très faible depuis ce matin",
       consent: true,
       equipement: "Compresseur ATLAS COPCO",
       urgence: "arret-total" as const,
@@ -203,7 +203,7 @@ describe("FastRemoteFormSchema", () => {
     const data = {
       name: "Jean",
       email: "jean@example.com",
-      message: "Test",
+      message: "This is a long test message that exceeds the forty character minimum requirement",
       consent: true,
       urgence: "invalid",
     };
@@ -216,7 +216,7 @@ describe("FastRemoteFormSchema", () => {
     const data = {
       name: "Jean",
       email: "jean@example.com",
-      message: "Test message here",
+      message: "This is a long test message that exceeds the forty character minimum requirement",
       consent: true,
       codePostal: "ABC",
     };

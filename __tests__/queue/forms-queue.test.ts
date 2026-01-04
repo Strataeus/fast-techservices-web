@@ -9,20 +9,28 @@ import type { Lead } from "@/lib/schemas/contact-form";
 
 describe("FormsQueue", () => {
   const testQueuePath = path.join(process.cwd(), ".data", "forms-queue.json");
+  const testDataDir = path.join(process.cwd(), ".data");
 
   beforeEach(() => {
-    // Clean up test queue
+    // Clean up test queue before each test
     clearQueue();
   });
 
   afterEach(() => {
-    // Clean up after tests
+    // Clean up after tests - synchronously remove test files
     try {
       if (fs.existsSync(testQueuePath)) {
         fs.unlinkSync(testQueuePath);
       }
+      // Remove .data directory if empty
+      if (fs.existsSync(testDataDir)) {
+        const files = fs.readdirSync(testDataDir);
+        if (files.length === 0) {
+          fs.rmdirSync(testDataDir);
+        }
+      }
     } catch {
-      // Ignore cleanup errors
+      // Ignore cleanup errors - this is just to prevent file accumulation
     }
   });
 

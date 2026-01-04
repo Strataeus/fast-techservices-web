@@ -29,13 +29,19 @@ export interface RateLimitStatus {
 export class RateLimiter {
   private hits = new Map<string, number[]>();
   private config: RateLimiterConfig;
+  private cleanupInterval: NodeJS.Timeout | null = null;
 
   constructor(config: RateLimiterConfig = { windowMs: 10 * 60 * 1000, maxRequests: 5 }) {
     this.config = config;
     
     // Cleanup timer: remove stale entries every 5 minutes
     if (typeof globalThis !== "undefined") {
-      setInterval(() => this.cleanup(), 5 * 60 * 1000);
+      this.cleanupInterval = setInterval(() => this.cleanup(), 5 * 60 * 1000);
+      // Unref the timer so Node.js doesn't wait for it to finish
+      // Allows process to exit even if timer is running
+      if (this.cleanupInterval?.unref) {
+        this.cleanupInterval.unref();
+      }
     }
   }
 
@@ -74,6 +80,17 @@ export class RateLimiter {
    * Reset all limits (for testing)
    */
   reset(): void {
+    this.hits.clear();
+  }
+
+  /**
+   * Destroy the rate limiter and cleanup timer (for testing)
+   */
+  destroy(): void {
+    if (this.cleanupInterval) {
+      clearInterval(this.cleanupInterval);
+      this.cleanupInterval = null;
+    }
     this.hits.clear();
   }
 

@@ -31,7 +31,7 @@ export const ContactFormSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(20, "Message doit contenir au moins 20 caractères")
+    .min(40, "Message doit contenir au moins 40 caractères")
     .max(2000, "Message trop long (max 2000 caractères)"),
   
   consent: z
@@ -81,6 +81,8 @@ export const FastRemoteFormSchema = ContactFormSchema.extend({
   
   symptome: z
     .string()
+    .trim()
+    .min(40, "Symptôme doit contenir au moins 40 caractères")
     .max(500, "Symptôme trop long")
     .optional(),
   
