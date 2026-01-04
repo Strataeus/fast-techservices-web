@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "../components/SiteHeader";
-import SiteFooter from "../components/SiteFooter";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 import StickyCTA from "../components/StickyCTA";
 import JsonLd from "../components/JsonLd";
 import ScrollToHash from "../components/layout/ScrollToHash";
@@ -65,12 +65,12 @@ export default function RootLayout({
         >
           Aller au contenu principal
         </a>
-        <SiteHeader />
+        <Header />
         <main id="main-content" className="pb-16 md:pb-0">
           <PageTransition>{children}</PageTransition>
         </main>
         <StickyCTA />
-        <SiteFooter />
+        <Footer />
       </body>
     </html>
   );
