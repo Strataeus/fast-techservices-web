@@ -58,6 +58,20 @@ export const ContactFormSchema = z.object({
     .enum(["ponts", "cabines", "compresseurs", "diagnostic", "autre"])
     .optional(),
 
+  city: z
+    .string()
+    .trim()
+    .min(2, "Ville requise")
+    .max(80, "Ville trop long")
+    .optional()
+    .or(z.literal("")),
+
+  postal_code: z
+    .string()
+    .regex(/^\d{5}$/, "Code postal invalide (5 chiffres)")
+    .optional()
+    .or(z.literal("")),
+
   // Anti-spam honeypot (must be empty)
   honeypot: z
     .string()

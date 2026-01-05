@@ -102,8 +102,8 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
           nom: cf.name,
           email: cf.email,
           telephone: cf.phone || "",
-          ville: cf.service || "Paris",
-          codePostal: "75000",
+          ville: cf.city || "Non spécifié",
+          codePostal: cf.postal_code || "75000",
           equipement: "Autre",
           symptome: cf.message,
           consentement: cf.consent,
@@ -311,6 +311,96 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
             )}
           </div>
 
+          {/* City & Postal Code (for all forms) */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: spacing[4] }}>
+            <div>
+              <label
+                htmlFor="city"
+                style={{
+                  display: "block",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  marginBottom: spacing[2],
+                }}
+              >
+                Ville {isFastRemote ? "*" : ""}
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={(formData as any).city || ""}
+                onChange={handleChange}
+                style={{
+                  width: "100%",
+                  padding: `${spacing[2]} ${spacing[3]}`,
+                  backgroundColor: colors.slate[800],
+                  border: `1px solid ${(errors as any).city ? colors.slate[600] : colors.slate[700]}`,
+                  borderRadius: "0.375rem",
+                  color: colors.white,
+                  fontSize: "0.95rem",
+                  outline: "none",
+                }}
+                placeholder="Paris"
+              />
+              {(errors as any).city && (
+                <p
+                  style={{
+                    color: colors.slate[400],
+                    fontSize: "0.75rem",
+                    marginTop: spacing[1],
+                  }}
+                >
+                  {(errors as any).city}
+                </p>
+              )}
+            </div>
+            <div>
+              <label
+                htmlFor="postal_code"
+                style={{
+                  display: "block",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  marginBottom: spacing[2],
+                }}
+              >
+                Code postal {isFastRemote ? "*" : ""}
+              </label>
+              <input
+                type="text"
+                id="postal_code"
+                name="postal_code"
+                value={(formData as any).postal_code || ""}
+                onChange={handleChange}
+                style={{
+                  width: "100%",
+                  padding: `${spacing[2]} ${spacing[3]}`,
+                  backgroundColor: colors.slate[800],
+                  border: `1px solid ${
+                    (errors as any).postal_code ? colors.slate[600] : colors.slate[700]
+                  }`,
+                  borderRadius: "0.375rem",
+                  color: colors.white,
+                  fontSize: "0.95rem",
+                  outline: "none",
+                }}
+                placeholder="75001"
+              />
+              {(errors as any).postal_code && (
+                <p
+                  style={{
+                    color: colors.slate[400],
+                    fontSize: "0.75rem",
+                    marginTop: spacing[1],
+                  }}
+                >
+                  {(errors as any).postal_code}
+                </p>
+              )}
+            </div>
+          </div>
+
           {isFastRemote && (
             <>
               {/* Equipment Category */}
@@ -473,96 +563,6 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                     {errors.phone}
                   </p>
                 )}
-              </div>
-
-              {/* City & Postal Code */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: spacing[4] }}>
-                <div>
-                  <label
-                    htmlFor="city"
-                    style={{
-                      display: "block",
-                      fontSize: "0.875rem",
-                      fontWeight: 500,
-                      marginBottom: spacing[2],
-                    }}
-                  >
-                    Ville *
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={(formData as Partial<FastRemoteFormData>).city || ""}
-                    onChange={handleChange}
-                    style={{
-                      width: "100%",
-                      padding: `${spacing[2]} ${spacing[3]}`,
-                      backgroundColor: colors.slate[800],
-                      border: `1px solid ${errors.city ? colors.slate[600] : colors.slate[700]}`,
-                      borderRadius: "0.375rem",
-                      color: colors.white,
-                      fontSize: "0.95rem",
-                      outline: "none",
-                    }}
-                    placeholder="Paris"
-                  />
-                  {errors.city && (
-                    <p
-                      style={{
-                        color: colors.slate[400],
-                        fontSize: "0.75rem",
-                        marginTop: spacing[1],
-                      }}
-                    >
-                      {errors.city}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label
-                    htmlFor="postal_code"
-                    style={{
-                      display: "block",
-                      fontSize: "0.875rem",
-                      fontWeight: 500,
-                      marginBottom: spacing[2],
-                    }}
-                  >
-                    Code postal *
-                  </label>
-                  <input
-                    type="text"
-                    id="postal_code"
-                    name="postal_code"
-                    value={(formData as Partial<FastRemoteFormData>).postal_code || ""}
-                    onChange={handleChange}
-                    style={{
-                      width: "100%",
-                      padding: `${spacing[2]} ${spacing[3]}`,
-                      backgroundColor: colors.slate[800],
-                      border: `1px solid ${
-                        errors.postal_code ? colors.slate[600] : colors.slate[700]
-                      }`,
-                      borderRadius: "0.375rem",
-                      color: colors.white,
-                      fontSize: "0.95rem",
-                      outline: "none",
-                    }}
-                    placeholder="75001"
-                  />
-                  {errors.postal_code && (
-                    <p
-                      style={{
-                        color: colors.slate[400],
-                        fontSize: "0.75rem",
-                        marginTop: spacing[1],
-                      }}
-                    >
-                      {errors.postal_code}
-                    </p>
-                  )}
-                </div>
               </div>
 
               {/* Symptom */}
