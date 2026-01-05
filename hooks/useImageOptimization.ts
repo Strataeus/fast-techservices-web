@@ -68,7 +68,7 @@ export function useImagePerformance(imageId: string) {
 
     // Log to analytics or console
     if (typeof window !== "undefined") {
-      const gtagFn = (window as Record<string, unknown>).gtag as
+      const gtagFn = (window as unknown as Record<string, unknown>).gtag as
         | ((action: string, eventName: string, eventParams: Record<string, unknown>) => void)
         | undefined;
       if (gtagFn) {
