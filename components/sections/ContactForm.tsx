@@ -81,7 +81,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
       let apiData: Record<string, unknown>;
       
       if (isFastRemote) {
-        const fr = validatedData as any;
+        const fr = validatedData as FastRemoteFormData;
         apiData = {
           nom: fr.name,
           email: fr.email,
@@ -97,7 +97,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
           marque: fr.brand_model || undefined,
         };
       } else {
-        const cf = validatedData as any;
+        const cf = validatedData as FormData;
         apiData = {
           nom: cf.name,
           email: cf.email,

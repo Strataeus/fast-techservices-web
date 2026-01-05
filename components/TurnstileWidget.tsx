@@ -7,7 +7,6 @@
 "use client";
 
 import { Turnstile } from "@marsidev/react-turnstile";
-import { useState } from "react";
 import { colors } from "@/lib/design/tokens";
 
 interface TurnstileWidgetProps {
@@ -16,8 +15,6 @@ interface TurnstileWidgetProps {
 }
 
 export function TurnstileWidget({ onToken, onError }: TurnstileWidgetProps) {
-  const [loading, setLoading] = useState(false);
-
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   if (!siteKey) {
@@ -41,11 +38,9 @@ export function TurnstileWidget({ onToken, onError }: TurnstileWidgetProps) {
         siteKey={siteKey}
         onSuccess={(token) => {
           onToken(token);
-          setLoading(false);
         }}
         onError={() => {
           onError?.();
-          setLoading(false);
         }}
         options={{
           theme: "light",
