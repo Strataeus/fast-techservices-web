@@ -40,13 +40,11 @@ export const ContactFormSchema = z.object({
       message: "Consentement obligatoire",
     }),
 
-  // Optional
+  // Required for onsite
   phone: z
     .string()
     .max(30, "Téléphone trop long")
-    .regex(/^[\d\s()+-]{9,}$/, "Téléphone invalide")
-    .optional()
-    .or(z.literal("")),
+    .regex(/^[\d\s()+-]{9,}$/, "Téléphone invalide"),
   
   company: z
     .string()

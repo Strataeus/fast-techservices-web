@@ -101,7 +101,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
         apiData = {
           nom: cf.name,
           email: cf.email,
-          telephone: cf.phone || "",
+          telephone: cf.phone,
           ville: cf.city || "Non spécifié",
           codePostal: cf.postal_code || "75000",
           equipement: "Autre",
@@ -307,6 +307,50 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                 }}
               >
                 {errors.email}
+              </p>
+            )}
+          </div>
+
+          {/* Phone (for all forms) */}
+          <div>
+            <label
+              htmlFor="phone"
+              style={{
+                display: "block",
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                marginBottom: spacing[2],
+              }}
+            >
+              Téléphone *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone || ""}
+              onChange={handleChange}
+              style={{
+                width: "100%",
+                padding: `${spacing[2]} ${spacing[3]}`,
+                backgroundColor: colors.slate[800],
+                border: `1px solid ${errors.phone ? colors.slate[600] : colors.slate[700]}`,
+                borderRadius: "0.375rem",
+                color: colors.white,
+                fontSize: "0.95rem",
+                outline: "none",
+              }}
+              placeholder="+33 6 XX XX XX XX"
+            />
+            {errors.phone && (
+              <p
+                style={{
+                  color: colors.slate[400],
+                  fontSize: "0.75rem",
+                  marginTop: spacing[1],
+                }}
+              >
+                {errors.phone}
               </p>
             )}
           </div>
@@ -519,50 +563,6 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                   }}
                   placeholder="Nom de votre garage/entreprise"
                 />
-              </div>
-
-              {/* Phone */}
-              <div>
-                <label
-                  htmlFor="phone"
-                  style={{
-                    display: "block",
-                    fontSize: "0.875rem",
-                    fontWeight: 500,
-                    marginBottom: spacing[2],
-                  }}
-                >
-                  Téléphone *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone || ""}
-                  onChange={handleChange}
-                  style={{
-                    width: "100%",
-                    padding: `${spacing[2]} ${spacing[3]}`,
-                    backgroundColor: colors.slate[800],
-                    border: `1px solid ${errors.phone ? colors.slate[600] : colors.slate[700]}`,
-                    borderRadius: "0.375rem",
-                    color: colors.white,
-                    fontSize: "0.95rem",
-                    outline: "none",
-                  }}
-                  placeholder="+33 6 XX XX XX XX"
-                />
-                {errors.phone && (
-                  <p
-                    style={{
-                      color: colors.slate[400],
-                      fontSize: "0.75rem",
-                      marginTop: spacing[1],
-                    }}
-                  >
-                    {errors.phone}
-                  </p>
-                )}
               </div>
 
               {/* Symptom */}
