@@ -5,7 +5,10 @@ import { TopBar } from "../components/TopBar";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import StickyCTA from "../components/StickyCTA";
+import { WhatsAppButton } from "../components/WhatsAppButton";
 import JsonLd from "../components/JsonLd";
+import { LocalBusinessSchema } from "../components/schemas/LocalBusinessSchema";
+import { GoogleAnalyticsScript } from "../components/GoogleAnalyticsScript";
 import ScrollToHash from "../components/layout/ScrollToHash";
 import PageTransition from "../components/layout/PageTransition";
 
@@ -60,6 +63,8 @@ export default function RootLayout({
       >
         <ScrollToHash />
         <JsonLd />
+        <LocalBusinessSchema />
+        <GoogleAnalyticsScript />
         <style>{`
           .skip-link {
             position: absolute;
@@ -91,6 +96,7 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
         </main>
         <StickyCTA />
+        <WhatsAppButton variant="sticky" phoneNumber="+33123456789" />
         <Footer />
       </body>
     </html>

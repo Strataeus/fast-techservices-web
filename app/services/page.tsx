@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServicesHero } from "@/components/sections/ServicesHero";
 import { ServicesAboutSection } from "@/components/sections/ServicesAboutSection";
 import { ServicesTabsFAST } from "@/components/sections/ServicesTabsFAST";
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main>
+      <Breadcrumbs />
       {/* 1. Hero Premium (dark, SLA badges from config) */}
       <ServicesHero />
 

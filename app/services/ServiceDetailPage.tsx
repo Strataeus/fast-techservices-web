@@ -6,6 +6,7 @@
  */
 
 import { colors, spacing } from "@/lib/design/tokens";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PremiumCTASection } from "@/components/sections/PremiumCTASection";
 import { InteractiveCTA } from "@/components/InteractiveCTA";
@@ -74,6 +75,7 @@ export function ServiceDetailPage(props: ServiceDetailPageProps) {
 
   return (
     <main>
+      <Breadcrumbs />
       {/* 1. HERO — Toujours présent */}
       <section
         style={{
