@@ -9,6 +9,7 @@ import { useState } from "react";
 import { ContactFormSchema, FastRemoteFormSchema } from "@/lib/schemas/contact-form";
 import { colors, spacing } from "@/lib/design/tokens";
 import { z } from "zod";
+import { TurnstileWidget } from "@/components/TurnstileWidget";
 
 type FormData = z.infer<typeof ContactFormSchema>;
 type FastRemoteFormData = z.infer<typeof FastRemoteFormSchema>;
@@ -36,6 +37,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const isFastRemote = formType === "fast_remote";
   const schema = isFastRemote ? FastRemoteFormSchema : ContactFormSchema;
@@ -60,6 +62,13 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
     e.preventDefault();
     setErrors({});
     setSuccessMessage("");
+    
+    // Vérifier le token Turnstile
+    if (!turnstileToken) {
+      setErrors({ form: "Veuillez compléter le contrôle de sécurité" });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -74,6 +83,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: submitType,
+          turnstileToken,
           ...validatedData,
         }),
       });
@@ -85,6 +95,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
 
       setSuccessMessage("✓ Formulaire reçu. Nous vous contactons très rapidement.");
       setFormData({});
+      setTurnstileToken(null);
       setTimeout(() => setSuccessMessage(""), 5000);
     } catch (err) {
       if (err instanceof z.ZodError) {
@@ -108,6 +119,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
     formData.email &&
     formData.name &&
     (isFastRemote ? (formData as Partial<FastRemoteFormData>).symptom : (formData as Partial<FormData>).message) &&
+    turnstileToken &&
     !Object.keys(errors).length;
 
   const symptomLength = isFastRemote ? ((formData as Partial<FastRemoteFormData>).symptom || "").length : ((formData as Partial<FormData>).message || "").length;
@@ -156,6 +168,22 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
             }}
           >
             {successMessage}
+          </div>
+        )}
+
+        {errors.form && (
+          <div
+            style={{
+              padding: spacing[4],
+              backgroundColor: colors.slate[800],
+              borderRadius: "0.375rem",
+              marginBottom: spacing[6],
+              color: colors.slate[300],
+              fontSize: "0.95rem",
+              border: `1px solid ${colors.slate[700]}`,
+            }}
+          >
+            {errors.form}
           </div>
         )}
 
@@ -735,6 +763,17 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
               {errors.consent}
             </p>
           )}
+
+          {/* Turnstile CAPTCHA */}
+          <div style={{ marginBottom: spacing[4] }}>
+            <TurnstileWidget
+              onToken={setTurnstileToken}
+              onError={() => {
+                setTurnstileToken(null);
+                setErrors((prev) => ({ ...prev, form: "Erreur CAPTCHA: Veuillez réessayer" }));
+              }}
+            />
+          </div>
 
           {/* Submit */}
           <button
