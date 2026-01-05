@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GenericHero } from "@/components/sections/GenericHero";
 import { ContactSectionFAST } from "@/components/sections/ContactSectionFAST";
 
 export const metadata: Metadata = {
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
+      <GenericHero
+        badgeLabel="Contact"
+        title="Contactez FAST Tech Services"
+        subtitle="Dépannage en 4h, diagnostic FAST Remote en 24h. Méthode : TERRAIN → PREUVE → VERDICT."
+      />
       <ContactSectionFAST variant="contact" showMap={false} />
     </main>
   );

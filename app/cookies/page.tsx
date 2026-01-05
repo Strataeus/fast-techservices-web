@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { GenericHero } from "@/components/sections/GenericHero";
+import { spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
   title: "Politique Cookies — FAST Tech Services",
@@ -8,7 +10,12 @@ export const metadata: Metadata = {
 export default function CookiesPage() {
   return (
     <main>
-      <article style={{ maxWidth: "900px", margin: "0 auto", padding: "4rem 1.5rem" }}>
+      <GenericHero
+        badgeLabel="Cookies"
+        title="Politique Cookies"
+        subtitle="Gestion des cookies et traçabilité des données."
+      />
+      <article style={{ maxWidth: "900px", margin: "0 auto", padding: `${spacing[12]} ${spacing[6]}` }}>
         <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "2rem", color: "#ffffff" }}>
           Politique Cookies
         </h1>

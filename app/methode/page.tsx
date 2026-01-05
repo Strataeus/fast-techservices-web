@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { GenericHero } from "@/components/sections/GenericHero";
+import { MethodFAST } from "@/components/sections/MethodFAST";
+import { colors, spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
   title: "Méthode FAST — Diagnostic rigoureux",
@@ -8,16 +11,12 @@ export const metadata: Metadata = {
 export default function MethodePage() {
   return (
     <main>
-      <section style={{ padding: "5rem 1.5rem", backgroundColor: "#0f172a", color: "white" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <h1 style={{ fontSize: "3.5rem", fontWeight: "bold", marginBottom: "1.5rem" }}>
-            Méthode FAST
-          </h1>
-          <p style={{ fontSize: "1.25rem", maxWidth: "600px", color: "#ccc" }}>
-            Expertise rigoureuse. Preuves documentées. Diagnostic clair. Plan d&apos;action traçable.
-          </p>
-        </div>
-      </section>
+      <GenericHero
+        badgeLabel="Méthode"
+        title="FAST — Diagnostic rigoureux"
+        subtitle="Expertise documentée. Preuves mesurées. Plan d'action clair et traçable."
+      />
+      <MethodFAST />
 
       <section style={{ padding: "4rem 1.5rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>

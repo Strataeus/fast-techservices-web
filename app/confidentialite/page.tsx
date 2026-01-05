@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { GenericHero } from "@/components/sections/GenericHero";
+import { colors, spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
   title: "Confidentialité — FAST Tech Services",
@@ -7,8 +9,13 @@ export const metadata: Metadata = {
 
 export default function ConfidentialitePage() {
   return (
-    <main style={{ padding: "3rem 1.5rem" }}>
-      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+    <main>
+      <GenericHero
+        badgeLabel="Confidentialité"
+        title="Politique de Confidentialité"
+        subtitle="Protection des données et respect du RGPD."
+      />
+      <div style={{ padding: `${spacing[12]} ${spacing[6]}`, maxWidth: "800px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "2rem" }}>
           Politique de Confidentialité
         </h1>

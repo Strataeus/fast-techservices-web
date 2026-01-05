@@ -1,4 +1,6 @@
 ﻿import type { Metadata } from "next";
+import { GenericHero } from "@/components/sections/GenericHero";
+import { colors, spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
   title: "Mentions légales — FAST Tech Services",
@@ -7,8 +9,13 @@ export const metadata: Metadata = {
 
 export default function MentionsLegalesPage() {
   return (
-    <main style={{ padding: "3rem 1.5rem" }}>
-      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+    <main>
+      <GenericHero
+        badgeLabel="Mentions légales"
+        title="Mentions légales"
+        subtitle="Identification et conditions d'utilisation."
+      />
+      <div style={{ padding: `${spacing[12]} ${spacing[6]}`, maxWidth: "800px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "2rem" }}>Mentions légales</h1>
 
         <section style={{ marginBottom: "2rem" }}>
