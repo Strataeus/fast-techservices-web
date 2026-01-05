@@ -114,15 +114,19 @@ export const siteConfig: SiteConfig = {
   },
 
   seo: {
-    title: "FAST Tech Services - Diagnostic HVAC 2h garanties",
+    title: "FAST Tech Services — Maintenance équipements garage (ponts, compresseurs, cabines) | Diagnostic FAST Remote",
     description:
-      "Diagnostic et maintenance équipements climatisation, pompes, compresseurs. Réponse en 2h.",
+      "Expert électromécanicien terrain. Dépannage, maintenance, diagnostic d'équipements de garage : ponts élévateurs, compresseurs, cabines peinture, stations lavage. FAST Remote : diagnostic visio en 4h. Méthode : TERRAIN→PREUVE→VERDICT. Tests de sortie + dossier clair.",
     keywords: [
-      "diagnostic HVAC",
-      "maintenance climatisation",
-      "pompes",
-      "compresseurs",
-      "expertise technique",
+      "dépannage ponts élévateurs",
+      "maintenance compresseurs",
+      "diagnostic cabines peinture",
+      "stations lavage",
+      "FAST Remote",
+      "diagnostic visio",
+      "maintenance atelier",
+      "expertise mécatronique",
+      "électromécanique garage",
     ],
   },
 };

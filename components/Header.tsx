@@ -25,7 +25,7 @@ export function Header() {
         borderBottom: `1px solid ${colors.slate[800]}`,
         padding: `${spacing[4]} ${spacing[6]}`,
       }}
-      className="sticky top-0 z-fixed"
+      className="sticky top-0 z-50"
     >
       <div
         style={{
@@ -52,7 +52,7 @@ export function Header() {
         </Link>
 
         {/* Navigation */}
-        <nav style={{ display: "flex", gap: spacing[6] }}>
+        <nav style={{ display: "flex", gap: spacing[6], position: "relative" }}>
           {nav.main.map((item) => (
             <Link
               key={item.href}
@@ -63,8 +63,14 @@ export function Header() {
                 fontSize: "0.875rem",
                 fontWeight: 500,
                 transition: "color 150ms ease-in-out",
+                display: "inline-block",
               }}
-              className="hover:text-cyan-500"
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.color = colors.cyan[500];
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.color = colors.slate[200];
+              }}
             >
               {item.label}
             </Link>
@@ -85,7 +91,14 @@ export function Header() {
               cursor: "pointer",
               transition: "background-color 150ms ease-in-out",
             }}
-            className="hover:bg-cyan-600"
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                colors.cyan[600];
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                colors.cyan[500];
+            }}
           >
             {primaryCTA.label}
           </button>

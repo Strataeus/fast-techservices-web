@@ -4,7 +4,7 @@
 
 import { HeroSection } from "@/components/sections/HeroSection";
 import { EquipmentGrid } from "@/components/sections/EquipmentGrid";
-import { MethodSteps } from "@/components/sections/MethodSteps";
+import { MethodFAST } from "@/components/sections/MethodFAST";
 import { CaseStudiesTeaser } from "@/components/sections/CaseStudiesTeaser";
 import { ContactForm } from "@/components/sections/ContactForm";
 
@@ -27,7 +27,7 @@ export default function SandboxPage() {
 
       <HeroSection />
       <EquipmentGrid />
-      <MethodSteps />
+      <MethodFAST variant="teaser" />
       <CaseStudiesTeaser />
       <ContactForm />
     </main>

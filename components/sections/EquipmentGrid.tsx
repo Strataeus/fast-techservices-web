@@ -16,6 +16,7 @@ interface EquipmentItem {
   headline: string;
   description: string;
   icon: string;
+  href: string;
 }
 
 const equipment: EquipmentItem[] = [
@@ -25,6 +26,7 @@ const equipment: EquipmentItem[] = [
     headline: "Dépannage & maintenance spécialisée",
     description: "Électrique, hydraulique, sécurité. Réglages, remise en conformité, tests fonctionnels. Retrofits armoires/commandes.",
     icon: "🚗",
+    href: "/services/ponts-elevateurs",
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ const equipment: EquipmentItem[] = [
     headline: "Fiabilisation des réseaux pneumatiques",
     description: "Maintenance, diagnostic, remise en route. Traitement d'air, régulation, recherche fuites. Qualité d'air garantie.",
     icon: "💨",
+    href: "/services/compresseurs-air",
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ const equipment: EquipmentItem[] = [
     headline: "Process sécurisé et stable",
     description: "Ventilation/extraction, moteurs, variateurs. Retrofit coffrets. Stabilisation débits/flux, tests de sortie.",
     icon: "🎨",
+    href: "/services/cabines-peinture-ventilation",
   },
   {
     id: 4,
@@ -46,6 +50,7 @@ const equipment: EquipmentItem[] = [
     headline: "Remise en exploitation rapide",
     description: "Électromécanique : commande, puissance, pompage, sécurités. Prévention de pannes, disponibilité garantie.",
     icon: "💧",
+    href: "/services/stations-lavage",
   },
 ];
 
@@ -93,8 +98,16 @@ export function EquipmentGrid() {
           }}
         >
           {equipment.map((item) => (
+          <a
+            key={item.id}
+            href={item.href}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              display: "block",
+            }}
+          >
             <div
-              key={item.id}
               style={{
                 padding: spacing[8],
                 backgroundColor: colors.slate[50],
@@ -102,6 +115,7 @@ export function EquipmentGrid() {
                 borderRadius: "0.5rem",
                 transition: "all 150ms ease-in-out",
                 cursor: "pointer",
+                height: "100%",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLDivElement;
@@ -166,7 +180,8 @@ export function EquipmentGrid() {
                 {item.description}
               </p>
             </div>
-          ))}
+          </a>
+        ))}
         </div>
       </div>
     </section>

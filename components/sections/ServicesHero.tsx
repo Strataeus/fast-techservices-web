@@ -1,21 +1,22 @@
 /**
- * FAST Remote Hero Section (CarServ-inspired)
+ * Services Hub Hero Section
  * 
- * Source: content-map.yml (hero_remote)
- * Copy sources:
- *   - FAST_TECH_SERVICES_COPY_v1.md#FAST Remote
- *   - FAST_TECH_SERVICES_COPY_v1.md#Méthode de travail
+ * Source: content-map.yml (services_hub)
+ * Copy: FAST_TECH_SERVICES_COPY_v1.md#Services
  * 
- * Proposition: diagnostic + assistance technique à distance (visio)
- * Layout: Left text + Right image (two-column, responsive)
- * Tone: Professional, clear, action-oriented
+ * Premium hero with SLA badges (sourced from content/config.ts)
+ * Dark background, left text + right image placeholder
+ * HTML-first, minimal JS (hover effects only)
  */
 
 "use client";
 
 import { colors, spacing } from "@/lib/design/tokens";
+import { getSLA } from "@/content/config";
 
-export function FastRemoteHero() {
+export function ServicesHero() {
+  const sla = getSLA();
+
   return (
     <section
       style={{
@@ -46,7 +47,7 @@ export function FastRemoteHero() {
                 letterSpacing: "0.05em",
               }}
             >
-              Diagnostic à distance
+              Expertise au service de votre atelier
             </div>
 
             {/* Headline */}
@@ -59,7 +60,7 @@ export function FastRemoteHero() {
                 lineHeight: 1.2,
               }}
             >
-              FAST Remote <br /> dépannage à distance en visio
+              Services
             </h1>
 
             {/* Subheadline */}
@@ -71,63 +72,53 @@ export function FastRemoteHero() {
                 lineHeight: 1.7,
               }}
             >
-              Tests guidés, mesures précises, verdict clair. 
-              Réponse en 4h, visio en 24h.
+              Dépannage premium, remise en service, fiabilisation — avec méthode, preuves et tests de sortie.
             </p>
 
-            {/* SLA Badges */}
-            <div
+            {/* Description */}
+            <p
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: spacing[3],
-                marginBottom: spacing[8],
+                fontSize: "0.95rem",
+                color: colors.slate[300],
+                margin: `0 0 ${spacing[8]} 0`,
+                lineHeight: 1.8,
               }}
             >
-              <div
+              Ponts élévateurs, compresseurs, cabines peinture, stations de lavage : nous maîtrisons 
+              le diagnostic rapide, la maintenance préventive et la remise en exploitation fiable. 
+              Avec la méthode FAST : tests guidés, preuves documentées, verdict clair.
+            </p>
+
+            {/* SLA Section */}
+            <div style={{ marginBottom: spacing[8] }}>
+              <h3
                 style={{
-                  padding: `${spacing[3]} ${spacing[4]}`,
-                  backgroundColor: "rgba(6, 182, 212, 0.15)",
-                  border: `1px solid ${colors.cyan[500]}`,
-                  borderRadius: "0.375rem",
+                  fontSize: "0.875rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  color: colors.slate[300],
+                  marginBottom: spacing[4],
+                  letterSpacing: "0.05em",
                 }}
               >
-                <div style={{ color: colors.cyan[300], fontSize: "0.875rem" }}>Réponse</div>
-                <div
-                  style={{
-                    fontWeight: 700,
-                    fontSize: "1.125rem",
-                    color: colors.white,
-                  }}
-                >
-                  4h
-                </div>
-              </div>
-              <div
+                Garanties de traitement
+              </h3>
+              <p
                 style={{
-                  padding: `${spacing[3]} ${spacing[4]}`,
-                  backgroundColor: "rgba(6, 182, 212, 0.15)",
-                  border: `1px solid ${colors.cyan[500]}`,
-                  borderRadius: "0.375rem",
+                  fontSize: "0.95rem",
+                  color: colors.slate[200],
+                  lineHeight: 1.8,
+                  margin: 0,
                 }}
               >
-                <div style={{ color: colors.cyan[300], fontSize: "0.875rem" }}>Créneau</div>
-                <div
-                  style={{
-                    fontWeight: 700,
-                    fontSize: "1.125rem",
-                    color: colors.white,
-                  }}
-                >
-                  24h
-                </div>
-              </div>
+                {sla.description}
+              </p>
             </div>
 
             {/* CTA Buttons */}
-            <div style={{ display: "flex", gap: spacing[4] }}>
+            <div style={{ display: "flex", gap: spacing[4], flexWrap: "wrap" }}>
               <a
-                href="#formulaire"
+                href="/fast-remote#formulaire"
                 style={{
                   padding: `${spacing[3]} ${spacing[6]}`,
                   backgroundColor: colors.cyan[500],
@@ -151,7 +142,7 @@ export function FastRemoteHero() {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
-                Demander un diagnostic →
+                Démarrer FAST Remote →
               </a>
               <a
                 href="/contact"
@@ -180,7 +171,7 @@ export function FastRemoteHero() {
                     colors.slate[400];
                 }}
               >
-                Questions ?
+                Intervention sur site
               </a>
             </div>
           </div>
@@ -198,7 +189,7 @@ export function FastRemoteHero() {
               border: `2px dashed ${colors.slate[700]}`,
             }}
           >
-            📹
+            🔧
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { FastRemoteHero } from "@/components/sections/FastRemoteHero";
-import { FASTRemoteValueProps } from "@/components/sections/FASTRemoteValueProps";
+import { FastRemoteAboutSection } from "@/components/sections/FastRemoteAboutSection";
+import { FastRemoteEquipmentTabs } from "@/components/sections/FastRemoteEquipmentTabs";
 import { FastRemoteDeliverables } from "@/components/sections/FastRemoteDeliverables";
 import { FastRemoteProcess } from "@/components/sections/FastRemoteProcess";
 import { FASTRemotePrereqs } from "@/components/sections/FASTRemotePrereqs";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FastRemoteCTAFinal } from "@/components/sections/FastRemoteCTAFinal";
-import { ContactForm } from "@/components/sections/ContactForm";
+import { FastRemoteQualifyingForm } from "@/components/sections/FastRemoteQualifyingForm";
 import { colors, spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
@@ -19,25 +20,28 @@ export const metadata: Metadata = {
 export default function FastRemotePage() {
   return (
     <main>
-      {/* 1. FAST Remote Hero */}
+      {/* 1. FAST Remote Hero - Large banner with proposition */}
       <FastRemoteHero />
 
-      {/* 2. Value Props (Ce que vous obtenez) */}
-      <FASTRemoteValueProps />
+      {/* 2. About Section - Image + 3 numbered features (CarServ style) */}
+      <FastRemoteAboutSection />
 
-      {/* 2b. Deliverables (Livrables client) */}
+      {/* 3. Equipment Tabs - Left menu + Right content (CarServ services style) */}
+      <FastRemoteEquipmentTabs />
+
+      {/* 4. Deliverables - What client receives */}
       <FastRemoteDeliverables />
 
-      {/* 3. Process (Timeline 5 étapes) */}
+      {/* 5. Process Timeline - 5 steps */}
       <FastRemoteProcess />
 
-      {/* 4. Prerequisites, NO-GO & Limitations */}
+      {/* 6. Prerequisites & NO-GO conditions */}
       <FASTRemotePrereqs />
 
-      {/* 5. FAQ */}
+      {/* 7. FAQ */}
       <FAQSection />
 
-      {/* 6. CTA Section avant formulaire */}
+      {/* 8. Pre-form CTA */}
       <section
         style={{
           padding: `${spacing[16]} ${spacing[6]}`,
@@ -67,10 +71,12 @@ export default function FastRemotePage() {
         </div>
       </section>
 
-      {/* 7. Formulaire FAST Remote (UI only, Zod validation, minLength=40) */}
-      <ContactForm formType="fast_remote" />
+      {/* 9. Qualifying Form (UI-only, Zod validation, minLength=40) */}
+      <div id="formulaire">
+        <FastRemoteQualifyingForm />
+      </div>
 
-      {/* 8. CTA final */}
+      {/* 10. Final CTA */}
       <FastRemoteCTAFinal />
     </main>
   );

@@ -5,6 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/services",
+    "/services/ponts-elevateurs",
+    "/services/compresseurs-air",
+    "/services/cabines-peinture-ventilation",
+    "/services/stations-lavage",
     "/methode",
     "/preuves",
     "/zones",

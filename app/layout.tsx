@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { TopBar } from "../components/TopBar";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import StickyCTA from "../components/StickyCTA";
@@ -24,15 +25,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fast-techservices.com"),
   applicationName: "FAST Tech Services",
   title: {
-    default: "FAST Tech Services — Dépannage et maintenance d'équipements industriels",
+    default: "FAST Tech Services — Maintenance équipements garage (ponts, compresseurs, cabines) | Diagnostic FAST Remote",
     template: "%s | FAST Tech Services",
   },
   description:
-    "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
+    "Expert électromécanicien terrain. Dépannage, maintenance, diagnostic d'équipements de garage : ponts élévateurs, compresseurs, cabines peinture, stations lavage. FAST Remote : diagnostic visio en 4h. Méthode : TERRAIN→PREUVE→VERDICT. Tests de sortie + dossier clair.",
   openGraph: {
     title: "FAST Tech Services",
     description:
-      "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
+      "Expert électromécanicien terrain. Dépannage, maintenance, diagnostic d'équipements de garage : ponts élévateurs, compresseurs, cabines peinture, stations lavage. FAST Remote : diagnostic visio en 4h. Méthode : TERRAIN→PREUVE→VERDICT. Tests de sortie + dossier clair.",
     images: ["/hero/home/hero.webp"],
     siteName: "FAST Tech Services",
     locale: "fr_FR",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FAST Tech Services",
     description:
-      "Dépannage et maintenance d'équipements industriels. Méthode rigoureuse, preuves techniques et diagnostic clair.",
+      "Expert électromécanicien terrain. Dépannage, maintenance, diagnostic d'équipements de garage : ponts élévateurs, compresseurs, cabines peinture, stations lavage. FAST Remote : diagnostic visio en 4h. Méthode : TERRAIN→PREUVE→VERDICT. Tests de sortie + dossier clair.",
     images: ["/hero/home/hero.webp"],
   },
 };
@@ -84,6 +85,7 @@ export default function RootLayout({
         >
           Aller au contenu principal
         </a>
+        <TopBar />
         <Header />
         <main id="main-content" className="pb-16 md:pb-0">
           <PageTransition>{children}</PageTransition>

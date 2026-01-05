@@ -1,23 +1,15 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/sections/ContactForm";
+import { ContactSectionFAST } from "@/components/sections/ContactSectionFAST";
 
 export const metadata: Metadata = {
   title: "Contact — FAST Tech Services",
-  description: "Contactez-nous pour vos besoins en diagnostic et maintenance d'équipements industriels.",
+  description: "Contactez FAST Tech Services pour dépannage, maintenance et diagnostic d'équipements de garage (ponts, compresseurs, cabines, stations lavage). Réponse en 4h, visio en 24h.",
 };
 
 export default function ContactPage() {
   return (
     <main>
-      <section style={{ padding: "3rem 1.5rem", backgroundColor: "#0f172a", color: "white" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "1rem" }}>Contact</h1>
-          <p style={{ fontSize: "1.125rem", color: "#ccc" }}>
-            Envoyez-nous un message et nous vous répondrons dans les 2 heures.
-          </p>
-        </div>
-      </section>
-      <ContactForm />
+      <ContactSectionFAST variant="contact" showMap={false} />
     </main>
   );
 }

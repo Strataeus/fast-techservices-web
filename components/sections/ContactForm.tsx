@@ -64,8 +64,25 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
 
     try {
       const validatedData = schema.parse(formData);
-      console.log("Form valid:", validatedData);
-      // TODO: Submit to /api/leads in PR4
+      
+      // Determine form type based on formType prop
+      const submitType = isFastRemote ? "fast_remote" : "contact";
+      
+      // Submit to /api/contact
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: submitType,
+          ...validatedData,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Erreur d'envoi du formulaire");
+      }
+
       setSuccessMessage("✓ Formulaire reçu. Nous vous contactons très rapidement.");
       setFormData({});
       setTimeout(() => setSuccessMessage(""), 5000);
@@ -77,6 +94,10 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
           fieldErrors[path] = error.message;
         }
         setErrors(fieldErrors);
+      } else if (err instanceof Error) {
+        setErrors({ form: err.message });
+      } else {
+        setErrors({ form: "Une erreur est survenue. Veuillez réessayer." });
       }
     } finally {
       setIsSubmitting(false);

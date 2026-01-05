@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { HeroSection } from "@/components/sections/HeroSection";
+import { HeroCarousel } from "@/components/sections/HeroCarousel";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { FastRemotePromoSection } from "@/components/sections/FastRemotePromoSection";
 import { ServicesTabsSection } from "@/components/sections/ServicesTabsSection";
-import { MethodTeaserSection } from "@/components/sections/MethodTeaserSection";
+import { MethodFAST } from "@/components/sections/MethodFAST";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { ProofsTeaser } from "@/components/sections/ProofsTeaser";
 import { ZonesTeaser } from "@/components/sections/ZonesTeaser";
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      <HeroSection />
+      <HeroCarousel />
       <AboutSection />
       <FastRemotePromoSection />
       <ServicesTabsSection />
-      <MethodTeaserSection />
+      <MethodFAST variant="teaser" />
       <StatsSection />
       <ProofsTeaser />
       <ZonesTeaser />
