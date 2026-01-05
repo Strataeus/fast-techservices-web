@@ -15,7 +15,7 @@
 "use client";
 
 import { getCTA, getSLA } from "@/content/config";
-import { colors, spacing } from "@/lib/design/tokens";
+import { colors, spacing, gradients } from "@/lib/design/tokens";
 
 interface HeroSectionProps {
   headline?: string;
@@ -91,18 +91,21 @@ export function HeroSection({
             {"Diagnostic / Preuve / Verdict"}
           </div>
 
-          {/* Headline */}
+          {/* Headline - with gradient text */}
           <h1
             style={{
               fontSize: "clamp(2rem, 5vw, 3.75rem)",
               fontWeight: 700,
               lineHeight: 1.2,
               margin: `0 0 ${spacing[6]} 0`,
-              color: colors.slate[900],
+              background: gradients.cyanToBluePrimary,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
               maxWidth: "90%",
               whiteSpace: "pre-line",
               textAlign: "center",
-            }}
+            } as React.CSSProperties}
           >
             {headline}
           </h1>

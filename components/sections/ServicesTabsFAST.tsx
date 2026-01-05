@@ -6,8 +6,9 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { colors, spacing } from "@/lib/design/tokens";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type EquipmentType = "ponts" | "compresseurs" | "cabines" | "stations";
 
@@ -81,15 +82,21 @@ const EQUIPMENT_DATA: Equipment[] = [
 
 export function ServicesTabsFAST() {
   const [activeTab, setActiveTab] = useState<EquipmentType>("ponts");
+  const { ref: tabsRef, isVisible: tabsVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const activeEquipment = EQUIPMENT_DATA.find((eq) => eq.id === activeTab)!;
 
   return (
     <section
+      ref={tabsRef}
       style={{
         padding: `${spacing[20]} ${spacing[6]}`,
         backgroundColor: colors.slate[50],
         color: colors.slate[900],
+        opacity: tabsVisible ? 1 : 0.7,
+        transform: tabsVisible ? "translateY(0)" : "translateY(20px)",
+        transition: "all 600ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
@@ -195,11 +202,15 @@ export function ServicesTabsFAST() {
 
           {/* RIGHT: Content Pane */}
           <div
+            ref={contentRef}
             style={{
               backgroundColor: colors.white,
               borderRadius: "0.5rem",
               padding: spacing[8],
               border: `1px solid ${colors.slate[200]}`,
+              opacity: contentVisible ? 1 : 0,
+              transform: contentVisible ? "scale(1)" : "scale(0.95)",
+              transition: "all 600ms cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
             {/* Title + Icon */}

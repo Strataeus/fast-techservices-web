@@ -2,7 +2,7 @@
 import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "../components/TopBar";
-import { Header } from "../components/Header";
+import { StickyNavigation } from "../components/Navigation/StickyNav";
 import { Footer } from "../components/Footer";
 import StickyCTA from "../components/StickyCTA";
 import { WhatsAppButton } from "../components/WhatsAppButton";
@@ -91,7 +91,7 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <TopBar />
-        <Header />
+        <StickyNavigation />
         <main id="main-content" className="pb-16 md:pb-0">
           <PageTransition>{children}</PageTransition>
         </main>
