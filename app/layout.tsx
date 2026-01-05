@@ -3,7 +3,7 @@ import { IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "../components/TopBar";
 import { StickyNavigation } from "../components/Navigation/StickyNav";
-import { Footer } from "../components/Footer";
+import { PremiumFooter } from "../components/sections/PremiumFooter";
 import StickyCTA from "../components/StickyCTA";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import JsonLd from "../components/JsonLd";
@@ -97,7 +97,7 @@ export default function RootLayout({
         </main>
         <StickyCTA />
         <WhatsAppButton variant="sticky" phoneNumber="+33123456789" />
-        <Footer />
+        <PremiumFooter />
       </body>
     </html>
   );
