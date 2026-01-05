@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { GenericHero } from "@/components/sections/GenericHero";
-import { colors, spacing } from "@/lib/design/tokens";
+import { spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
   title: "Mentions légales — FAST Tech Services",

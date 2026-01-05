@@ -373,13 +373,13 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                 type="text"
                 id="city"
                 name="city"
-                value={(formData as any).city || ""}
+                value={(formData as Record<string, string | undefined>).city || ""}
                 onChange={handleChange}
                 style={{
                   width: "100%",
                   padding: `${spacing[2]} ${spacing[3]}`,
                   backgroundColor: colors.slate[800],
-                  border: `1px solid ${(errors as any).city ? colors.slate[600] : colors.slate[700]}`,
+                  border: `1px solid ${(errors as Record<string, string>).city ? colors.slate[600] : colors.slate[700]}`,
                   borderRadius: "0.375rem",
                   color: colors.white,
                   fontSize: "0.95rem",
@@ -387,7 +387,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                 }}
                 placeholder="Paris"
               />
-              {(errors as any).city && (
+              {(errors as Record<string, string>).city && (
                 <p
                   style={{
                     color: colors.slate[400],
@@ -395,7 +395,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                     marginTop: spacing[1],
                   }}
                 >
-                  {(errors as any).city}
+                  {(errors as Record<string, string>).city}
                 </p>
               )}
             </div>
@@ -415,14 +415,14 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                 type="text"
                 id="postal_code"
                 name="postal_code"
-                value={(formData as any).postal_code || ""}
+                value={(formData as Record<string, string | undefined>).postal_code || ""}
                 onChange={handleChange}
                 style={{
                   width: "100%",
                   padding: `${spacing[2]} ${spacing[3]}`,
                   backgroundColor: colors.slate[800],
                   border: `1px solid ${
-                    (errors as any).postal_code ? colors.slate[600] : colors.slate[700]
+                    (errors as Record<string, string>).postal_code ? colors.slate[600] : colors.slate[700]
                   }`,
                   borderRadius: "0.375rem",
                   color: colors.white,
@@ -431,7 +431,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                 }}
                 placeholder="75001"
               />
-              {(errors as any).postal_code && (
+              {(errors as Record<string, string>).postal_code && (
                 <p
                   style={{
                     color: colors.slate[400],
@@ -439,7 +439,7 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
                     marginTop: spacing[1],
                   }}
                 >
-                  {(errors as any).postal_code}
+                  {(errors as Record<string, string>).postal_code}
                 </p>
               )}
             </div>

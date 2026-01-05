@@ -4,9 +4,8 @@
  * TODO: Proper implementation in PR3+
  */
 
-interface SectionBandProps {
+interface SectionBandProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  [key: string]: any;
 }
 
 export default function SectionBand({ children, ...props }: SectionBandProps) {

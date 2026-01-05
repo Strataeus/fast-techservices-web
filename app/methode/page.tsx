@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { GenericHero } from "@/components/sections/GenericHero";
 import { MethodFAST } from "@/components/sections/MethodFAST";
-import { colors, spacing } from "@/lib/design/tokens";
 
 export const metadata: Metadata = {
   title: "Méthode FAST — Diagnostic rigoureux",

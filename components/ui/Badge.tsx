@@ -4,9 +4,8 @@
  * TODO: Proper implementation in PR3+
  */
 
-interface BadgeProps {
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode;
-  [key: string]: any;
 }
 
 export default function Badge({ children, ...props }: BadgeProps) {

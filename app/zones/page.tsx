@@ -1,5 +1,4 @@
-﻿import Link from "next/link";
-import { GenericHero } from "@/components/sections/GenericHero";
+﻿import { GenericHero } from "@/components/sections/GenericHero";
 import Container from "../../components/Container";
 import { zones } from "../../lib/content/zones";
 

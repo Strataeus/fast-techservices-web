@@ -6,7 +6,7 @@
 
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { colors, spacing } from "@/lib/design/tokens";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 

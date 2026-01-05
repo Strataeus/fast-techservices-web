@@ -4,9 +4,8 @@
  * TODO: Proper implementation in PR3+
  */
 
-interface SectionProps {
+interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  [key: string]: any;
 }
 
 export default function Section({ children, ...props }: SectionProps) {

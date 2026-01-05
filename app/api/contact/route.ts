@@ -26,6 +26,7 @@ type FormType = "fast-remote" | "onsite" | "maintenance";
 
 // Type definitions (for documentation and future extensibility)
 // These interfaces document the expected shape of form data for each type
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface FastRemoteData {
   nom: string;
   telephone: string;
@@ -42,6 +43,7 @@ interface FastRemoteData {
   acces?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface OnsiteData {
   nom: string;
   telephone: string;
@@ -54,6 +56,7 @@ interface OnsiteData {
   societe?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface MaintenanceData {
   nom: string;
   telephone: string;

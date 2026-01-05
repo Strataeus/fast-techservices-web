@@ -19,6 +19,28 @@ const eslintConfig = defineConfig([
     "tools/templates/**",
     // Documentation
     "docs/**",
+    // Node modules and lock files
+    "node_modules/**",
+    "**/node_modules/**",
+    "package-lock.json",
+    "yarn.lock",
+    ".pnp",
+    // IDE and OS files
+    ".idea/**",
+    ".vscode/**",
+    "*.swp",
+    "*.swo",
+    ".DS_Store",
+    // Logs
+    "*.log",
+    "npm-debug.log*",
+    "yarn-debug.log*",
+    "yarn-error.log*",
+    // Environment variables
+    ".env",
+    ".env.local",
+    ".env.*.local",
+    "app/web/_templates/**",
   ]),
 ]);
 

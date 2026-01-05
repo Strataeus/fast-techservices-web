@@ -4,9 +4,8 @@
  * TODO: Proper implementation in PR3+
  */
 
-interface HeroBaseProps {
+interface HeroBaseProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  [key: string]: any;
 }
 
 export default function HeroBase({ children, ...props }: HeroBaseProps) {

@@ -4,9 +4,8 @@
  * TODO: Proper implementation in PR3+
  */
 
-interface ContainerProps {
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  [key: string]: any;
 }
 
 export default function Container({ children, ...props }: ContainerProps) {
