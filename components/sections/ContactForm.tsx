@@ -75,7 +75,41 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
       const validatedData = schema.parse(formData);
       
       // Determine form type based on formType prop
-      const submitType = isFastRemote ? "fast_remote" : "contact";
+      const submitType = isFastRemote ? "fast-remote" : "onsite";
+      
+      // Map form field names to API schema (Zod camelCase to API snake_case)
+      let apiData: Record<string, unknown>;
+      
+      if (isFastRemote) {
+        const fr = validatedData as any;
+        apiData = {
+          nom: fr.name,
+          email: fr.email,
+          telephone: fr.phone,
+          ville: fr.city,
+          codePostal: fr.postal_code,
+          urgence: fr.urgency?.replace(" ", "-").toLowerCase() || "preventif",
+          equipement: fr.equipment_category,
+          symptome: fr.symptom,
+          disponibilite: fr.availability || "",
+          consentement: fr.consent,
+          societe: fr.company || undefined,
+          marque: fr.brand_model || undefined,
+        };
+      } else {
+        const cf = validatedData as any;
+        apiData = {
+          nom: cf.name,
+          email: cf.email,
+          telephone: cf.phone || "",
+          ville: cf.service || "Paris",
+          codePostal: "75000",
+          equipement: "Autre",
+          symptome: cf.message,
+          consentement: cf.consent,
+          societe: cf.company || undefined,
+        };
+      }
       
       // Submit to /api/contact
       const response = await fetch("/api/contact", {
@@ -83,14 +117,15 @@ export function ContactForm({ formType = "default" }: ContactFormProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: submitType,
+          data: apiData,
           turnstileToken,
-          ...validatedData,
         }),
       });
 
+      const result = await response.json();
+      
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Erreur d'envoi du formulaire");
+        throw new Error(result.messages?.[0] || result.error || "Erreur d'envoi du formulaire");
       }
 
       setSuccessMessage("✓ Formulaire reçu. Nous vous contactons très rapidement.");
