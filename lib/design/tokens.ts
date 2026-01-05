@@ -164,6 +164,17 @@ export const zIndex = {
 };
 
 // ============================================================================
+// GRADIENTS (brand identity)
+// ============================================================================
+
+export const gradients = {
+  cyanToBluePrimary: "linear-gradient(135deg, #00d4ff 0%, #3b82f6 100%)",
+  cyanToBlueLight: "linear-gradient(135deg, #a5e7ff 0%, #93c5fd 100%)",
+  darkSlate: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+  heroOverlay: "linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.3) 100%)",
+};
+
+// ============================================================================
 // TRANSITIONS
 // ============================================================================
 
@@ -171,6 +182,31 @@ export const transitions = {
   fast: "150ms ease-in-out",
   normal: "300ms ease-in-out",
   slow: "500ms ease-in-out",
+  smooth: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+  bounce: "400ms cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+};
+
+// ============================================================================
+// ANIMATION KEYFRAMES (CSS-in-JS friendly)
+// ============================================================================
+
+export const animations = {
+  fadeIn: `@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }`,
+  slideUp: `@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }`,
+  pulse: `@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }`,
+  shimmer: `@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }`,
 };
 
 // ============================================================================
@@ -183,7 +219,9 @@ export const designSystem = {
   spacing,
   radius,
   shadows,
+  gradients,
   breakpoints,
   zIndex,
   transitions,
+  animations,
 };
