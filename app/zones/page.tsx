@@ -1,8 +1,6 @@
 ﻿import Link from "next/link";
-import Background from "../../components/layout/Background";
-import HeroBase from "../../components/hero/HeroBase";
+import { GenericHero } from "@/components/sections/GenericHero";
 import Container from "../../components/Container";
-import PageHero from "../../components/PageHero";
 import { zones } from "../../lib/content/zones";
 
 export const metadata = {
@@ -13,13 +11,10 @@ export const metadata = {
 export default function ZonesHubPage() {
   return (
     <div className="relative">
-      <Background variant="services" />
-      <PageHero
-        badgeLabel="ZONES"
+      <GenericHero
+        badgeLabel="Zones d'intervention"
         title="Zones d'intervention"
-        description="Interventions terrain par zone géographique. ⚠️ FAST Remote (diagnostic à distance) couvre la France entière en 1-2h."
-        imageUrl="/hero/zones.svg"
-        imageAlt="Zones d'intervention FAST Tech Services"
+        subtitle="Interventions terrain par zone géographique. ⚠️ FAST Remote (diagnostic à distance) couvre la France entière en 1-2h."
       />
       <main className="py-16">
         <Container>

@@ -1,8 +1,6 @@
 ﻿import Link from "next/link";
-import Background from "../../components/layout/Background";
-import HeroBase from "../../components/hero/HeroBase";
+import { GenericHero } from "@/components/sections/GenericHero";
 import Container from "../../components/Container";
-import PageHero from "../../components/PageHero";
 import { proofs } from "../../lib/content/proofs";
 
 export const metadata = {
@@ -13,13 +11,10 @@ export const metadata = {
 export default function ProofsHubPage() {
   return (
     <div className="relative">
-      <Background variant="services" />
-      <PageHero
-        badgeLabel="PREUVES & RÉALISATIONS"
+      <GenericHero
+        badgeLabel="Preuves & réalisations"
         title="Exemples d'interventions"
-        description="Cas anonymisés à des fins de démonstration. Structure identique : symptôme, mesure, action et test de sortie."
-        imageUrl="/hero/preuves.svg"
-        imageAlt="Interventions techniques FAST Tech Services"
+        subtitle="Cas anonymisés à des fins de démonstration. Structure identique : symptôme, mesure, action et test de sortie."
       />
       <main className="py-16">
         <Container>

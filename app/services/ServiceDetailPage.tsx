@@ -5,7 +5,7 @@
  * Source: content-map.yml + FAST_TECH_SERVICES_COPY_v1.md
  */
 
-import { colors, spacing } from "@/lib/design/tokens";
+import { colors, spacing, gradients } from "@/lib/design/tokens";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { PremiumCTASection } from "@/components/sections/PremiumCTASection";
@@ -81,9 +81,13 @@ export function ServiceDetailPage(props: ServiceDetailPageProps) {
         style={{
           padding: `${spacing[20]} ${spacing[6]}`,
           backgroundColor: colors.slate[900],
+          backgroundImage: "url('/hero/home/hero.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
           color: colors.white,
           position: "relative",
-          minHeight: "400px",
+          minHeight: "500px",
           display: "flex",
           alignItems: "center",
         }}
@@ -101,12 +105,15 @@ export function ServiceDetailPage(props: ServiceDetailPageProps) {
             <div>
               <h1
                 style={{
-                  fontSize: "2.5rem",
+                  fontSize: "clamp(2rem, 5vw, 3.75rem)",
                   fontWeight: 700,
                   marginBottom: spacing[4],
                   lineHeight: 1.2,
-                  color: colors.white,
-                }}
+                  background: gradients.cyanToBluePrimary,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                } as React.CSSProperties}
               >
                 {heroContent.headline}
               </h1>
